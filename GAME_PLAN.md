@@ -15,4 +15,4 @@
 | **G3 — Web UI & Claims Sync** | FastAPI workstation (`/`) + Judge console (`/judge`) + `CLAIMS.md` + synced root docs | `TestClient` smoke check across all routes; `modern-web-guidance` verified | `[x] Done` |
 | **Physician Attestation** | Clinical sign-off on Rules `R1`–`R6` in `docs/EVIDENCE.md` | Explicit approval by Dr. Ahmed Zayed, MB BCh | `[x] Done` |
 | **G4 — Demo & Pitch Videos** | 3-minute product demo + 60-second founder pitch (CLI `/swarm` + `/` + `/judge` trap test + `docs/workflow.svg`) | Video recordings verified cleanly under time caps (`58.33s` & `177.63s` in `video/`) | `[x] Done` |
-| **G5 — Deploy & Luma Submit** | Optional Cloud Run URL (checked against GCP credits), public repo visibility toggle, and Luma submission receipt | Save Luma confirmation screenshot + SHA/tag after explicit sign-off | `[ ] Pending` |
+| **G5 — Deploy & Form Submit** | Live Modal URL (`https://ahmedadel7887--trialswarm-ai-web.us-east.modal.run`), public GitHub repo (`DrAhmed7887/trialswarm-ai`), and Google Form submission confirmation | Confirmed submitted 2026-11-14 20:56 CET via Kapture; edit token saved | `[x] Done` |
