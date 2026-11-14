@@ -20,4 +20,4 @@
 ---
 
 ### Why We Win
-Most AI hackathon projects in healthcare are built by engineers who treat medicine as text completion, or by clinicians who cannot write production code. Dr. Zayed is a practicing physician-turned-engineer who bridges both worlds: designing agents that follow clinical logic, enforce strict safety guardrails, and provide deterministic audit trails that satisfy FDA/EU-MDR regulatory scrutiny.
+Most AI hackathon projects in healthcare are built by engineers who treat medicine as text completion, or by clinicians who cannot write production code. Dr. Zayed is a physician-turned-engineer (12+ years of clinical practice) who bridges both worlds: designing agents that follow clinical logic, enforce strict safety guardrails, and provide deterministic audit trails that satisfy clinical and regulatory scrutiny.
