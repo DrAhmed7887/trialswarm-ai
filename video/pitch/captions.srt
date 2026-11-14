@@ -1,0 +1,47 @@
+1
+00:00:00,400 --> 00:00:04,900
+Eighty-six percent of oncology trials fail to recruit on time,
+
+2
+00:00:04,900 --> 00:00:10,260
+while clinical AI matchers hallucinate eligibility and under-triage lethal contraindications.
+
+3
+00:00:10,400 --> 00:00:14,800
+Marcus Vance takes Dexamethasone two milligrams BID.
+
+4
+00:00:14,800 --> 00:00:21,080
+Naive LLMs see four milligrams, check the ten-milligram ceiling, and falsely clear him.
+
+5
+00:00:21,200 --> 00:00:26,000
+TrialSwarm coordinates five agents on an Antigravity swarm.
+
+6
+00:00:26,000 --> 00:00:30,200
+Extractor and Phenotyper parse protocol and EHR in parallel.
+
+7
+00:00:30,200 --> 00:00:37,570
+Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent.
+
+8
+00:00:37,700 --> 00:00:40,200
+Verdict: Contraindicated.
+
+9
+00:00:40,200 --> 00:00:44,500
+The Verifier enforces Rule R6: every claim is line-anchored to source text,
+
+10
+00:00:44,500 --> 00:00:49,920
+blocking hallucinations before CRC sign-off.
+
+11
+00:00:50,100 --> 00:00:54,500
+One hundred percent accuracy on one hundred twenty cases.
+
+12
+00:00:54,500 --> 00:00:58,330
+Zero-cost deterministic compute. Built, shipped, and live.

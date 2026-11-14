@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "title": "TrialSwarm AI — 60-Second Founder Pitch",
+    "slug": "trialswarm-pitch-60s",
+    "duration_seconds": 58,
+    "aspect_ratio": "16:9",
+    "engine_hint": "hyperframes",
+    "audience": "Berkeley x DeepMind Hackathon Judges and Oncology Clinical Trial Sponsors.",
+    "intent": "Prove clinical trial matching fails on pharmacology and washout traps, and demonstrate how Antigravity /swarm with deterministic verifiers prevents lethal under-triage at zero compute cost."
+  },
+  "scenes": [
+    {
+      "id": "pitch_01_hook",
+      "duration": 10,
+      "intent": "Hook the viewer with the clinical trial enrollment crisis and lethal AI under-triage.",
+      "shots": [
+        {
+          "id": "pitch_01_hook-1",
+          "duration": 10,
+          "visual": "High-contrast dark canvas (#0D1117). Large amber metric: 86% of oncology trials fail to recruit on time. Red warning card: Naive LLMs miss pharmacology ceilings.",
+          "text": "86% Failure Rate · Lethal AI Under-Triage",
+          "motion": "Card slides up with 200ms ease; metric glows amber (#E8A33D).",
+          "voiceover": "Eighty-six percent of oncology trials fail to recruit on time, while clinical AI matchers hallucinate eligibility and under-triage lethal contraindications."
+        }
+      ]
+    },
+    {
+      "id": "pitch_02_trap",
+      "duration": 11,
+      "intent": "Demonstrate the exact clinical trap using PT-102 on Dexamethasone.",
+      "shots": [
+        {
+          "id": "pitch_02_trap-1",
+          "duration": 11,
+          "visual": "Split-screen comparison: Patient PT-102 (Marcus Vance, NSCLC). Left box shows Dexamethasone 2 mg BID (4 mg/day). Right box shows Naive LLM output: ELIGIBLE (4 mg <= 10 mg ceiling).",
+          "text": "The Glucocorticoid Potency Trap · PT-102",
+          "motion": "Red pulse on naive ELIGIBLE verdict. Formula badge reveals in amber: Dexamethasone = 6.67x Prednisone.",
+          "voiceover": "Marcus Vance takes Dexamethasone two milligrams BID. Naive LLMs see four milligrams, check the ten-milligram ceiling, and falsely clear him."
+        }
+      ]
+    },
+    {
+      "id": "pitch_03_swarm",
+      "duration": 16,
+      "intent": "Reveal the Antigravity /swarm multi-agent coordination architecture.",
+      "shots": [
+        {
+          "id": "pitch_03_swarm-1",
+          "duration": 16,
+          "visual": "Antigravity /swarm board visualization (docs/workflow.svg). Left-to-right pulse from @coordinator to @extractor and @phenotyper, flowing into @safety-auditor. Rule R1 formula calculates 26.67 mg/day Prednisone equivalent.",
+          "text": "Antigravity /swarm Architecture · Deterministic Rules R1–R5",
+          "motion": "Swarm agent nodes light up in parallel sequence (100ms stagger). Formula converts 4 mg * (5/0.75) = 26.67 mg/day.",
+          "voiceover": "TrialSwarm coordinates five agents on an Antigravity swarm. Extractor and Phenotyper parse protocol and EHR in parallel. Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent."
+        }
+      ]
+    },
+    {
+      "id": "pitch_04_verifier",
+      "duration": 12,
+      "intent": "Show deterministic Rule R6 line-grounding and CRC sign-off receipt.",
+      "shots": [
+        {
+          "id": "pitch_04_verifier-1",
+          "duration": 12,
+          "visual": "Clinical workstation UI: Verdict switches to CONTRAINDICATED with amber badge. @verifier audits line citations (L20 protocol, L26 EHR). SHA-256 sign-off modal stages receipt PKT-NCT04613596-PT-102.",
+          "text": "Rule R6 Line-Anchored Grounding · SHA-256 Sign-Off",
+          "motion": "Citation highlight beams connect EHR line 26 to protocol line 20. Green lock icon verifies 100% citation grounding.",
+          "voiceover": "Verdict: Contraindicated. The Verifier enforces Rule R6: every claim is line-anchored to source text, blocking hallucinations before CRC sign-off."
+        }
+      ]
+    },
+    {
+      "id": "pitch_05_close",
+      "duration": 9,
+      "intent": "Summarize benchmark validation and live availability.",
+      "shots": [
+        {
+          "id": "pitch_05_close-1",
+          "duration": 9,
+          "visual": "Benchmark scorecard card: n = 120, 100.0% accuracy vs 47.5% naive baseline. Compute cost: $0.0000. Live URL displayed: https://ahmedadel7887--trialswarm-ai-web.us-east.modal.run/",
+          "text": "100.0% Accuracy (n=120) · $0.0000 Compute · Live on Modal",
+          "motion": "Scorecard numbers count up; QR code / live URL fades in smoothly.",
+          "voiceover": "One hundred percent accuracy on one hundred twenty cases. Zero-cost deterministic compute. Built, shipped, and live."
+        }
+      ]
+    }
+  ]
+}

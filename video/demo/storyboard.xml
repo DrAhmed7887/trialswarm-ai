@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<video>
+  <metadata>
+    <title>TrialSwarm AI — 3-Minute Product &amp; Swarm Architecture Demo</title>
+    <slug>trialswarm-product-demo-3min</slug>
+    <duration_seconds>178</duration_seconds>
+    <aspect_ratio>16:9</aspect_ratio>
+    <engine_hint>hyperframes</engine_hint>
+    <audience>Berkeley x DeepMind Hackathon Judges, Clinical Trial Investigators, and Research Sponsors.</audience>
+    <intent>Comprehensive demonstration of the Antigravity multi-agent /swarm architecture, clinical decision rules R1-R6, verbatim citation defense, live workstation UI, and benchmark validation.</intent>
+  </metadata>
+
+  <scenes>
+    <scene id="demo_01_problem" duration="28">
+      <intent>Establish the clinical trial enrollment failure modes and lethal AI under-triage risks.</intent>
+      <shots>
+        <shot id="demo_01_problem-1" duration="28">
+          <visual>Dark clinical dashboard canvas (#0D1117). Key stats displayed: 86% oncology trials face recruitment delays; 42.6% screening time overhead (PMID: 39557832). Callout badges for three failure modes: steroid conversion, washout intervals, CTCAE organ floors.</visual>
+          <text>The Clinical Trial Enrollment Crisis · Lethal AI Under-Triage</text>
+          <motion>Text cards cascade with 150ms ease; alert badges pulse red on failure modes.</motion>
+          <voiceover>Clinical trial eligibility screening is broken. While large language models can parse free text, they fail on strict medical calculations: glucocorticoid potency conversions, relative washout windows, and CTCAE laboratory thresholds. When AI guesses on eligibility, patients face lethal toxicity, and clinical trials suffer devastating protocol violations.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_02_architecture" duration="27">
+      <intent>Present the full Antigravity /swarm architecture diagram and rules provenance.</intent>
+      <shots>
+        <shot id="demo_02_architecture-1" duration="27">
+          <visual>Full vector architecture diagram (docs/workflow.svg). Left side: ClinicalTrials.gov APIv2 and EHR lines input. Parallel pipelines for @extractor (gemini-2.5-flash) and @phenotyper (gemini-2.5-pro) converging at @safety-auditor (Rules R1-R5) and @verifier (Rule R6).</visual>
+          <text>Antigravity /swarm Architecture · Deterministic Rules R1–R6</text>
+          <motion>Vector diagram reveals left-to-right with animated pulse along message board channels.</motion>
+          <voiceover>TrialSwarm AI solves this through a multi-agent Antigravity swarm coupled with deterministic clinical verifiers. Extractor and Phenotyper parse trial protocols and electronic health records in parallel. Then, Safety-Auditor executes deterministic clinical rules R1 through R5, grounded in active oncology trials from ClinicalTrials.gov and peer-reviewed literature.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_03_pt102_walkthrough" duration="27">
+      <intent>Walk through live workstation on PT-102 showing the steroid potency trap.</intent>
+      <shots>
+        <shot id="demo_03_pt102_walkthrough-1" duration="27">
+          <visual>Live screening workstation (/). Header shows Marcus Vance, 68M, NSCLC, vs NCT04613596 (KRYSTAL-7). Red comparison card highlights: Naive LLM = ELIGIBLE (4 mg &lt;= 10 mg) vs TrialSwarm = CONTRAINDICATED (Rule R1: Dexamethasone 4 mg * 6.67 = 26.67 mg/day Prednisone eq).</visual>
+          <text>Case 1: Marcus Vance (PT-102) · Rule R1 Glucocorticoid Trap</text>
+          <motion>Cursor navigates to Rule R1 finding; formula expands showing exact potency multiplier.</motion>
+          <voiceover>Let's examine patient Marcus Vance, screened against the Mirati KRYSTAL-7 protocol. A naive language model sees four milligrams of daily Dexamethasone, compares it to the ten-milligram ceiling, and marks him eligible. But TrialSwarm's Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent, triggering an immediate Contraindicated verdict.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_04_swarm_board" duration="26">
+      <intent>Display the Antigravity /swarm coordination board transcript and washout gate.</intent>
+      <shots>
+        <shot id="demo_04_swarm_board-1" duration="26">
+          <visual>Antigravity Message Board tab. Shows transcript items #1 through #8 with timestamped agent messages. Second blocker highlighted: Rule R2 anti-LAG-3 administered 19 days ago (requires 28d washout; earliest clearance 2026-11-23; also violates 0 prior metastatic lines).</visual>
+          <text>Antigravity Swarm Board Transcript · Rule R2 28-Day Washout</text>
+          <motion>Swarm message entries scroll smoothly into focus; citation pill clicked to highlight protocol line 14 and EHR line 28.</motion>
+          <voiceover>On the Antigravity swarm board, every agent's contribution is transparently logged. The Extractor extracts ten criteria with verbatim line citations. The Phenotyper grounds fourteen clinical facts. And Rule R2 catches another critical trap: a prior anti-LAG-3 checkpoint therapy ending only nineteen days ago, violating the required twenty-eight-day washout.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_05_r6_adversarial_trap" duration="22">
+      <intent>Demonstrate the adversarial probe in /judge blocking injected hallucinations.</intent>
+      <shots>
+        <shot id="demo_05_r6_adversarial_trap-1" duration="22">
+          <visual>Judge Console (/judge). Injected hallucination card displays: 'Patient is taking 0 mg corticosteroids' at EHR Line 1. Rule R6 engine executes substring check against Line 1 text. Status banner turns bold amber: UNVERIFIED_CITATION_BLOCKED (unverified_claims_blocked = 1).</visual>
+          <text>Judge Console · Rule R6 Hallucination Defense Probe</text>
+          <motion>Adversarial probe button triggers; visual comparison shows quote mismatch and red blocked badge.</motion>
+          <voiceover>In the Judge console, we test our system against adversarial hallucination. When an attacker or faulty model injects a fabricated quote claiming zero milligrams of steroids, Rule R6 instantly rejects it. If a claim is not an exact substring of the cited text lines, it is deterministically blocked.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_06_cohort_scenarios" duration="24">
+      <intent>Demonstrate the multi-scenario clinical test cases across archetypes.</intent>
+      <shots>
+        <shot id="demo_06_cohort_scenarios-1" duration="24">
+          <visual>Workstation scenario switcher. Shows rapid transitions: PT-101 (Elena Rostova) = ELIGIBLE; PT-103 (Sofia Morales) = CONTRAINDICATED (45 Gy thoracic RT + AST 142/ALT 156); PT-104 (David Chen) = NEEDS_HUMAN_REVIEW (pending tissue EGFR/ALK and PD-L1).</visual>
+          <text>Oncology Archetypes · Reflex Biomarker Gating (PT-101 to PT-104)</text>
+          <motion>Scenario selector clicks cycle through three patients; verdict badges and safety cards update reactively.</motion>
+          <voiceover>TrialSwarm handles diverse oncology profiles seamlessly. Patient 101 clears all criteria as Eligible. Patient 103 is contraindicated due to thoracic radiation and grade-two liver enzymes. And Patient 104, with a pending EGFR and ALK panel, is safely routed to Needs Human Review rather than assuming a pass.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+
+    <scene id="demo_07_benchmark_signoff" duration="24">
+      <intent>Present benchmark evaluation results and 21 CFR Part 11 sign-off workflow.</intent>
+      <shots>
+        <shot id="demo_07_benchmark_signoff-1" duration="24">
+          <visual>Benchmark scorecard (n=120): 100.0% accuracy, 100.0% specificity vs 47.5% naive baseline. User opens Sign-Off modal: CRC inputs credentials, generates SHA-256 receipt PKT-NCT04613596-PT-102. Final title slide with GitHub repo and Modal live URL.</visual>
+          <text>Benchmark Evaluation (n=120) · 21 CFR Part 11 Digital Sign-Off</text>
+          <motion>Scorecard bar charts animate to 100%; modal seals with green verified seal and SHA-256 hash stamp.</motion>
+          <voiceover>Across our benchmark of one hundred twenty synthetic oncology cases, TrialSwarm achieved one hundred percent accuracy and zero mismatches, compared to forty-seven percent for the naive baseline. Clinical coordinators then execute SHA-256 digital sign-offs, creating a tamper-evident audit trail ready for FDA inspection.</voiceover>
+        </shot>
+      </shots>
+    </scene>
+  </scenes>
+</video>

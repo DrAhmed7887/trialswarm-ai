@@ -1,0 +1,127 @@
+1
+00:00:00,400 --> 00:00:04,500
+Clinical trial eligibility screening is broken.
+
+2
+00:00:04,500 --> 00:00:09,800
+While large language models can parse free text, they fail on strict medical calculations:
+
+3
+00:00:09,800 --> 00:00:15,500
+glucocorticoid potency conversions, relative washout windows, and CTCAE laboratory thresholds.
+
+4
+00:00:15,500 --> 00:00:20,200
+When AI guesses on eligibility, patients face lethal toxicity,
+
+5
+00:00:20,200 --> 00:00:27,630
+and clinical trials suffer devastating protocol violations.
+
+6
+00:00:27,800 --> 00:00:33,800
+TrialSwarm AI solves this through a multi-agent Antigravity swarm coupled with deterministic clinical verifiers.
+
+7
+00:00:33,800 --> 00:00:39,500
+Extractor and Phenotyper parse trial protocols and electronic health records in parallel.
+
+8
+00:00:39,500 --> 00:00:46,000
+Then, Safety-Auditor executes deterministic clinical rules R1 through R5,
+
+9
+00:00:46,000 --> 00:00:54,840
+grounded in active oncology trials from ClinicalTrials.gov and peer-reviewed literature.
+
+10
+00:00:55,000 --> 00:01:00,500
+Let's examine patient Marcus Vance, screened against the Mirati KRYSTAL-7 protocol.
+
+11
+00:01:00,500 --> 00:01:07,000
+A naive language model sees four milligrams of daily Dexamethasone, compares it to the ten-milligram ceiling,
+
+12
+00:01:07,000 --> 00:01:10,200
+and marks him eligible.
+
+13
+00:01:10,200 --> 00:01:16,800
+But TrialSwarm's Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent,
+
+14
+00:01:16,800 --> 00:01:21,680
+triggering an immediate Contraindicated verdict.
+
+15
+00:01:21,800 --> 00:01:27,000
+On the Antigravity swarm board, every agent's contribution is transparently logged.
+
+16
+00:01:27,000 --> 00:01:32,000
+The Extractor extracts ten criteria with verbatim line citations.
+
+17
+00:01:32,000 --> 00:01:36,500
+The Phenotyper grounds fourteen clinical facts.
+
+18
+00:01:36,500 --> 00:01:41,000
+And Rule R2 catches another critical trap:
+
+19
+00:01:41,000 --> 00:01:48,150
+a prior anti-LAG-3 checkpoint therapy ending only nineteen days ago, violating the required twenty-eight-day washout.
+
+20
+00:01:48,300 --> 00:01:53,000
+In the Judge console, we test our system against adversarial hallucination.
+
+21
+00:01:53,000 --> 00:01:59,500
+When an attacker or faulty model injects a fabricated quote claiming zero milligrams of steroids,
+
+22
+00:01:59,500 --> 00:02:04,000
+Rule R6 instantly rejects it.
+
+23
+00:02:04,000 --> 00:02:10,210
+If a claim is not an exact substring of the cited text lines, it is deterministically blocked.
+
+24
+00:02:10,400 --> 00:02:15,000
+TrialSwarm handles diverse oncology profiles seamlessly.
+
+25
+00:02:15,000 --> 00:02:18,500
+Patient 101 clears all criteria as Eligible.
+
+26
+00:02:18,500 --> 00:02:24,200
+Patient 103 is contraindicated due to thoracic radiation and grade-two liver enzymes.
+
+27
+00:02:24,200 --> 00:02:30,000
+And Patient 104, with a pending EGFR and ALK panel,
+
+28
+00:02:30,000 --> 00:02:34,270
+is safely routed to Needs Human Review rather than assuming a pass.
+
+29
+00:02:34,400 --> 00:02:40,200
+Across our benchmark of one hundred twenty synthetic oncology cases,
+
+30
+00:02:40,200 --> 00:02:47,500
+TrialSwarm achieved one hundred percent accuracy and zero mismatches, compared to forty-seven percent for the naive baseline.
+
+31
+00:02:47,500 --> 00:02:53,000
+Clinical coordinators then execute SHA-256 digital sign-offs,
+
+32
+00:02:53,000 --> 00:02:57,630
+creating a tamper-evident audit trail ready for FDA inspection.

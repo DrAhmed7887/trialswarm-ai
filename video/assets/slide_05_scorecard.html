@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #0D1117; color: #F4F1EA; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 1080px; width: 1920px; box-sizing: border-box; padding: 60px 80px; }
+  .badge { background: rgba(63, 185, 80, 0.15); border: 1px solid #3FB950; color: #3FB950; padding: 8px 24px; border-radius: 999px; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+  h1 { font-size: 64px; margin: 0 0 40px 0; font-weight: 800; text-align: center; }
+  table { width: 100%; max-width: 1600px; border-collapse: collapse; background: #161B22; border-radius: 16px; overflow: hidden; border: 1px solid #30363D; }
+  th { background: #21262D; color: #8B949E; padding: 22px 30px; font-size: 22px; text-transform: uppercase; letter-spacing: 1px; text-align: left; }
+  td { padding: 22px 30px; font-size: 26px; border-bottom: 1px solid #30363D; color: #C9D1D9; }
+  tr:last-child td { border-bottom: none; }
+  .ts { color: #3FB950; font-weight: bold; }
+  .naive { color: #F85149; }
+  .footer { margin-top: 40px; display: flex; justify-content: space-between; width: 100%; max-width: 1600px; color: #8B949E; font-size: 22px; }
+  .live-pill { background: #E8A33D; color: #0D1117; font-weight: 800; padding: 8px 20px; border-radius: 8px; font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+  <div class="badge">Verified Benchmark Evaluation · n = 120 Synthetic Oncology Cohort</div>
+  <h1>TrialSwarm AI vs Naive Single-Prompt Baseline</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Evaluation Metric / Category</th>
+        <th>Naive LLM Baseline</th>
+        <th>TrialSwarm AI (Offline Swarm)</th>
+        <th>Clinical Safety Delta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Overall Screening Accuracy</td>
+        <td class="naive">47.50% (57/120)</td>
+        <td class="ts">100.00% (120/120)</td>
+        <td>+52.5% accuracy gain</td>
+      </tr>
+      <tr>
+        <td>Specific Eligibility Classification</td>
+        <td class="naive">30.00% (27/90)</td>
+        <td class="ts">100.00% (90/90)</td>
+        <td>Zero lethal under-triage</td>
+      </tr>
+      <tr>
+        <td>Glucocorticoid Equivalence Traps</td>
+        <td class="naive">60.00% (9/15)</td>
+        <td class="ts">100.00% (15/15)</td>
+        <td>Rule R1 exact potency math</td>
+      </tr>
+      <tr>
+        <td>Washout & RT Window Traps</td>
+        <td class="naive">16.67% (5/30)</td>
+        <td class="ts">100.00% (30/30)</td>
+        <td>Rule R2 & R3 relative day math</td>
+      </tr>
+      <tr>
+        <td>CTCAE v5.0 Organ Reserve Traps</td>
+        <td class="naive">6.67% (1/15)</td>
+        <td class="ts">100.00% (15/15)</td>
+        <td>Rule R4 ULN lab ceilings</td>
+      </tr>
+      <tr>
+        <td>Verbatim Line-Citation Grounding</td>
+        <td class="naive">0.0% (Ungrounded)</td>
+        <td class="ts">100.00% (Verified)</td>
+        <td>Rule R6 blocks hallucination</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">
+    <span>Reproducible: python3 scripts/evaluate_cohort.py --verify (6.02 ms/case)</span>
+    <span class="live-pill">Live on Modal: trialswarm-ai-web.us-east.modal.run</span>
+  </div>
+</body>
+</html>

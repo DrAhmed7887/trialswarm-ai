@@ -1,0 +1,27 @@
+{
+  "pitch_01_hook": {
+    "text": "An oncology coordinator spends four hours per pre-screen\u2014and one missed steroid conversion triggers a dangerous IRB protocol deviation.",
+    "seconds": 10.45,
+    "character_count": 135
+  },
+  "pitch_02_trap": {
+    "text": "Marcus Vance takes Dexamethasone two milligrams BID. Naive LLMs see four milligrams, check the ten-milligram ceiling, and falsely clear him.",
+    "seconds": 10.82,
+    "character_count": 140
+  },
+  "pitch_03_swarm": {
+    "text": "TrialSwarm coordinates five agents on an Antigravity swarm. Extractor and Phenotyper parse protocol and EHR in parallel. Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent.",
+    "seconds": 16.49,
+    "character_count": 211
+  },
+  "pitch_04_verifier": {
+    "text": "Verdict: Contraindicated. The Verifier enforces Rule R6: every claim is line-anchored to source text, blocking hallucinations before CRC sign-off.",
+    "seconds": 12.35,
+    "character_count": 146
+  },
+  "pitch_05_close": {
+    "text": "One hundred percent accuracy on one hundred twenty cases. Zero-cost deterministic compute. Built, shipped, and live.",
+    "seconds": 8.41,
+    "character_count": 116
+  }
+}

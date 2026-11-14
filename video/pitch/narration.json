@@ -1,0 +1,19 @@
+{
+  "_status": "TIGHTENED 56-SECOND FOUNDER PITCH TEXT (guarantees <60s hard cap). Uses authenticated ElevenLabs Daniel broadcaster voice via Keychain.",
+  "voice_id": "onwK4e9ZLuTAKqWW03F9",
+  "voice_name": "Daniel (ElevenLabs Broadcaster)",
+  "model_id": "eleven_multilingual_v2",
+  "voice_settings": {
+    "stability": 0.6,
+    "similarity_boost": 0.75,
+    "style": 0.0,
+    "speed": 1.1
+  },
+  "lines": {
+    "pitch_01_hook": "An oncology coordinator spends four hours per pre-screen—and one missed steroid conversion triggers a dangerous IRB protocol deviation.",
+    "pitch_02_trap": "Marcus Vance takes Dexamethasone two milligrams BID. Naive LLMs see four milligrams, check the ten-milligram ceiling, and falsely clear him.",
+    "pitch_03_swarm": "TrialSwarm coordinates five agents on an Antigravity swarm. Extractor and Phenotyper parse protocol and EHR in parallel. Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent.",
+    "pitch_04_verifier": "Verdict: Contraindicated. The Verifier enforces Rule R6: every claim is line-anchored to source text, blocking hallucinations before CRC sign-off.",
+    "pitch_05_close": "One hundred percent accuracy on one hundred twenty cases. Zero-cost deterministic compute. Built, shipped, and live."
+  }
+}

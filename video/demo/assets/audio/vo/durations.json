@@ -1,0 +1,37 @@
+{
+  "demo_01_problem": {
+    "text": "Clinical trial eligibility screening is broken. While large language models can parse free text, they fail on strict medical calculations: glucocorticoid potency conversions, relative washout windows, and CTCAE laboratory thresholds. When AI guesses on eligibility, patients face lethal toxicity, and clinical trials suffer devastating protocol violations.",
+    "seconds": 27.63,
+    "character_count": 356
+  },
+  "demo_02_architecture": {
+    "text": "TrialSwarm AI solves this through a multi-agent Antigravity swarm coupled with deterministic clinical verifiers. Extractor and Phenotyper parse trial protocols and electronic health records in parallel. Then, Safety-Auditor executes deterministic clinical rules R1 through R5, grounded in active oncology trials from ClinicalTrials.gov and peer-reviewed literature.",
+    "seconds": 27.21,
+    "character_count": 365
+  },
+  "demo_03_pt102_walkthrough": {
+    "text": "Let's examine patient Marcus Vance, screened against the Mirati KRYSTAL-7 protocol. A naive language model sees four milligrams of daily Dexamethasone, compares it to the ten-milligram ceiling, and marks him eligible. But TrialSwarm's Rule R1 converts Dexamethasone to twenty-six point seven milligrams Prednisone equivalent, triggering an immediate Contraindicated verdict.",
+    "seconds": 26.84,
+    "character_count": 374
+  },
+  "demo_04_swarm_board": {
+    "text": "On the Antigravity swarm board, every agent's contribution is transparently logged. The Extractor extracts ten criteria with verbatim line citations. The Phenotyper grounds fourteen clinical facts. And Rule R2 catches another critical trap: a prior anti-LAG-3 checkpoint therapy ending only nineteen days ago, violating the required twenty-eight-day washout.",
+    "seconds": 26.47,
+    "character_count": 358
+  },
+  "demo_05_r6_adversarial_trap": {
+    "text": "In the Judge console, we test our system against adversarial hallucination. When an attacker or faulty model injects a fabricated quote claiming zero milligrams of steroids, Rule R6 instantly rejects it. If a claim is not an exact substring of the cited text lines, it is deterministically blocked.",
+    "seconds": 22.06,
+    "character_count": 298
+  },
+  "demo_06_cohort_scenarios": {
+    "text": "TrialSwarm handles diverse oncology profiles seamlessly. Patient 101 clears all criteria as Eligible. Patient 103 is contraindicated due to thoracic radiation and grade-two liver enzymes. And Patient 104, with a pending EGFR and ALK panel, is safely routed to Needs Human Review rather than assuming a pass.",
+    "seconds": 24.06,
+    "character_count": 307
+  },
+  "demo_07_benchmark_signoff": {
+    "text": "Across our benchmark of one hundred twenty synthetic oncology cases, TrialSwarm achieved one hundred percent accuracy and zero mismatches, compared to forty-seven percent for the naive baseline. Clinical coordinators then execute SHA-256 digital sign-offs, creating a tamper-evident audit trail ready for FDA inspection.",
+    "seconds": 23.36,
+    "character_count": 320
+  }
+}

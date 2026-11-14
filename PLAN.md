@@ -37,5 +37,5 @@
 ## Remaining Human Decision & Submission Gates
 
 - **Physician Rule Review:** `[x]` Dr. Ahmed Zayed (MB BCh) reviewed and signed off Rules `R1`–`R6` in [`docs/EVIDENCE.md`](docs/EVIDENCE.md) (`signed_off`, 2026-11-14).
-- **Gate G4 — Media Capture:** `[ ]` Record 3-minute live demo video (`/` `PT-102` + `/judge` trap probe + CLI `/swarm`) and 60-second founder pitch video using [`docs/workflow.svg`](docs/workflow.svg).
+- **Gate G4 — Media Capture:** `[x] Done` (Rendered `video/pitch/trialswarm_pitch_60s.mp4` at `58.33s` and `video/demo/trialswarm_product_demo_3min.mp4` at `177.63s` with ElevenLabs VO and synchronized captions).
 - **Gate G5 — Optional Deploy & Final Submission:** `[ ]` Confirm before deploying to Google Cloud Run (under GCP trial/Dev credits), making GitHub repository public, and submitting via Luma before `Nov 14, 11:59 PM PT` (`Nov 15, 08:59 AM CET`).
