@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrialSwarm AI — Clinical Trial Screening &amp; Antigravity /swarm Workstation</title>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --ink-primary: #0F172A;
+      --ink-secondary: #334155;
+      --ink-muted: #64748B;
+      --border-light: #E2E8F0;
+      --border-mid: #CBD5E1;
+
+      --teal: #0D9488;
+      --teal-dark: #0F766E;
+      --teal-bg: #F0FDFA;
+      --teal-border: #99F6E4;
+
+      --crimson: #DC2626;
+      --crimson-dark: #B91C1C;
+      --crimson-bg: #FEF2F2;
+      --crimson-border: #FECACA;
+
+      --amber: #D97706;
+      --amber-dark: #B45309;
+      --amber-bg: #FFFBEB;
+      --amber-border: #FDE68A;
+
+      --emerald: #059669;
+      --emerald-bg: #ECFDF5;
+      --emerald-border: #A7F3D0;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.07);
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation Bar */
+    .topbar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--teal);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .topbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border-mid);
+      background: var(--bg-subtle);
+      color: var(--ink-secondary);
+      white-space: nowrap;
+    }
+
+    .badge-teal {
+      background: var(--teal-bg);
+      color: var(--teal-dark);
+      border-color: var(--teal-border);
+    }
+
+    .badge-amber {
+      background: var(--amber-bg);
+      color: var(--amber-dark);
+      border-color: var(--amber-border);
+    }
+
+    .badge-crimson {
+      background: var(--crimson-bg);
+      color: var(--crimson-dark);
+      border-color: var(--crimson-border);
+    }
+
+    .badge-emerald {
+      background: var(--emerald-bg);
+      color: var(--emerald);
+      border-color: var(--emerald-border);
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--teal-dark);
+      background: var(--teal-bg);
+      border: 1px solid var(--teal-border);
+      transition: background-color 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background: #CCFBF1;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* First-Screen Impact Strip (30-Second Rule) */
+    .impact-strip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-left: 5px solid var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .impact-headline-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .impact-headline {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      max-width: 980px;
+      line-height: 1.4;
+    }
+
+    .impact-pmids {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .pmid-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--bg-subtle);
+      color: var(--ink-secondary);
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+    }
+
+    .pmid-link:hover {
+      border-color: var(--teal);
+      color: var(--teal-dark);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 0.9rem;
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+
+    .kpi-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ink-primary);
+      margin: 0.15rem 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Launcher & Protocol Controls */
+    .launcher-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .scenario-btn {
+      text-align: left;
+      background: var(--bg-page);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.95rem;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-family: inherit;
+    }
+
+    .scenario-btn:hover {
+      border-color: var(--teal);
+      background: var(--bg-surface);
+    }
+
+    .scenario-btn.active {
+      border-color: var(--teal);
+      background: var(--teal-bg);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+    }
+
+    .scenario-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .scenario-id {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--ink-primary);
+    }
+
+    .scenario-name {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--ink-primary);
+    }
+
+    .scenario-desc {
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+      line-height: 1.35;
+    }
+
+    .protocol-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex: 1 1 230px;
+    }
+
+    .control-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+    }
+
+    select, input[type="text"], textarea {
+      font-family: inherit;
+      font-size: 0.875rem;
+      padding: 0.52rem 0.7rem;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      color: var(--ink-primary);
+    }
+
+    select:focus, input[type="text"]:focus, textarea:focus {
+      outline: 2px solid var(--teal);
+      outline-offset: 1px;
+      border-color: var(--teal);
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.58rem 1.15rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: inherit;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      padding: 0.52rem 0.9rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+      padding: 0.5rem 0;
+      cursor: pointer;
+    }
+
+    .custom-ehr-drawer {
+      background: var(--bg-page);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+    }
+
+    .custom-ehr-drawer[hidden] {
+      display: none;
+    }
+
+    .custom-ehr-drawer textarea {
+      width: 100%;
+      min-height: 110px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      resize: vertical;
+    }
+
+    /* Accessible Tabs (modern-web-guidance) */
+    .tabs-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    [role="tablist"] {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-page);
+      padding: 0 1rem;
+      gap: 0.25rem;
+    }
+
+    [role="tab"] {
+      position: relative;
+      appearance: none;
+      background: transparent;
+      border: none;
+      padding: 0.85rem 1.1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
+    [role="tab"]:hover {
+      color: var(--ink-primary);
+    }
+
+    [role="tab"][aria-selected="true"] {
+      color: var(--teal-dark);
+    }
+
+    /* Active indicator drawn via border-block-end on ::after (forced-colors safe) */
+    [role="tab"][aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      border-block-end: 3px solid var(--teal);
+    }
+
+    /* No padding/margin/border on [role="tabpanel"] directly per hidden="until-found" rule */
+    .panel-inner {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Verdict Banner & Trap Callout */
+    .verdict-banner {
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .verdict-banner.ELIGIBLE {
+      background: var(--emerald-bg);
+      border-color: var(--emerald-border);
+    }
+
+    .verdict-banner.CONTRAINDICATED {
+      background: var(--crimson-bg);
+      border-color: var(--crimson-border);
+    }
+
+    .verdict-banner.NEEDS_HUMAN_REVIEW {
+      background: var(--amber-bg);
+      border-color: var(--amber-border);
+    }
+
+    .verdict-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .verdict-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      color: #FFFFFF;
+    }
+
+    .verdict-pill.ELIGIBLE { background: var(--emerald); }
+    .verdict-pill.CONTRAINDICATED { background: var(--crimson); }
+    .verdict-pill.NEEDS_HUMAN_REVIEW { background: var(--amber); }
+
+    .verdict-title {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin: 0.2rem 0 0;
+    }
+
+    .verdict-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .trap-callout {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--crimson-border);
+      background: #FFF8F8;
+      padding: 1rem 1.15rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .trap-callout.safe-pass {
+      border-color: var(--teal-border);
+      background: var(--teal-bg);
+    }
+
+    .trap-col h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .trap-col p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--ink-primary);
+    }
+
+    /* Safety Cards R1-R5 */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .safety-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.95rem;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .safety-card.BLOCKER {
+      border-color: var(--crimson-border);
+      background: var(--crimson-bg);
+    }
+
+    .safety-card.NEEDS_REVIEW {
+      border-color: var(--amber-border);
+      background: var(--amber-bg);
+    }
+
+    .safety-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .rule-code {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.8rem;
+      color: var(--ink-primary);
+    }
+
+    .safety-title {
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--ink-primary);
+    }
+
+    .safety-detail {
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+      line-height: 1.4;
+    }
+
+    /* Responsive Tables (modern-web-guidance) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(520px, 72vh);
+      container-type: inline-size;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    table.responsive-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+
+    table.responsive-table caption {
+      text-align: left;
+      padding: 0.7rem 0.95rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      background: var(--bg-page);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    table.responsive-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+    }
+
+    table.responsive-table thead th {
+      background: var(--bg-subtle);
+      color: var(--ink-secondary);
+      font-weight: 700;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border-mid);
+      white-space: nowrap;
+    }
+
+    table.responsive-table tbody th,
+    table.responsive-table tbody td {
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+
+    table.responsive-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: var(--bg-surface);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      white-space: nowrap;
+    }
+
+    table.responsive-table tbody tr:hover td,
+    table.responsive-table tbody tr:hover th {
+      background: #F8FAFC;
+    }
+
+    .criteria-table {
+      --label-1: "Rule ID";
+      --label-2: "Criterion";
+      --label-3: "TrialSwarm Status";
+      --label-4: "Naive LLM";
+      --label-5: "Clinical Reasoning";
+      --label-6: "Grounded Citations";
+    }
+
+    .roster-table {
+      --label-1: "Agent";
+      --label-2: "Role";
+      --label-3: "Model / Engine";
+      --label-4: "State";
+      --label-5: "Latest Seq";
+    }
+
+    @container (width < 600px) {
+      table.responsive-table,
+      table.responsive-table thead,
+      table.responsive-table tbody,
+      table.responsive-table tr,
+      table.responsive-table th,
+      table.responsive-table td {
+        display: block;
+      }
+
+      table.responsive-table thead {
+        display: none;
+      }
+
+      table.responsive-table tbody tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border-mid);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+      }
+
+      table.responsive-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--bg-subtle);
+        border-bottom: 1px solid var(--border-mid);
+      }
+
+      table.responsive-table tbody td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--ink-muted); }
+      table.responsive-table tbody td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--ink-muted); }
+      table.responsive-table tbody td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--ink-muted); }
+      table.responsive-table tbody td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--ink-muted); }
+      table.responsive-table tbody td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--ink-muted); }
+    }
+
+    .cite-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.22rem 0.5rem;
+      margin: 0.15rem 0.25rem 0.15rem 0;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--teal-border);
+      background: var(--teal-bg);
+      color: var(--teal-dark);
+    }
+
+    .cite-btn:hover {
+      background: #CCFBF1;
+      border-color: var(--teal);
+    }
+
+    .cite-btn.ehr {
+      border-color: #BAE6FD;
+      background: #F0F9FF;
+      color: #0369A1;
+    }
+
+    .cite-btn.ehr:hover {
+      background: #E0F2FE;
+    }
+
+    /* Side-by-Side Line Viewer */
+    .viewer-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .viewer-focus-status {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--teal-dark);
+      background: var(--teal-bg);
+      border: 1px solid var(--teal-border);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .split-viewer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .doc-pane {
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .doc-pane-title {
+      padding: 0.55rem 0.85rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-mid);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-lines {
+      height: 360px;
+      overflow-y: auto;
+      font-family: var(--font-mono);
+      font-size: 0.77rem;
+      line-height: 1.5;
+      padding: 0.4rem 0;
+    }
+
+    .line-row {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      padding: 0.14rem 0.65rem;
+      border-left: 3px solid transparent;
+      transition: background-color 0.25s ease;
+    }
+
+    .line-row.highlighted {
+      background: #CCFBF1;
+      border-left-color: var(--teal);
+      font-weight: 600;
+    }
+
+    .line-num {
+      color: var(--ink-muted);
+      user-select: none;
+      text-align: right;
+      padding-right: 0.75rem;
+    }
+
+    .line-text {
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--ink-primary);
+    }
+
+    /* Swarm Board & SVG Graph */
+    .graph-card {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      background: var(--bg-page);
+      padding: 1rem;
+    }
+
+    .graph-svg {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .board-posts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .board-post {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .board-post-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .post-author-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .seq-badge {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.78rem;
+      background: var(--ink-primary);
+      color: #FFFFFF;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    .agent-pill {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--teal-dark);
+      background: var(--teal-bg);
+      border: 1px solid var(--teal-border);
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .mention-pill {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-secondary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-mid);
+      padding: 0.1rem 0.42rem;
+      border-radius: 999px;
+    }
+
+    .post-meta {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-muted);
+    }
+
+    .post-summary {
+      font-size: 0.86rem;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    /* Sign-Off Packet Card */
+    .packet-card {
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .packet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .packet-field-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink-muted);
+    }
+
+    .packet-field-value {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      word-break: break-word;
+    }
+
+    .receipt-box {
+      border: 1px solid var(--emerald-border);
+      background: var(--emerald-bg);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Native <dialog> Sign-Off Modal (modern-web-guidance) */
+    dialog {
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      padding: 0;
+      max-width: 540px;
+      width: calc(100% - 2rem);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+      background: var(--bg-surface);
+      color: var(--ink-primary);
+    }
+
+    dialog[open] {
+      display: flex;
+      flex-direction: column;
+    }
+
+    dialog:modal {
+      overscroll-behavior: contain;
+    }
+
+    dialog::backdrop {
+      overflow: hidden;
+      overscroll-behavior: contain;
+      background: rgba(15, 23, 42, 0.58);
+      backdrop-filter: blur(3px);
+    }
+
+    .dialog-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dialog-header h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .dialog-close-x {
+      background: transparent;
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-sm);
+      padding: 0.25rem 0.55rem;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--ink-secondary);
+    }
+
+    .dialog-body {
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .dialog-footer {
+      padding: 0.9rem 1.25rem;
+      border-top: 1px solid var(--border-light);
+      background: var(--bg-page);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.65rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .form-field label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-secondary);
+    }
+
+    .error-banner {
+      background: var(--crimson-bg);
+      border: 1px solid var(--crimson-border);
+      color: var(--crimson-dark);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .error-banner[hidden] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">TS</div>
+        <div>
+          <div class="brand-title">TrialSwarm AI</div>
+          <div class="brand-sub">Antigravity <code>/swarm</code> Multi-Agent Oncology Trial Eligibility &amp; Safety Engine</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span id="engine-mode-badge" class="badge badge-teal">Checking engine status...</span>
+        <a href="/judge" class="nav-link">Judge &amp; VC Verification Console &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- First-Screen Impact Strip (30-Second Rule) -->
+    <section class="impact-strip" aria-label="Clinical Value & Measured Benchmark">
+      <div class="impact-headline-row">
+        <h1 class="impact-headline">
+          Site CRCs &amp; Oncology CROs: Deterministic &lt;1s multi-agent chart pre-screening — catching hidden steroid equivalence &amp; washout traps before wasted biopsy/imaging workups &amp; IRB protocol deviations.
+        </h1>
+        <div class="impact-pmids">
+          <span>Evidence Base:</span>
+          <a class="pmid-link" href="https://pubmed.ncbi.nlm.nih.gov/39557832/" target="_blank" rel="noopener">PMID: 39557832 (TrialGPT)</a>
+          <a class="pmid-link" href="https://pubmed.ncbi.nlm.nih.gov/41637159/" target="_blank" rel="noopener">PMID: 41637159 (JAMIA EHR)</a>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Cohort Benchmark (n=120)</div>
+          <div class="kpi-value" id="kpi-accuracy">100.0%</div>
+          <div class="kpi-sub" id="kpi-accuracy-sub">vs 47.5% Naive LLM Baseline</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Critical Under-Triage</div>
+          <div class="kpi-value" id="kpi-undertriage">0 / 120</div>
+          <div class="kpi-sub">100% steroid (15/15) &amp; washout/RT (30/30) recall</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Line Citation Grounding</div>
+          <div class="kpi-value" id="kpi-citation-rate">100.0%</div>
+          <div class="kpi-sub">Rule R6 blocks unverified quotes</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Manual Baseline vs Offline AI</div>
+          <div class="kpi-value" id="kpi-unit-econ">$260 &rarr; $0.00</div>
+          <div class="kpi-sub" id="kpi-unit-sub">Illustrative ~4h CRC cost; ~$0.04 optional Gemini mode</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1-Click Scenario Launcher + Live ClinicalTrials.gov Lookup -->
+    <section class="launcher-panel" aria-label="Clinical Screening Scenario Launcher">
+      <div class="section-header">
+        <h2 class="section-title">1. Instant Featured Patient Cases (Click to Run Multi-Agent /swarm Audit)</h2>
+        <span id="run-status-pill" class="badge">Ready</span>
+      </div>
+
+      <div class="scenario-grid" id="scenario-buttons">
+        <button type="button" class="scenario-btn" data-patient="PT-101" data-nct="NCT04613596">
+          <div class="scenario-top">
+            <span class="scenario-id">PT-101</span>
+            <span class="badge badge-emerald">Expected: ELIGIBLE</span>
+          </div>
+          <div class="scenario-name">Elena Rostova (62F, NSCLC)</div>
+          <div class="scenario-desc">Clean pass: KRAS G12C+, PD-L1 65%, treated brain met SRS 45d ago, off steroids 30d.</div>
+        </button>
+
+        <button type="button" class="scenario-btn active" data-patient="PT-102" data-nct="NCT04613596">
+          <div class="scenario-top">
+            <span class="scenario-id">PT-102</span>
+            <span class="badge badge-crimson">Expected: CONTRAINDICATED</span>
+          </div>
+          <div class="scenario-name">Marcus Vance (68M, NSCLC)</div>
+          <div class="scenario-desc">Dual R1+R2 Trap: Dexamethasone 2mg BID = 26.7mg Pred eq (&gt;10mg) + washout failure.</div>
+        </button>
+
+        <button type="button" class="scenario-btn" data-patient="PT-103" data-nct="NCT04787042">
+          <div class="scenario-top">
+            <span class="scenario-id">PT-103</span>
+            <span class="badge badge-crimson">Expected: CONTRAINDICATED</span>
+          </div>
+          <div class="scenario-name">Sofia Morales (57F, TNBC)</div>
+          <div class="scenario-desc">Dual R3+R4 Trap: 45 Gy thoracic RT 110d ago (&lt;180d) + AST 142 / ALT 156 U/L Grade 2 LFTs.</div>
+        </button>
+
+        <button type="button" class="scenario-btn" data-patient="PT-104" data-nct="NCT06890598">
+          <div class="scenario-top">
+            <span class="scenario-id">PT-104</span>
+            <span class="badge badge-amber">Expected: REVIEW</span>
+          </div>
+          <div class="scenario-name">David Chen (64M, Resected NSCLC)</div>
+          <div class="scenario-desc">R5 Reflex Biomarker Gate: KRAS G12C+ ctDNA, PD-L1 &amp; EGFR/ALK tissue pending.</div>
+        </button>
+      </div>
+
+      <div class="protocol-controls">
+        <div class="control-group">
+          <label class="control-label" for="protocol-select">Target ClinicalTrials.gov Protocol</label>
+          <select id="protocol-select">
+            <option value="NCT04613596">NCT04613596 — Mirati KRYSTAL-7 (KRAS G12C NSCLC)</option>
+            <option value="NCT04787042">NCT04787042 — Simcha ST-067 (Solid Tumors / IL-18)</option>
+            <option value="NCT06890598">NCT06890598 — Eli Lilly SUNRAY-02 (Olomorasib NSCLC)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="live-nct-input">Or Enter Any Live NCT ID (ClinicalTrials.gov APIv2)</label>
+          <input type="text" id="live-nct-input" placeholder="e.g. NCT04613596 (overrides dropdown)">
+        </div>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="use-llm-toggle">
+          <span>Use Gemini 2.5 API (when configured)</span>
+        </label>
+
+        <button type="button" id="toggle-custom-ehr-btn" class="btn-secondary">Custom EHR Text</button>
+        <button type="button" id="run-audit-btn" class="btn-primary">Run Swarm Audit</button>
+      </div>
+
+      <div id="custom-ehr-drawer" class="custom-ehr-drawer" hidden>
+        <label class="control-label" for="custom-ehr-text">
+          Ad-Hoc Clinical Note / EHR Consultation Text (Line-Indexed by @phenotyper):
+        </label>
+        <textarea id="custom-ehr-text" placeholder="Paste raw oncology consult note, medications (e.g. Dexamethasone 2 mg BID), labs (AST, ALT, eGFR), radiation dates, and molecular biomarkers..."></textarea>
+      </div>
+
+      <div id="error-banner" class="error-banner" role="alert" hidden></div>
+    </section>
+
+    <!-- Accessible Tabbed Workspace -->
+    <section class="tabs-container" aria-label="TrialSwarm Screening Results">
+      <div role="tablist" aria-label="Audit Workspace Views">
+        <button type="button" role="tab" id="tab-audit" aria-controls="panel-audit" aria-selected="true" tabindex="0">Swarm Audit &amp; Citations</button>
+        <button type="button" role="tab" id="tab-board" aria-controls="panel-board" aria-selected="false" tabindex="-1">Antigravity /swarm Board</button>
+        <button type="button" role="tab" id="tab-signoff" aria-controls="panel-signoff" aria-selected="false" tabindex="-1">PI / CRC Sign-Off Packet</button>
+      </div>
+
+      <!-- Tab 1: Swarm Audit & Citations -->
+      <div id="panel-audit" role="tabpanel" aria-labelledby="tab-audit">
+        <div class="panel-inner">
+          <div id="verdict-banner" class="verdict-banner CONTRAINDICATED">
+            <div class="verdict-main">
+              <span id="verdict-pill" class="verdict-pill CONTRAINDICATED">LOADING AUDIT...</span>
+              <h2 id="verdict-title" class="verdict-title">Running Antigravity /swarm verification on PT-102...</h2>
+            </div>
+            <div class="verdict-meta" id="verdict-meta"></div>
+          </div>
+
+          <div id="trap-callout" class="trap-callout" hidden>
+            <div class="trap-col">
+              <h4 style="color: var(--crimson-dark);">Naive Single-Prompt LLM Baseline</h4>
+              <p id="naive-verdict-text">—</p>
+            </div>
+            <div class="trap-col">
+              <h4 style="color: var(--teal-dark);">TrialSwarm Deterministic Override</h4>
+              <p id="trap-explanation-text">—</p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="section-title" style="margin-bottom: 0.65rem;">Pharmacology, Washout &amp; Organ Reserve Safety Rules (R1–R5)</h3>
+            <div class="safety-grid" id="safety-cards-grid"></div>
+          </div>
+
+          <div>
+            <div tabindex="0" role="region" aria-labelledby="criteria-table-caption" class="table-wrapper">
+              <table class="responsive-table criteria-table">
+                <caption id="criteria-table-caption">Criterion-by-Criterion Verdicts &amp; Verbatim Line Citations (Rule R6)</caption>
+                <thead>
+                  <tr>
+                    <th>Rule ID</th>
+                    <th>Criterion</th>
+                    <th>TrialSwarm Status</th>
+                    <th>Naive LLM</th>
+                    <th>Clinical Reasoning</th>
+                    <th>Grounded Citations</th>
+                  </tr>
+                </thead>
+                <tbody id="criteria-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="viewer-header" style="margin-bottom: 0.65rem;">
+              <h3 class="section-title">Interactive Source Grounding: Protocol Lines vs EHR Lines</h3>
+              <span id="viewer-focus-status" class="viewer-focus-status">Click any citation pill above to highlight &amp; scroll to exact line</span>
+            </div>
+            <div class="split-viewer">
+              <div class="doc-pane">
+                <div class="doc-pane-title">
+                  <span>Protocol Eligibility Criteria</span>
+                  <span id="proto-doc-id" class="badge">—</span>
+                </div>
+                <div id="protocol-lines-viewer" class="doc-lines"></div>
+              </div>
+              <div class="doc-pane">
+                <div class="doc-pane-title">
+                  <span>Patient Clinical EHR Note</span>
+                  <span id="ehr-doc-id" class="badge">—</span>
+                </div>
+                <div id="ehr-lines-viewer" class="doc-lines"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Antigravity /swarm Board -->
+      <div id="panel-board" role="tabpanel" aria-labelledby="tab-board" hidden="until-found">
+        <div class="panel-inner">
+          <div class="graph-card">
+            <h3 class="section-title" style="margin-bottom: 0.65rem;">Antigravity /swarm Parallel Execution &amp; @mention Graph</h3>
+            <svg class="graph-svg" viewBox="0 0 860 210" role="img" aria-label="Antigravity /swarm multi-agent coordination graph">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+                </marker>
+              </defs>
+              <!-- Edges -->
+              <path d="M 140 85 L 220 45" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 140 115 L 220 155" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 380 45 L 460 85" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 380 155 L 460 115" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 615 100 L 675 100" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+              <path d="M 755 130 C 755 190, 80 190, 80 135" stroke="#64748B" stroke-width="1.8" stroke-dasharray="4 3" fill="none" marker-end="url(#arrow)"/>
+
+              <!-- Edge labels -->
+              <text x="160" y="55" font-size="11" fill="#0F766E" font-family="monospace">#1</text>
+              <text x="160" y="150" font-size="11" fill="#0F766E" font-family="monospace">#1</text>
+              <text x="415" y="55" font-size="11" fill="#0F766E" font-family="monospace">#2, #4</text>
+              <text x="415" y="150" font-size="11" fill="#0F766E" font-family="monospace">#3, #4</text>
+              <text x="638" y="92" font-size="11" fill="#0F766E" font-family="monospace">#5, #6</text>
+              <text x="410" y="196" font-size="11" fill="#475569" font-family="monospace">#7 Reconcile &rarr; #8 SignOffPacket</text>
+
+              <!-- Nodes -->
+              <rect x="15" y="70" width="125" height="60" rx="8" fill="#F0FDFA" stroke="#0D9488" stroke-width="2"/>
+              <text x="77" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A" font-family="monospace">@coordinator</text>
+              <text x="77" y="114" text-anchor="middle" font-size="10" fill="#475569">Lead Orchestrator</text>
+
+              <rect x="225" y="15" width="155" height="58" rx="8" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+              <text x="302" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A" font-family="monospace">@extractor</text>
+              <text x="302" y="57" text-anchor="middle" font-size="10" fill="#475569">Protocol Compiler</text>
+
+              <rect x="225" y="128" width="155" height="58" rx="8" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.8"/>
+              <text x="302" y="153" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A" font-family="monospace">@phenotyper</text>
+              <text x="302" y="170" text-anchor="middle" font-size="10" fill="#475569">EHR Phenotyper</text>
+
+              <rect x="465" y="70" width="150" height="60" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="1.8"/>
+              <text x="540" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A" font-family="monospace">@safety-auditor</text>
+              <text x="540" y="114" text-anchor="middle" font-size="10" fill="#475569">Rules R1–R5 Engine</text>
+
+              <rect x="680" y="70" width="160" height="60" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.8"/>
+              <text x="760" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A" font-family="monospace">@verifier</text>
+              <text x="760" y="114" text-anchor="middle" font-size="10" fill="#475569">Rule R6 Grounding</text>
+            </svg>
+          </div>
+
+          <div tabindex="0" role="region" aria-labelledby="roster-caption" class="table-wrapper">
+            <table class="responsive-table roster-table">
+              <caption id="roster-caption">Live Antigravity /swarm Roster</caption>
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Role</th>
+                  <th>Model / Engine</th>
+                  <th>State</th>
+                  <th>Latest Seq</th>
+                </tr>
+              </thead>
+              <tbody id="roster-tbody"></tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="section-title" style="margin-bottom: 0.65rem;">Sequenced Swarm Message Board (#1–#8)</h3>
+            <div class="board-posts" id="board-posts-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: PI / CRC Sign-Off Packet -->
+      <div id="panel-signoff" role="tabpanel" aria-labelledby="tab-signoff" hidden="until-found">
+        <div class="panel-inner">
+          <div class="packet-card">
+            <div class="section-header">
+              <div>
+                <h3 id="packet-title" class="section-title" style="font-size: 1.05rem;">Staged Clinical Sign-Off Packet</h3>
+                <p id="packet-recommendation" style="margin: 0.3rem 0 0; color: var(--ink-secondary); font-size: 0.9rem;"></p>
+              </div>
+              <span id="packet-status-badge" class="badge badge-amber">PENDING_HUMAN_SIGNOFF</span>
+            </div>
+
+            <div class="packet-grid" id="packet-details-grid"></div>
+
+            <div>
+              <button type="button" id="open-signoff-btn" class="btn-primary">
+                Review &amp; Sign 21 CFR Part 11 Packet
+              </button>
+            </div>
+          </div>
+
+          <div id="signed-receipt-container" hidden></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Native Modal Dialog (modern-web-guidance: no role="dialog", no aria-modal) -->
+  <dialog id="signoff-dialog" aria-labelledby="signoff-title">
+    <div class="dialog-header">
+      <h2 id="signoff-title">21 CFR Part 11 Electronic Clinical Sign-Off</h2>
+      <button type="button" id="dialog-close-btn" class="dialog-close-x" aria-label="Close dialog">&times;</button>
+    </div>
+    <form id="signoff-form" method="dialog">
+      <div class="dialog-body">
+        <p style="margin: 0; font-size: 0.86rem; color: var(--ink-secondary);">
+          Confirm your clinical attestation for packet <strong id="dialog-packet-id">—</strong>. A tamper-evident SHA-256 receipt will be generated.
+        </p>
+        <div class="form-field">
+          <label for="reviewer-name">Reviewer Full Name</label>
+          <input type="text" id="reviewer-name" value="Dr. Ahmed Zayed, MB BCh" required autofocus>
+        </div>
+        <div class="form-field">
+          <label for="reviewer-role">Clinical Role</label>
+          <select id="reviewer-role">
+            <option value="Principal Investigator (MD)">Principal Investigator (MD)</option>
+            <option value="Clinical Research Coordinator (CRC)">Clinical Research Coordinator (CRC)</option>
+            <option value="Oncology Sub-Investigator">Oncology Sub-Investigator</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="signoff-decision">Attestation Decision</label>
+          <select id="signoff-decision">
+            <option value="APPROVE">APPROVE — Confirm TrialSwarm Verdict &amp; Staged Action</option>
+            <option value="OVERRIDE">OVERRIDE — Clinical Exception / Manual Review Override</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="clinical-note">Clinical Justification / Washout Note</label>
+          <textarea id="clinical-note" rows="3" placeholder="Optional clinical rationale or rescreen instructions..."></textarea>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="submit" value="cancel" formnovalidate class="btn-secondary">Cancel</button>
+        <button type="submit" value="confirm" id="confirm-signoff-btn" class="btn-primary">Execute SHA-256 Sign-Off</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    (function () {
+      const state = {
+        activePatientId: "PT-102",
+        activeNctId: "NCT04613596",
+        currentReport: null,
+        geminiConfigured: false,
+      };
+
+      const els = {
+        engineBadge: document.getElementById("engine-mode-badge"),
+        runStatusPill: document.getElementById("run-status-pill"),
+        scenarioBtns: Array.from(document.querySelectorAll(".scenario-btn")),
+        protocolSelect: document.getElementById("protocol-select"),
+        liveNctInput: document.getElementById("live-nct-input"),
+        useLlmToggle: document.getElementById("use-llm-toggle"),
+        toggleCustomBtn: document.getElementById("toggle-custom-ehr-btn"),
+        customDrawer: document.getElementById("custom-ehr-drawer"),
+        customEhrText: document.getElementById("custom-ehr-text"),
+        runAuditBtn: document.getElementById("run-audit-btn"),
+        errorBanner: document.getElementById("error-banner"),
+
+        kpiAccuracy: document.getElementById("kpi-accuracy"),
+        kpiAccuracySub: document.getElementById("kpi-accuracy-sub"),
+        kpiUndertriage: document.getElementById("kpi-undertriage"),
+        kpiUnitEcon: document.getElementById("kpi-unit-econ"),
+
+        verdictBanner: document.getElementById("verdict-banner"),
+        verdictPill: document.getElementById("verdict-pill"),
+        verdictTitle: document.getElementById("verdict-title"),
+        verdictMeta: document.getElementById("verdict-meta"),
+        trapCallout: document.getElementById("trap-callout"),
+        naiveVerdictText: document.getElementById("naive-verdict-text"),
+        trapExplanationText: document.getElementById("trap-explanation-text"),
+        safetyCardsGrid: document.getElementById("safety-cards-grid"),
+        criteriaTbody: document.getElementById("criteria-tbody"),
+        protoDocId: document.getElementById("proto-doc-id"),
+        ehrDocId: document.getElementById("ehr-doc-id"),
+        protoViewer: document.getElementById("protocol-lines-viewer"),
+        ehrViewer: document.getElementById("ehr-lines-viewer"),
+        viewerFocusStatus: document.getElementById("viewer-focus-status"),
+
+        rosterTbody: document.getElementById("roster-tbody"),
+        boardPostsList: document.getElementById("board-posts-list"),
+
+        packetTitle: document.getElementById("packet-title"),
+        packetRec: document.getElementById("packet-recommendation"),
+        packetStatusBadge: document.getElementById("packet-status-badge"),
+        packetDetailsGrid: document.getElementById("packet-details-grid"),
+        openSignoffBtn: document.getElementById("open-signoff-btn"),
+        signedReceiptContainer: document.getElementById("signed-receipt-container"),
+
+        dialog: document.getElementById("signoff-dialog"),
+        dialogCloseBtn: document.getElementById("dialog-close-btn"),
+        signoffForm: document.getElementById("signoff-form"),
+        dialogPacketId: document.getElementById("dialog-packet-id"),
+        reviewerName: document.getElementById("reviewer-name"),
+        reviewerRole: document.getElementById("reviewer-role"),
+        signoffDecision: document.getElementById("signoff-decision"),
+        clinicalNote: document.getElementById("clinical-note"),
+      };
+
+      function esc(str) {
+        if (str === null || str === undefined) return "";
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function statusBadgeClass(status) {
+        if (status === "ELIGIBLE" || status === "MET" || status === "PASS" || status === "SIGNED_APPROVED" || status === "completed") {
+          return "badge-emerald";
+        }
+        if (status === "CONTRAINDICATED" || status === "EXCLUDED" || status === "NOT_MET" || status === "BLOCKER" || status === "UNVERIFIED_CITATION_BLOCKED") {
+          return "badge-crimson";
+        }
+        return "badge-amber";
+      }
+
+      /* Accessible Tab Switching with beforematch & arrow navigation */
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function selectTab(targetTab, focusTab = false) {
+        tabs.forEach((tab, idx) => {
+          const isSelected = tab === targetTab;
+          tab.setAttribute("aria-selected", String(isSelected));
+          tab.tabIndex = isSelected ? 0 : -1;
+          const panel = panels[idx];
+          if (isSelected) {
+            panel.removeAttribute("hidden");
+          } else {
+            panel.setAttribute("hidden", "until-found");
+          }
+        });
+        if (focusTab) targetTab.focus();
+      }
+
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener("click", () => selectTab(tab));
+        tab.addEventListener("keydown", (e) => {
+          let nextIdx = null;
+          if (e.key === "ArrowRight") nextIdx = (idx + 1) % tabs.length;
+          else if (e.key === "ArrowLeft") nextIdx = (idx - 1 + tabs.length) % tabs.length;
+          else if (e.key === "Home") nextIdx = 0;
+          else if (e.key === "End") nextIdx = tabs.length - 1;
+          if (nextIdx !== null) {
+            e.preventDefault();
+            selectTab(tabs[nextIdx], true);
+          }
+        });
+      });
+
+      panels.forEach((panel, idx) => {
+        panel.addEventListener("beforematch", () => {
+          selectTab(tabs[idx]);
+        });
+      });
+
+      /* Health & Cases Initialization */
+      async function loadMetadata() {
+        try {
+          const [healthRes, casesRes] = await Promise.all([
+            fetch("/api/health"),
+            fetch("/api/cases"),
+          ]);
+          if (healthRes.ok) {
+            const h = await healthRes.json();
+            state.geminiConfigured = Boolean(h.gemini_configured);
+            if (state.geminiConfigured) {
+              els.engineBadge.textContent = "Gemini 2.5 API Active";
+              els.engineBadge.className = "badge badge-teal";
+              els.useLlmToggle.disabled = false;
+            } else {
+              els.engineBadge.textContent = "Deterministic Clinical Engine (Offline-Ready)";
+              els.engineBadge.className = "badge badge-teal";
+              els.useLlmToggle.disabled = true;
+              els.useLlmToggle.checked = false;
+            }
+          }
+          if (casesRes.ok) {
+            const c = await casesRes.json();
+            const bm = c.benchmark_summary || {};
+            const tsAcc = bm.trialswarm_accuracy ?? bm.trialswarm_accuracy_pct;
+            const nvAcc = bm.naive_accuracy ?? bm.naive_accuracy_pct;
+            if (tsAcc !== undefined) {
+              els.kpiAccuracy.textContent = `${Number(tsAcc).toFixed(1)}%`;
+              if (nvAcc !== undefined) {
+                els.kpiAccuracySub.textContent = `vs ${Number(nvAcc).toFixed(1)}% Naive LLM Baseline`;
+              }
+            }
+            const mismatches = Array.isArray(bm.mismatches) ? bm.mismatches.length : bm.critical_undertriage_count;
+            if (mismatches !== undefined) {
+              els.kpiUndertriage.textContent = `${mismatches} / ${bm.total_cases || 120}`;
+            }
+          }
+        } catch (err) {
+          els.engineBadge.textContent = "Deterministic Clinical Engine (Offline-Ready)";
+        }
+      }
+
+      /* Run Swarm Audit */
+      async function runAudit(overridePatientId = null, overrideNctId = null) {
+        els.errorBanner.hidden = true;
+        els.runAuditBtn.disabled = true;
+        els.runStatusPill.textContent = "Running /swarm...";
+        els.runStatusPill.className = "badge badge-amber";
+
+        const customText = els.customDrawerOpen ? els.customEhrText.value.trim() : "";
+        const liveNct = els.liveNctInput.value.trim().toUpperCase();
+        const chosenNct = overrideNctId || liveNct || els.protocolSelect.value;
+        const chosenPatient = overridePatientId || state.activePatientId;
+
+        const payload = {
+          nct_id: chosenNct,
+          patient_id: customText ? "CUSTOM-EHR" : chosenPatient,
+          custom_ehr_text: customText || null,
+          use_live_nct: Boolean(liveNct),
+          use_llm: Boolean(els.useLlmToggle.checked && state.geminiConfigured),
+        };
+
+        try {
+          const resp = await fetch("/api/screen", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!resp.ok) {
+            const errData = await resp.json().catch(() => ({}));
+            throw new Error(errData.detail || `HTTP ${resp.status}`);
+          }
+          const report = await resp.json();
+          state.currentReport = report;
+          renderReport(report);
+          els.runStatusPill.textContent = `Verified in ${(report.elapsed_seconds * 1000).toFixed(0)} ms`;
+          els.runStatusPill.className = "badge badge-emerald";
+        } catch (err) {
+          els.errorBanner.textContent = `Audit failed: ${err.message}`;
+          els.errorBanner.hidden = false;
+          els.runStatusPill.textContent = "Error";
+          els.runStatusPill.className = "badge badge-crimson";
+        } finally {
+          els.runAuditBtn.disabled = false;
+        }
+      }
+
+      function renderReport(r) {
+        // Verdict Banner
+        els.verdictBanner.className = `verdict-banner ${r.overall_verdict}`;
+        els.verdictPill.className = `verdict-pill ${r.overall_verdict}`;
+        els.verdictPill.textContent = r.overall_verdict;
+        els.verdictTitle.textContent = `${r.patient_name} (${r.patient_id}) \u2192 ${r.nct_id}: ${r.trial_title}`;
+        els.verdictMeta.innerHTML = `
+          <span><strong>Run:</strong> <code>${esc(r.run_id)}</code></span>
+          <span><strong>Engine:</strong> ${esc(r.execution_mode)}</span>
+          <span><strong>Latency:</strong> ${r.elapsed_seconds}s</span>
+          <span><strong>Compute:</strong> $${Number(r.estimated_compute_usd).toFixed(4)}</span>
+          <span><strong>Citation Rate:</strong> ${r.citation_verification_rate}% (${r.unverified_claims_blocked} blocked)</span>
+        `;
+        els.kpiUnitEcon.textContent = `$${r.manual_benchmark_usd} \u2192 $${Number(r.estimated_compute_usd).toFixed(2)}`;
+
+        // Trap Callout
+        if (r.caught_hidden_trap || r.trap_explanation) {
+          els.trapCallout.hidden = false;
+          els.trapCallout.className = r.caught_hidden_trap ? "trap-callout" : "trap-callout safe-pass";
+          els.naiveVerdictText.textContent = `Naive LLM returned "${r.naive_baseline_verdict}" — missing potency equivalence, washout timing, or unverified line constraints.`;
+          els.trapExplanationText.textContent = r.trap_explanation || `Verified ${r.overall_verdict} with deterministic pharmacology & citation engine.`;
+        } else {
+          els.trapCallout.hidden = true;
+        }
+
+        // Safety Cards R1-R5
+        els.safetyCardsGrid.innerHTML = (r.safety_findings || []).map((sf) => {
+          const cites = (sf.citations || []).map((c) => `
+            <button type="button" class="cite-btn ${c.doc_type === 'EHR' ? 'ehr' : ''}"
+              data-doc="${esc(c.doc_type)}" data-start="${c.line_start}" data-end="${c.line_end}"
+              data-quote="${esc(c.verbatim_quote)}">
+              ${esc(c.doc_type)} L${c.line_start}${c.line_end !== c.line_start ? '-' + c.line_end : ''}
+            </button>
+          `).join("");
+          return `
+            <article class="safety-card ${esc(sf.severity)}">
+              <div class="safety-card-head">
+                <span class="rule-code">${esc(sf.rule_code)}</span>
+                <span class="badge ${statusBadgeClass(sf.severity)}">${esc(sf.severity)}</span>
+              </div>
+              <div class="safety-title">${esc(sf.title)}</div>
+              <div class="safety-detail">${esc(sf.calculation_detail)}</div>
+              ${sf.prednisone_eq_mg !== null && sf.prednisone_eq_mg !== undefined ? `<div class="safety-detail"><strong>Prednisone Eq:</strong> ${sf.prednisone_eq_mg} mg/day</div>` : ""}
+              ${sf.earliest_rescreen_date ? `<div class="safety-detail"><strong>Earliest Re-screen:</strong> ${esc(sf.earliest_rescreen_date)}</div>` : ""}
+              <div>${cites}</div>
+            </article>
+          `;
+        }).join("");
+
+        // Criterion Verdicts Table
+        els.criteriaTbody.innerHTML = (r.criterion_verdicts || []).map((cv) => {
+          const cites = (cv.citations || []).map((c) => `
+            <button type="button" class="cite-btn ${c.doc_type === 'EHR' ? 'ehr' : ''}"
+              data-doc="${esc(c.doc_type)}" data-start="${c.line_start}" data-end="${c.line_end}"
+              data-quote="${esc(c.verbatim_quote)}">
+              ${esc(c.doc_type)} L${c.line_start}${c.line_end !== c.line_start ? '-' + c.line_end : ''}
+            </button>
+          `).join("");
+          return `
+            <tr>
+              <th>${esc(cv.rule_id)}</th>
+              <td><strong>${esc(cv.criterion)}</strong><br><small style="color: var(--ink-muted);">${esc(cv.category)}</small></td>
+              <td><span class="badge ${statusBadgeClass(cv.status)}">${esc(cv.status)}</span></td>
+              <td><span class="badge">${esc(cv.naive_baseline_status || "—")}</span></td>
+              <td>${esc(cv.reasoning)}</td>
+              <td>${cites || "—"}</td>
+            </tr>
+          `;
+        }).join("");
+
+        // Line-Indexed Viewers
+        els.protoDocId.textContent = r.nct_id;
+        els.ehrDocId.textContent = r.patient_id;
+        els.protoViewer.innerHTML = (r.protocol_lines || []).map((l) => `
+          <div class="line-row" id="proto-L${l.line}">
+            <span class="line-num">${l.line}</span>
+            <span class="line-text">${esc(l.text)}</span>
+          </div>
+        `).join("");
+        els.ehrViewer.innerHTML = (r.ehr_lines || []).map((l) => `
+          <div class="line-row" id="ehr-L${l.line}">
+            <span class="line-num">${l.line}</span>
+            <span class="line-text">${esc(l.text)}</span>
+          </div>
+        `).join("");
+        els.viewerFocusStatus.textContent = "Click any citation pill above to highlight & scroll to exact line";
+
+        // Tab 2: Roster & Board
+        els.rosterTbody.innerHTML = (r.roster || []).map((m) => `
+          <tr>
+            <th>${esc(m.name)}</th>
+            <td>${esc(m.role)}</td>
+            <td><code>${esc(m.model)}</code></td>
+            <td><span class="badge ${statusBadgeClass(m.state)}">${esc(m.state)}</span></td>
+            <td>#${m.latest_seq}</td>
+          </tr>
+        `).join("");
+
+        els.boardPostsList.innerHTML = (r.board_posts || []).map((p) => {
+          const mentions = (p.mentions || []).map((m) => `<span class="mention-pill">${esc(m)}</span>`).join(" ");
+          return `
+            <article class="board-post">
+              <div class="board-post-head">
+                <div class="post-author-group">
+                  <span class="seq-badge">#${p.seq}</span>
+                  <span class="agent-pill">${esc(p.author)}</span>
+                  <span style="font-size: 0.78rem; color: var(--ink-muted);">&rarr;</span>
+                  ${mentions}
+                </div>
+                <div class="post-meta">${esc(p.model_used)} &middot; ${p.latency_ms} ms</div>
+              </div>
+              <p class="post-summary">${esc(p.summary)}</p>
+            </article>
+          `;
+        }).join("");
+
+        // Tab 3: Sign-Off Packet
+        const pkt = r.signoff_packet;
+        els.packetTitle.textContent = pkt.title;
+        els.packetRec.textContent = pkt.recommendation;
+        els.packetStatusBadge.textContent = pkt.status;
+        els.packetStatusBadge.className = `badge ${statusBadgeClass(pkt.status)}`;
+        els.packetDetailsGrid.innerHTML = `
+          <div><div class="packet-field-label">Packet ID</div><div class="packet-field-value">${esc(pkt.packet_id)}</div></div>
+          <div><div class="packet-field-label">Action Type</div><div class="packet-field-value">${esc(pkt.action_type)}</div></div>
+          <div><div class="packet-field-label">Run ID</div><div class="packet-field-value">${esc(r.run_id)}</div></div>
+          <div><div class="packet-field-label">Earliest Re-Screen</div><div class="packet-field-value">${esc(pkt.earliest_rescreen_date || "N/A")}</div></div>
+        `;
+        els.signedReceiptContainer.hidden = true;
+        els.signedReceiptContainer.innerHTML = "";
+      }
+
+      /* Interactive Citation Scroll & Highlight */
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".cite-btn");
+        if (!btn) return;
+        const docType = btn.dataset.doc;
+        const start = Number(btn.dataset.start);
+        const end = Number(btn.dataset.end);
+        const quote = btn.dataset.quote || "";
+
+        document.querySelectorAll(".line-row.highlighted").forEach((el) => el.classList.remove("highlighted"));
+        const prefix = docType === "PROTOCOL" ? "proto-L" : "ehr-L";
+        let firstEl = null;
+        for (let i = start; i <= end; i++) {
+          const lineEl = document.getElementById(`${prefix}${i}`);
+          if (lineEl) {
+            lineEl.classList.add("highlighted");
+            if (!firstEl) firstEl = lineEl;
+          }
+        }
+        if (firstEl) {
+          firstEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        els.viewerFocusStatus.textContent = `Focused ${docType} L${start}${end !== start ? '-' + end : ''}: "${quote.slice(0, 72)}${quote.length > 72 ? '...' : ''}"`;
+      });
+
+      /* Scenario Buttons & Controls */
+      els.scenarioBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          els.scenarioBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          state.activePatientId = btn.dataset.patient;
+          state.activeNctId = btn.dataset.nct;
+          els.protocolSelect.value = btn.dataset.nct;
+          els.liveNctInput.value = "";
+          if (els.customDrawerOpen) {
+            els.customDrawerOpen = false;
+            els.customDrawer.hidden = true;
+          }
+          runAudit(state.activePatientId, state.activeNctId);
+        });
+      });
+
+      els.customDrawerOpen = false;
+      els.toggleCustomBtn.addEventListener("click", () => {
+        els.customDrawerOpen = !els.customDrawerOpen;
+        els.customDrawer.hidden = !els.customDrawerOpen;
+        if (els.customDrawerOpen && !els.customEhrText.value.trim() && state.currentReport) {
+          els.customEhrText.value = (state.currentReport.ehr_lines || []).map((l) => l.text).join("\n");
+        }
+      });
+
+      els.runAuditBtn.addEventListener("click", () => runAudit());
+
+      /* Native <dialog> Sign-Off Gate (modern-web-guidance) */
+      els.openSignoffBtn.addEventListener("click", () => {
+        if (!state.currentReport) return;
+        els.dialogPacketId.textContent = state.currentReport.signoff_packet.packet_id;
+        els.dialog.showModal();
+      });
+
+      els.dialogCloseBtn.addEventListener("click", () => {
+        els.dialog.close("cancel");
+      });
+
+      els.dialog.addEventListener("close", () => {
+        // Mandatory reset so stale returnValue cannot leak on Esc or next open
+        els.dialog.returnValue = "";
+      });
+
+      els.signoffForm.addEventListener("submit", async (e) => {
+        const submitterVal = e.submitter ? e.submitter.value : "cancel";
+        if (submitterVal === "cancel") {
+          return; // Native form method="dialog" closes dialog
+        }
+        e.preventDefault();
+        if (!state.currentReport) return;
+
+        const payload = {
+          run_id: state.currentReport.run_id,
+          packet_id: state.currentReport.signoff_packet.packet_id,
+          decision: els.signoffDecision.value,
+          reviewer_name: els.reviewerName.value.trim(),
+          reviewer_role: els.reviewerRole.value,
+          clinical_note: els.clinicalNote.value.trim(),
+        };
+
+        try {
+          const resp = await fetch("/api/signoff", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!resp.ok) {
+            const err = await resp.json().catch(() => ({}));
+            throw new Error(err.detail || `HTTP ${resp.status}`);
+          }
+          const receipt = await resp.json();
+          els.dialog.close("confirm");
+
+          const newStatus = receipt.decision === "APPROVE" ? "SIGNED_APPROVED" : "SIGNED_OVERRIDE";
+          state.currentReport.signoff_packet.status = newStatus;
+          els.packetStatusBadge.textContent = newStatus;
+          els.packetStatusBadge.className = `badge ${statusBadgeClass(newStatus)}`;
+
+          els.signedReceiptContainer.hidden = false;
+          els.signedReceiptContainer.innerHTML = `
+            <div class="receipt-box">
+              <div class="section-header">
+                <strong style="color: var(--emerald);">21 CFR Part 11 Tamper-Evident Sign-Off Receipt</strong>
+                <span class="badge badge-emerald">${esc(receipt.receipt_id)}</span>
+              </div>
+              <div class="packet-grid">
+                <div><div class="packet-field-label">Decision</div><div class="packet-field-value">${esc(receipt.decision)}</div></div>
+                <div><div class="packet-field-label">Signed By</div><div class="packet-field-value">${esc(receipt.reviewer_name)} (${esc(receipt.reviewer_role)})</div></div>
+                <div><div class="packet-field-label">Timestamp (UTC)</div><div class="packet-field-value">${esc(receipt.signed_at_iso)}</div></div>
+              </div>
+              <div>
+                <div class="packet-field-label">SHA-256 Digest</div>
+                <div class="packet-field-value" style="font-size: 0.78rem;">${esc(receipt.sha256_hash)}</div>
+              </div>
+              ${receipt.clinical_note ? `<div><div class="packet-field-label">Clinical Note</div><div style="font-size: 0.85rem;">${esc(receipt.clinical_note)}</div></div>` : ""}
+            </div>
+          `;
+        } catch (err) {
+          els.errorBanner.textContent = `Sign-off failed: ${err.message}`;
+          els.errorBanner.hidden = false;
+          els.dialog.close("error");
+        }
+      });
+
+      /* Initialize on page load: auto-run PT-102 */
+      loadMetadata();
+      runAudit("PT-102", "NCT04613596");
+    })();
+  </script>
+</body>
+</html>

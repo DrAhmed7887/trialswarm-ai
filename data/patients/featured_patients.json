@@ -1,0 +1,934 @@
+{
+  "reference_date": "2026-11-14",
+  "patients": [
+    {
+      "patient_id": "PT-101",
+      "name": "Elena Rostova",
+      "age": 62,
+      "sex": "F",
+      "diagnosis": "Stage IV non-squamous Non-Small Cell Lung Cancer (NSCLC)",
+      "stage": "Stage IV (cT2aN2M1b)",
+      "target_nct": "NCT04613596",
+      "target_ncts": [
+        "NCT04613596"
+      ],
+      "target_phase": "PHASE3",
+      "reference_date": "2026-11-14",
+      "expected_verdict": "ELIGIBLE",
+      "clinical_trap_summary": "Clean pass benchmark: KRAS G12C+, PD-L1 TPS 65%, EGFR/ALK-, 0 prior metastatic lines, treated 1.2 cm left parietal brain met via SRS 45 days ago (2026-09-30), off steroids for 30 days (since 2026-10-15), all CTCAE Grade 0 labs.",
+      "structured_truth": {
+        "ecog": 1,
+        "able_to_swallow_oral": true,
+        "measurable_disease_recist11": true,
+        "measurable_lesion_cm": 3.4,
+        "accessible_biopsy_lesion": false,
+        "biomarkers": {
+          "kras_g12c": "POSITIVE",
+          "pd_l1_tps_pct": 65,
+          "egfr": "NEGATIVE",
+          "alk": "NEGATIVE",
+          "ros1": "NEGATIVE"
+        },
+        "labs": {
+          "test_date": "2026-11-12",
+          "egfr_ml_min": 78,
+          "ast_u_l": 24,
+          "alt_u_l": 29,
+          "total_bilirubin_mg_dl": 0.7,
+          "anc_per_ul": 4200,
+          "platelets_per_ul": 245000
+        },
+        "medications": [
+          {
+            "name": "Dexamethasone",
+            "type": "systemic_corticosteroid",
+            "daily_dose_mg": 0.0,
+            "prior_daily_dose_mg": 2.0,
+            "dose_schedule": "Tapered and discontinued 2026-10-15",
+            "start_date": "2026-09-28",
+            "last_dose_date": "2026-10-15",
+            "ongoing": false,
+            "prednisone_eq_mg_day": 0.0
+          }
+        ],
+        "radiation_history": [
+          {
+            "site": "Brain (left parietal metastasis)",
+            "modality": "SRS",
+            "total_dose_gy": 20.0,
+            "end_date": "2026-09-30",
+            "days_prior_to_ref": 45,
+            "is_thoracic_lung": false
+          }
+        ],
+        "cns_lesions": {
+          "has_lesions": true,
+          "count": 1,
+          "max_size_cm": 1.2,
+          "location": "left parietal",
+          "brainstem": false,
+          "treated": true,
+          "srs_date": "2026-09-30",
+          "peritumoral_edema": false,
+          "symptomatic": false,
+          "needs_immediate_local_therapy": false
+        },
+        "prior_lines": [],
+        "live_vaccine_days_ago": null,
+        "major_surgery_days_ago": null,
+        "rule_evaluations": {
+          "r1_steroid_ok": true,
+          "r2_washout_ok": true,
+          "r3_radiation_ok": true,
+          "r4_organ_reserve_ok": true,
+          "r5_biomarkers_ok": true,
+          "earliest_rescreen_date": null
+        }
+      },
+      "ehr_text": "PATIENT IDENTIFIER: PT-101 | NAME: Elena Rostova | DOB/AGE: 62yo Female | REF DATE: 2026-11-14\nCLINICAL ENCOUNTER: Thoracic Medical Oncology New Trial Screening Consultation (Target: NCT04613596 Phase 3)\n\n=== DEMOGRAPHICS & CLINICAL SUMMARY ===\nElena Rostova is a 62-year-old female (nonsmoker, 12 pack-year distant history quit 2008) presenting for first-line systemic therapy evaluation for newly diagnosed metastatic lung adenocarcinoma.\n\n=== DIAGNOSIS & STAGE ===\nPrimary Diagnosis: Stage IV (cT2aN2M1b) non-squamous Non-Small Cell Lung Cancer (NSCLC), adenocarcinoma histology, confirmed via CT-guided core biopsy of right upper lobe mass on 2026-09-10.\nTarget Disease Burden (RECIST 1.1): Measurable 3.4 cm right upper lobe (RUL) primary pulmonary mass (CT chest/abdomen/pelvis 2026-11-05), hilar/mediastinal adenopathy, and solitary treated CNS metastasis.\nPrior Systemic Therapy for Metastatic Disease: None (0 prior systemic lines; treatment-naive).\n\n=== PATHOLOGY & MOLECULAR NGS ===\nTissue Next-Generation Sequencing (FoundationOne CDx, report finalized 2026-09-22):\n- KRAS: p.G12C (c.34G>T) pathogenic mutation DETECTED (VAF 28.4%).\n- EGFR (exons 18-21): Negative / Wild-Type (no sensitizing mutations).\n- ALK Rearrangement (FISH & RNA fusion): Negative.\n- ROS1 / RET / MET / BRAF / NTRK: Negative.\nPD-L1 Immunohistochemistry (22C3 pharmDx): TPS = 65% (High expression >= 50%).\n\n=== BRAIN MRI / CNS IMAGING ===\n2026-09-24 Brain MRI w/ contrast: Single 1.2 cm left parietal lobe parenchymal metastasis with minimal vasogenic edema; zero brainstem lesions, no leptomeningeal enhancement, no midline shift.\n2026-09-30 Stereotactic Radiosurgery (SRS): Single-fraction 20 Gy Gamma Knife SRS delivered to 1.2 cm left parietal lesion (completed 45 days prior to 2026-11-14).\n2026-11-06 Follow-up Brain MRI: Post-SRS stability of 1.2 cm left parietal lesion, resolution of perilesional edema, no new CNS lesions, neurologically asymptomatic, no seizures.\n\n=== RADIATION ONCOLOGY HISTORY ===\n- 2026-09-30: Cranial SRS (20 Gy x 1 fx) to left parietal brain metastasis (45 days prior to 2026-11-14).\n- Thoracic / Lung Radiotherapy: None (0 Gy prior thoracic or lung irradiation).\n\n=== ACTIVE & PRIOR MEDICATIONS ===\n- Dexamethasone (taper completed): Started 2 mg PO daily on 2026-09-28 post-SRS; tapered and discontinued permanently on 2026-10-15 (off systemic corticosteroids for 30 days prior to 2026-11-14; current daily prednisone equivalent = 0.0 mg/day).\n- Atorvastatin 20 mg PO daily (chronic hyperlipidemia).\n- Lisinopril 10 mg PO daily (well-controlled hypertension).\n- Prior Systemic Anticancer / Investigational Agents: None. No live vaccines in past 90 days. No major surgery in past 60 days.\n\n=== LABORATORY PANEL (Collected 2026-11-12) ===\n- Renal Function: Serum Creatinine 0.85 mg/dL | eGFR (CKD-EPI): 78 mL/min/1.73m2 (Reference >= 50).\n- Hepatic Function: AST 24 U/L (ULN 40) | ALT 29 U/L (ULN 40) | Total Bilirubin 0.7 mg/dL (ULN 1.2).\n- Hematology: WBC 6.4 K/uL | Absolute Neutrophil Count (ANC): 4,200 /uL | Hemoglobin 12.6 g/dL | Platelets: 245,000 /uL.\n\n=== ECOG PERFORMANCE STATUS ===\nECOG Performance Status: 1 (symptomatic mild exertional dyspnea, fully ambulatory and independent in all ADLs).\nAssessor Note: Meets all NCT04613596 Phase 3 inclusion criteria; zero exclusion triggers.",
+      "ehr_lines": [
+        {
+          "line": 1,
+          "text": "PATIENT IDENTIFIER: PT-101 | NAME: Elena Rostova | DOB/AGE: 62yo Female | REF DATE: 2026-11-14"
+        },
+        {
+          "line": 2,
+          "text": "CLINICAL ENCOUNTER: Thoracic Medical Oncology New Trial Screening Consultation (Target: NCT04613596 Phase 3)"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "=== DEMOGRAPHICS & CLINICAL SUMMARY ==="
+        },
+        {
+          "line": 5,
+          "text": "Elena Rostova is a 62-year-old female (nonsmoker, 12 pack-year distant history quit 2008) presenting for first-line systemic therapy evaluation for newly diagnosed metastatic lung adenocarcinoma."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "=== DIAGNOSIS & STAGE ==="
+        },
+        {
+          "line": 8,
+          "text": "Primary Diagnosis: Stage IV (cT2aN2M1b) non-squamous Non-Small Cell Lung Cancer (NSCLC), adenocarcinoma histology, confirmed via CT-guided core biopsy of right upper lobe mass on 2026-09-10."
+        },
+        {
+          "line": 9,
+          "text": "Target Disease Burden (RECIST 1.1): Measurable 3.4 cm right upper lobe (RUL) primary pulmonary mass (CT chest/abdomen/pelvis 2026-11-05), hilar/mediastinal adenopathy, and solitary treated CNS metastasis."
+        },
+        {
+          "line": 10,
+          "text": "Prior Systemic Therapy for Metastatic Disease: None (0 prior systemic lines; treatment-naive)."
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "=== PATHOLOGY & MOLECULAR NGS ==="
+        },
+        {
+          "line": 13,
+          "text": "Tissue Next-Generation Sequencing (FoundationOne CDx, report finalized 2026-09-22):"
+        },
+        {
+          "line": 14,
+          "text": "- KRAS: p.G12C (c.34G>T) pathogenic mutation DETECTED (VAF 28.4%)."
+        },
+        {
+          "line": 15,
+          "text": "- EGFR (exons 18-21): Negative / Wild-Type (no sensitizing mutations)."
+        },
+        {
+          "line": 16,
+          "text": "- ALK Rearrangement (FISH & RNA fusion): Negative."
+        },
+        {
+          "line": 17,
+          "text": "- ROS1 / RET / MET / BRAF / NTRK: Negative."
+        },
+        {
+          "line": 18,
+          "text": "PD-L1 Immunohistochemistry (22C3 pharmDx): TPS = 65% (High expression >= 50%)."
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "=== BRAIN MRI / CNS IMAGING ==="
+        },
+        {
+          "line": 21,
+          "text": "2026-09-24 Brain MRI w/ contrast: Single 1.2 cm left parietal lobe parenchymal metastasis with minimal vasogenic edema; zero brainstem lesions, no leptomeningeal enhancement, no midline shift."
+        },
+        {
+          "line": 22,
+          "text": "2026-09-30 Stereotactic Radiosurgery (SRS): Single-fraction 20 Gy Gamma Knife SRS delivered to 1.2 cm left parietal lesion (completed 45 days prior to 2026-11-14)."
+        },
+        {
+          "line": 23,
+          "text": "2026-11-06 Follow-up Brain MRI: Post-SRS stability of 1.2 cm left parietal lesion, resolution of perilesional edema, no new CNS lesions, neurologically asymptomatic, no seizures."
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "=== RADIATION ONCOLOGY HISTORY ==="
+        },
+        {
+          "line": 26,
+          "text": "- 2026-09-30: Cranial SRS (20 Gy x 1 fx) to left parietal brain metastasis (45 days prior to 2026-11-14)."
+        },
+        {
+          "line": 27,
+          "text": "- Thoracic / Lung Radiotherapy: None (0 Gy prior thoracic or lung irradiation)."
+        },
+        {
+          "line": 28,
+          "text": ""
+        },
+        {
+          "line": 29,
+          "text": "=== ACTIVE & PRIOR MEDICATIONS ==="
+        },
+        {
+          "line": 30,
+          "text": "- Dexamethasone (taper completed): Started 2 mg PO daily on 2026-09-28 post-SRS; tapered and discontinued permanently on 2026-10-15 (off systemic corticosteroids for 30 days prior to 2026-11-14; current daily prednisone equivalent = 0.0 mg/day)."
+        },
+        {
+          "line": 31,
+          "text": "- Atorvastatin 20 mg PO daily (chronic hyperlipidemia)."
+        },
+        {
+          "line": 32,
+          "text": "- Lisinopril 10 mg PO daily (well-controlled hypertension)."
+        },
+        {
+          "line": 33,
+          "text": "- Prior Systemic Anticancer / Investigational Agents: None. No live vaccines in past 90 days. No major surgery in past 60 days."
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "=== LABORATORY PANEL (Collected 2026-11-12) ==="
+        },
+        {
+          "line": 36,
+          "text": "- Renal Function: Serum Creatinine 0.85 mg/dL | eGFR (CKD-EPI): 78 mL/min/1.73m2 (Reference >= 50)."
+        },
+        {
+          "line": 37,
+          "text": "- Hepatic Function: AST 24 U/L (ULN 40) | ALT 29 U/L (ULN 40) | Total Bilirubin 0.7 mg/dL (ULN 1.2)."
+        },
+        {
+          "line": 38,
+          "text": "- Hematology: WBC 6.4 K/uL | Absolute Neutrophil Count (ANC): 4,200 /uL | Hemoglobin 12.6 g/dL | Platelets: 245,000 /uL."
+        },
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "=== ECOG PERFORMANCE STATUS ==="
+        },
+        {
+          "line": 41,
+          "text": "ECOG Performance Status: 1 (symptomatic mild exertional dyspnea, fully ambulatory and independent in all ADLs)."
+        },
+        {
+          "line": 42,
+          "text": "Assessor Note: Meets all NCT04613596 Phase 3 inclusion criteria; zero exclusion triggers."
+        }
+      ]
+    },
+    {
+      "patient_id": "PT-102",
+      "name": "Marcus Vance",
+      "age": 68,
+      "sex": "M",
+      "diagnosis": "Stage IV Non-Small Cell Lung Cancer (NSCLC)",
+      "stage": "Stage IV (cT2bN2M1c)",
+      "target_nct": "NCT04613596",
+      "target_ncts": [
+        "NCT04613596",
+        "NCT04787042"
+      ],
+      "target_phase": "PHASE3",
+      "reference_date": "2026-11-14",
+      "expected_verdict": "CONTRAINDICATED",
+      "clinical_trap_summary": "Dual R1 + R2 trap: Ongoing Dexamethasone 2 mg PO BID (4 mg/day = 26.7 mg/day Prednisone eq > 10.0 mg/day ceiling) for right frontal brain lesion edema AND completed 1 cycle of investigational anti-LAG-3 modulator on 2026-10-26 (19 days ago < 28d washout for NCT04787042 and violates 0 prior metastatic lines for NCT04613596).",
+      "structured_truth": {
+        "ecog": 1,
+        "able_to_swallow_oral": true,
+        "measurable_disease_recist11": true,
+        "measurable_lesion_cm": 4.1,
+        "accessible_biopsy_lesion": false,
+        "biomarkers": {
+          "kras_g12c": "POSITIVE",
+          "pd_l1_tps_pct": 70,
+          "egfr": "NEGATIVE",
+          "alk": "NEGATIVE",
+          "ros1": "NEGATIVE"
+        },
+        "labs": {
+          "test_date": "2026-11-12",
+          "egfr_ml_min": 72,
+          "ast_u_l": 28,
+          "alt_u_l": 31,
+          "total_bilirubin_mg_dl": 0.8,
+          "anc_per_ul": 4800,
+          "platelets_per_ul": 220000
+        },
+        "medications": [
+          {
+            "name": "Dexamethasone",
+            "type": "systemic_corticosteroid",
+            "daily_dose_mg": 4.0,
+            "dose_schedule": "2 mg PO BID",
+            "start_date": "2026-11-01",
+            "last_dose_date": "2026-11-14",
+            "ongoing": true,
+            "indication": "Peritumoral edema around 1.6 cm right frontal brain lesion",
+            "prednisone_eq_mg_day": 26.67
+          },
+          {
+            "name": "Investigational anti-LAG-3 checkpoint modulator",
+            "type": "investigational_anticancer",
+            "daily_dose_mg": null,
+            "dose_schedule": "Cycle 1 completed",
+            "start_date": "2026-10-26",
+            "last_dose_date": "2026-10-26",
+            "ongoing": false,
+            "days_since_last_dose": 19
+          }
+        ],
+        "radiation_history": [],
+        "cns_lesions": {
+          "has_lesions": true,
+          "count": 1,
+          "max_size_cm": 1.6,
+          "location": "right frontal",
+          "brainstem": false,
+          "treated": false,
+          "peritumoral_edema": true,
+          "symptomatic": true,
+          "needs_immediate_local_therapy": true
+        },
+        "prior_lines": [
+          {
+            "line_number": 1,
+            "setting": "metastatic",
+            "regimen": "Investigational anti-LAG-3 checkpoint modulator (1 cycle)",
+            "last_dose_date": "2026-10-26",
+            "days_since_last_dose": 19
+          }
+        ],
+        "live_vaccine_days_ago": null,
+        "major_surgery_days_ago": null,
+        "rule_evaluations": {
+          "r1_steroid_ok": false,
+          "r1_prednisone_eq_mg": 26.67,
+          "r2_washout_ok": false,
+          "r2_days_since_investigational": 19,
+          "r3_radiation_ok": true,
+          "r4_organ_reserve_ok": true,
+          "r5_biomarkers_ok": true,
+          "earliest_rescreen_date": "2026-11-23"
+        }
+      },
+      "ehr_text": "PATIENT IDENTIFIER: PT-102 | NAME: Marcus Vance | DOB/AGE: 68yo Male | REF DATE: 2026-11-14\nCLINICAL ENCOUNTER: Phase 3 / Phase 1/2 Trial Eligibility Review (Targets: NCT04613596 & NCT04787042)\n\n=== DEMOGRAPHICS & CLINICAL SUMMARY ===\nMarcus Vance is a 68-year-old male (40 pack-year former smoker) evaluated for enrollment into NCT04613596 (KRYSTAL-7 Phase 3) and NCT04787042 (ST-067 Phase 1/2) for metastatic NSCLC.\n\n=== DIAGNOSIS & STAGE ===\nPrimary Diagnosis: Stage IV (cT2bN2M1c) squamous/non-squamous NSCLC (adenocarcinoma predominant), diagnosed 2026-08-18.\nTarget Disease Burden (RECIST 1.1): Measurable 4.1 cm left lower lobe (LLL) pulmonary mass with ipsilateral mediastinal lymphadenopathy and solitary right frontal brain metastasis.\n\n=== PATHOLOGY & MOLECULAR NGS ===\nTissue NGS Panel (finalized 2026-09-02):\n- KRAS: p.G12C mutation DETECTED.\n- EGFR: Negative / Wild-Type.\n- ALK / ROS1 / NTRK: Negative.\nPD-L1 Immunohistochemistry (22C3): TPS = 70% (>= 50%).\n\n=== BRAIN MRI / CNS IMAGING ===\n2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion.\n\n=== RADIATION ONCOLOGY HISTORY ===\n- Prior Thoracic / Lung Radiotherapy: None.\n- Neurosurgical/RT consultation pending for right frontal lesion; no cranial RT completed yet.\n\n=== ACTIVE & PRIOR MEDICATIONS ===\n- Dexamethasone 2 mg PO BID (total daily dose = 4.0 mg/day), started 2026-11-01 and ONGOING as of 2026-11-14 for symptomatic peritumoral edema around the 1.6 cm right frontal brain lesion.\n  [Potency Calculation: 4.0 mg/day Dexamethasone * (5.0 / 0.75) = 26.7 mg/day Prednisone equivalent -> EXCEEDS 10.0 mg/day ceiling].\n- Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596).\n- Omeprazole 20 mg PO daily (GI prophylaxis).\n\n=== LABORATORY PANEL (Collected 2026-11-12) ===\n- Renal Function: eGFR 72 mL/min/1.73m2.\n- Hepatic Function: AST 28 U/L (ULN 40) | ALT 31 U/L (ULN 40) | Total Bilirubin 0.8 mg/dL (ULN 1.2).\n- Hematology: ANC 4,800 /uL | Platelets 220,000 /uL.\n\n=== ECOG PERFORMANCE STATUS ===\nECOG Performance Status: 1.\nAssessor Note: CONTRAINDICATED for both NCT04613596 and NCT04787042 due to supratherapeutic steroid dose (26.7 mg/day Prednisone eq) and recent investigational systemic therapy (19 days ago).",
+      "ehr_lines": [
+        {
+          "line": 1,
+          "text": "PATIENT IDENTIFIER: PT-102 | NAME: Marcus Vance | DOB/AGE: 68yo Male | REF DATE: 2026-11-14"
+        },
+        {
+          "line": 2,
+          "text": "CLINICAL ENCOUNTER: Phase 3 / Phase 1/2 Trial Eligibility Review (Targets: NCT04613596 & NCT04787042)"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "=== DEMOGRAPHICS & CLINICAL SUMMARY ==="
+        },
+        {
+          "line": 5,
+          "text": "Marcus Vance is a 68-year-old male (40 pack-year former smoker) evaluated for enrollment into NCT04613596 (KRYSTAL-7 Phase 3) and NCT04787042 (ST-067 Phase 1/2) for metastatic NSCLC."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "=== DIAGNOSIS & STAGE ==="
+        },
+        {
+          "line": 8,
+          "text": "Primary Diagnosis: Stage IV (cT2bN2M1c) squamous/non-squamous NSCLC (adenocarcinoma predominant), diagnosed 2026-08-18."
+        },
+        {
+          "line": 9,
+          "text": "Target Disease Burden (RECIST 1.1): Measurable 4.1 cm left lower lobe (LLL) pulmonary mass with ipsilateral mediastinal lymphadenopathy and solitary right frontal brain metastasis."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "=== PATHOLOGY & MOLECULAR NGS ==="
+        },
+        {
+          "line": 12,
+          "text": "Tissue NGS Panel (finalized 2026-09-02):"
+        },
+        {
+          "line": 13,
+          "text": "- KRAS: p.G12C mutation DETECTED."
+        },
+        {
+          "line": 14,
+          "text": "- EGFR: Negative / Wild-Type."
+        },
+        {
+          "line": 15,
+          "text": "- ALK / ROS1 / NTRK: Negative."
+        },
+        {
+          "line": 16,
+          "text": "PD-L1 Immunohistochemistry (22C3): TPS = 70% (>= 50%)."
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "=== BRAIN MRI / CNS IMAGING ==="
+        },
+        {
+          "line": 19,
+          "text": "2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion."
+        },
+        {
+          "line": 20,
+          "text": ""
+        },
+        {
+          "line": 21,
+          "text": "=== RADIATION ONCOLOGY HISTORY ==="
+        },
+        {
+          "line": 22,
+          "text": "- Prior Thoracic / Lung Radiotherapy: None."
+        },
+        {
+          "line": 23,
+          "text": "- Neurosurgical/RT consultation pending for right frontal lesion; no cranial RT completed yet."
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "=== ACTIVE & PRIOR MEDICATIONS ==="
+        },
+        {
+          "line": 26,
+          "text": "- Dexamethasone 2 mg PO BID (total daily dose = 4.0 mg/day), started 2026-11-01 and ONGOING as of 2026-11-14 for symptomatic peritumoral edema around the 1.6 cm right frontal brain lesion."
+        },
+        {
+          "line": 27,
+          "text": "  [Potency Calculation: 4.0 mg/day Dexamethasone * (5.0 / 0.75) = 26.7 mg/day Prednisone equivalent -> EXCEEDS 10.0 mg/day ceiling]."
+        },
+        {
+          "line": 28,
+          "text": "- Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596)."
+        },
+        {
+          "line": 29,
+          "text": "- Omeprazole 20 mg PO daily (GI prophylaxis)."
+        },
+        {
+          "line": 30,
+          "text": ""
+        },
+        {
+          "line": 31,
+          "text": "=== LABORATORY PANEL (Collected 2026-11-12) ==="
+        },
+        {
+          "line": 32,
+          "text": "- Renal Function: eGFR 72 mL/min/1.73m2."
+        },
+        {
+          "line": 33,
+          "text": "- Hepatic Function: AST 28 U/L (ULN 40) | ALT 31 U/L (ULN 40) | Total Bilirubin 0.8 mg/dL (ULN 1.2)."
+        },
+        {
+          "line": 34,
+          "text": "- Hematology: ANC 4,800 /uL | Platelets 220,000 /uL."
+        },
+        {
+          "line": 35,
+          "text": ""
+        },
+        {
+          "line": 36,
+          "text": "=== ECOG PERFORMANCE STATUS ==="
+        },
+        {
+          "line": 37,
+          "text": "ECOG Performance Status: 1."
+        },
+        {
+          "line": 38,
+          "text": "Assessor Note: CONTRAINDICATED for both NCT04613596 and NCT04787042 due to supratherapeutic steroid dose (26.7 mg/day Prednisone eq) and recent investigational systemic therapy (19 days ago)."
+        }
+      ]
+    },
+    {
+      "patient_id": "PT-103",
+      "name": "Sofia Morales",
+      "age": 57,
+      "sex": "F",
+      "diagnosis": "Metastatic Triple-Negative Breast Cancer (TNBC)",
+      "stage": "Stage IV",
+      "target_nct": "NCT04787042",
+      "target_ncts": [
+        "NCT04787042"
+      ],
+      "target_phase": "PHASE1_PHASE2",
+      "reference_date": "2026-11-14",
+      "expected_verdict": "CONTRAINDICATED",
+      "clinical_trap_summary": "Dual R3 + R4 trap: Received 45 Gy thoracic wall/lung radiation completed 2026-07-27 (110 days ago < 180 days limit for >30 Gy) AND labs on 2026-11-12 show CTCAE Grade 2 hepatotoxicity (AST 142 U/L [3.55x ULN 40], ALT 156 U/L [3.90x ULN 40], exceeding 100 U/L safety floor).",
+      "structured_truth": {
+        "ecog": 1,
+        "able_to_swallow_oral": true,
+        "measurable_disease_recist11": true,
+        "measurable_lesion_cm": 2.8,
+        "accessible_biopsy_lesion": true,
+        "biomarkers": {
+          "er": "NEGATIVE",
+          "pr": "NEGATIVE",
+          "her2": "NEGATIVE (IHC 0 / FISH negative)"
+        },
+        "labs": {
+          "test_date": "2026-11-12",
+          "egfr_ml_min": 81,
+          "ast_u_l": 142,
+          "alt_u_l": 156,
+          "total_bilirubin_mg_dl": 0.9,
+          "anc_per_ul": 3800,
+          "platelets_per_ul": 195000
+        },
+        "medications": [],
+        "radiation_history": [
+          {
+            "site": "Thoracic chest wall / left lung apex",
+            "modality": "External Beam RT",
+            "total_dose_gy": 45.0,
+            "start_date": "2026-06-29",
+            "end_date": "2026-07-27",
+            "days_prior_to_ref": 110,
+            "is_thoracic_lung": true
+          }
+        ],
+        "cns_lesions": {
+          "has_lesions": false,
+          "count": 0
+        },
+        "prior_lines": [
+          {
+            "line_number": 2,
+            "setting": "metastatic",
+            "regimen": "Paclitaxel + Carboplatin",
+            "last_dose_date": "2026-09-18",
+            "days_since_last_dose": 57
+          }
+        ],
+        "live_vaccine_days_ago": null,
+        "major_surgery_days_ago": null,
+        "rule_evaluations": {
+          "r1_steroid_ok": true,
+          "r2_washout_ok": true,
+          "r3_radiation_ok": false,
+          "r3_thoracic_rt_days_ago": 110,
+          "r4_organ_reserve_ok": false,
+          "r4_ast_uln_ratio": 3.55,
+          "r4_alt_uln_ratio": 3.9,
+          "r5_biomarkers_ok": true,
+          "earliest_rescreen_date": "2027-01-23"
+        }
+      },
+      "ehr_text": "PATIENT IDENTIFIER: PT-103 | NAME: Sofia Morales | DOB/AGE: 57yo Female | REF DATE: 2026-11-14\nCLINICAL ENCOUNTER: Early-Phase Solid Tumor Immunotherapy Screening (Target: NCT04787042)\n\n=== DEMOGRAPHICS & CLINICAL SUMMARY ===\nSofia Morales is a 57-year-old female presenting for evaluation for NCT04787042 (Phase 1/2 ST-067 IL-18 trial) for progressive metastatic Triple-Negative Breast Cancer (TNBC).\n\n=== DIAGNOSIS & STAGE ===\nPrimary Diagnosis: Stage IV metastatic Triple-Negative Breast Cancer (TNBC), progressive after 2 prior lines of systemic chemotherapy (last systemic paclitaxel/carboplatin cycle completed 2026-09-18, 57 days prior to 2026-11-14).\nTarget Disease Burden (RECIST 1.1): Measurable 2.8 cm segment VII hepatic metastasis (CT 2026-11-08).\nBiopsy Accessibility: Accessible 2.1 cm right axillary lymph node suitable for mandatory pre- and on-treatment core needle biopsies.\n\n=== PATHOLOGY & MOLECULAR NGS ===\nBreast Tumor Receptor Profile (confirmed on metastatic core biopsy):\n- Estrogen Receptor (ER): Negative (0%).\n- Progesterone Receptor (PR): Negative (0%).\n- HER2: IHC 0, FISH Negative (not amplified).\n- BRCA1/2 germline: Wild-Type.\n\n=== BRAIN MRI / CNS IMAGING ===\n2026-10-20 Brain MRI w/ contrast: No intracranial metastasis or leptomeningeal disease.\n\n=== RADIATION ONCOLOGY HISTORY ===\n- 2026-06-29 to 2026-07-27: Palliative external beam radiotherapy to left thoracic chest wall / underlying left lung apex, total dose 45 Gy in 15 fractions, completed 2026-07-27 (110 days prior to 2026-11-14; violates >30 Gy thoracic/lung radiation within 180 days exclusion [earliest 180-day clearance: 2027-01-23]).\n\n=== ACTIVE & PRIOR MEDICATIONS ===\n- Systemic Corticosteroids: None (0 mg/day).\n- Prior Systemic Therapy: Paclitaxel + Carboplatin completed 2026-09-18 (57 days prior to 2026-11-14; meets >=28-day washout).\n- Ondansetron 4 mg PO PRN nausea; Acetaminophen 500 mg PO PRN.\n\n=== LABORATORY PANEL (Collected 2026-11-12) ===\n- Renal Function: eGFR 81 mL/min/1.73m2.\n- Hepatic Function: AST 142 U/L (3.55x ULN 40 -> CTCAE v5.0 Grade 2 elevation) | ALT 156 U/L (3.90x ULN 40 -> CTCAE v5.0 Grade 2 elevation) | Total Bilirubin 0.9 mg/dL (ULN 1.2).\n- Hematology: ANC 3,800 /uL | Platelets 195,000 /uL.\n\n=== ECOG PERFORMANCE STATUS ===\nECOG Performance Status: 1.\nAssessor Note: CONTRAINDICATED for NCT04787042 due to 45 Gy thoracic/lung RT 110 days ago (<180 days) AND CTCAE Grade 2 transaminitis (AST 142, ALT 156 > 100 U/L limit).",
+      "ehr_lines": [
+        {
+          "line": 1,
+          "text": "PATIENT IDENTIFIER: PT-103 | NAME: Sofia Morales | DOB/AGE: 57yo Female | REF DATE: 2026-11-14"
+        },
+        {
+          "line": 2,
+          "text": "CLINICAL ENCOUNTER: Early-Phase Solid Tumor Immunotherapy Screening (Target: NCT04787042)"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "=== DEMOGRAPHICS & CLINICAL SUMMARY ==="
+        },
+        {
+          "line": 5,
+          "text": "Sofia Morales is a 57-year-old female presenting for evaluation for NCT04787042 (Phase 1/2 ST-067 IL-18 trial) for progressive metastatic Triple-Negative Breast Cancer (TNBC)."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "=== DIAGNOSIS & STAGE ==="
+        },
+        {
+          "line": 8,
+          "text": "Primary Diagnosis: Stage IV metastatic Triple-Negative Breast Cancer (TNBC), progressive after 2 prior lines of systemic chemotherapy (last systemic paclitaxel/carboplatin cycle completed 2026-09-18, 57 days prior to 2026-11-14)."
+        },
+        {
+          "line": 9,
+          "text": "Target Disease Burden (RECIST 1.1): Measurable 2.8 cm segment VII hepatic metastasis (CT 2026-11-08)."
+        },
+        {
+          "line": 10,
+          "text": "Biopsy Accessibility: Accessible 2.1 cm right axillary lymph node suitable for mandatory pre- and on-treatment core needle biopsies."
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "=== PATHOLOGY & MOLECULAR NGS ==="
+        },
+        {
+          "line": 13,
+          "text": "Breast Tumor Receptor Profile (confirmed on metastatic core biopsy):"
+        },
+        {
+          "line": 14,
+          "text": "- Estrogen Receptor (ER): Negative (0%)."
+        },
+        {
+          "line": 15,
+          "text": "- Progesterone Receptor (PR): Negative (0%)."
+        },
+        {
+          "line": 16,
+          "text": "- HER2: IHC 0, FISH Negative (not amplified)."
+        },
+        {
+          "line": 17,
+          "text": "- BRCA1/2 germline: Wild-Type."
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "=== BRAIN MRI / CNS IMAGING ==="
+        },
+        {
+          "line": 20,
+          "text": "2026-10-20 Brain MRI w/ contrast: No intracranial metastasis or leptomeningeal disease."
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "=== RADIATION ONCOLOGY HISTORY ==="
+        },
+        {
+          "line": 23,
+          "text": "- 2026-06-29 to 2026-07-27: Palliative external beam radiotherapy to left thoracic chest wall / underlying left lung apex, total dose 45 Gy in 15 fractions, completed 2026-07-27 (110 days prior to 2026-11-14; violates >30 Gy thoracic/lung radiation within 180 days exclusion [earliest 180-day clearance: 2027-01-23])."
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "=== ACTIVE & PRIOR MEDICATIONS ==="
+        },
+        {
+          "line": 26,
+          "text": "- Systemic Corticosteroids: None (0 mg/day)."
+        },
+        {
+          "line": 27,
+          "text": "- Prior Systemic Therapy: Paclitaxel + Carboplatin completed 2026-09-18 (57 days prior to 2026-11-14; meets >=28-day washout)."
+        },
+        {
+          "line": 28,
+          "text": "- Ondansetron 4 mg PO PRN nausea; Acetaminophen 500 mg PO PRN."
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "=== LABORATORY PANEL (Collected 2026-11-12) ==="
+        },
+        {
+          "line": 31,
+          "text": "- Renal Function: eGFR 81 mL/min/1.73m2."
+        },
+        {
+          "line": 32,
+          "text": "- Hepatic Function: AST 142 U/L (3.55x ULN 40 -> CTCAE v5.0 Grade 2 elevation) | ALT 156 U/L (3.90x ULN 40 -> CTCAE v5.0 Grade 2 elevation) | Total Bilirubin 0.9 mg/dL (ULN 1.2)."
+        },
+        {
+          "line": 33,
+          "text": "- Hematology: ANC 3,800 /uL | Platelets 195,000 /uL."
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "=== ECOG PERFORMANCE STATUS ==="
+        },
+        {
+          "line": 36,
+          "text": "ECOG Performance Status: 1."
+        },
+        {
+          "line": 37,
+          "text": "Assessor Note: CONTRAINDICATED for NCT04787042 due to 45 Gy thoracic/lung RT 110 days ago (<180 days) AND CTCAE Grade 2 transaminitis (AST 142, ALT 156 > 100 U/L limit)."
+        }
+      ]
+    },
+    {
+      "patient_id": "PT-104",
+      "name": "David Chen",
+      "age": 64,
+      "sex": "M",
+      "diagnosis": "Resected Stage IIIA Non-Small Cell Lung Cancer (NSCLC)",
+      "stage": "Stage IIIA (pT2bN1M0)",
+      "target_nct": "NCT06890598",
+      "target_ncts": [
+        "NCT06890598"
+      ],
+      "target_phase": "PHASE3",
+      "reference_date": "2026-11-14",
+      "expected_verdict": "NEEDS_HUMAN_REVIEW",
+      "clinical_trap_summary": "R5 pending biomarker gate: KRAS G12C detected on ctDNA liquid biopsy with clean labs, ECOG 0, and oral swallowing intact, BUT surgical tissue reflex EGFR/ALK fusion panel is PENDING_LAB_RESULT and PD-L1 IHC is PENDING_LAB_RESULT.",
+      "structured_truth": {
+        "ecog": 0,
+        "able_to_swallow_oral": true,
+        "measurable_disease_recist11": false,
+        "resected_stage_ii_iiib": true,
+        "accessible_biopsy_lesion": false,
+        "biomarkers": {
+          "kras_g12c": "POSITIVE (ctDNA liquid biopsy)",
+          "egfr": "PENDING_LAB_RESULT",
+          "alk": "PENDING_LAB_RESULT",
+          "pd_l1_tps_pct": "PENDING_LAB_RESULT"
+        },
+        "labs": {
+          "test_date": "2026-11-12",
+          "egfr_ml_min": 84,
+          "ast_u_l": 22,
+          "alt_u_l": 25,
+          "total_bilirubin_mg_dl": 0.6,
+          "anc_per_ul": 3900,
+          "platelets_per_ul": 210000
+        },
+        "medications": [],
+        "radiation_history": [],
+        "cns_lesions": {
+          "has_lesions": false,
+          "count": 0
+        },
+        "prior_lines": [],
+        "prior_autoimmune_or_irae": false,
+        "prior_malignancy_2yr": false,
+        "live_vaccine_days_ago": null,
+        "major_surgery_days_ago": 40,
+        "rule_evaluations": {
+          "r1_steroid_ok": true,
+          "r2_washout_ok": true,
+          "r3_radiation_ok": true,
+          "r4_organ_reserve_ok": true,
+          "r5_biomarkers_ok": "PENDING_LAB_RESULT",
+          "earliest_rescreen_date": null
+        }
+      },
+      "ehr_text": "PATIENT IDENTIFIER: PT-104 | NAME: David Chen | DOB/AGE: 64yo Male | REF DATE: 2026-11-14\nCLINICAL ENCOUNTER: Adjuvant Thoracic Oncology Clinical Trial Screening (Target: NCT06890598 Phase 3)\n\n=== DEMOGRAPHICS & CLINICAL SUMMARY ===\nDavid Chen is a 64-year-old male post-operative thoracic surgery patient being evaluated for NCT06890598 (SUNRAY-02 Phase 3 Olomorasib + Standard of Care Immunotherapy, Part A).\n\n=== DIAGNOSIS & STAGE ===\nPrimary Diagnosis: Pathologic Stage IIIA (pT2bN1M0) non-squamous Non-Small Cell Lung Cancer (NSCLC), status post upfront RUL lobectomy and mediastinal lymph node dissection on 2026-10-05 (40 days post-op, well healed).\nClinical Status: Able to swallow intact oral tablets without dysphagia or GI malabsorption. No prior history of other malignancy within 2 years, no active autoimmune disease, and no prior immunotherapy or Grade >= 3 irAE.\n\n=== PATHOLOGY & MOLECULAR NGS ===\n- Liquid Biopsy ctDNA (Guardant360, collected 2026-10-28): KRAS p.G12C mutation DETECTED (MAF 0.8%).\n- Surgical Specimen Reflex Molecular Panel (EGFR exons 18-21 PCR/NGS and ALK IHC/FISH fusion): PENDING_LAB_RESULT (specimen currently in molecular pathology queue; expected turnaround 5 business days).\n- Surgical Specimen PD-L1 IHC (22C3 pharmDx): PENDING_LAB_RESULT (staining pending pathologist sign-out).\n\n=== BRAIN MRI / CNS IMAGING ===\n2026-09-25 Pre-operative Brain MRI w/ contrast: Normal brain parenchyma; no intracranial metastases.\n\n=== RADIATION ONCOLOGY HISTORY ===\n- Prior Radiotherapy: None.\n\n=== ACTIVE & PRIOR MEDICATIONS ===\n- Systemic Corticosteroids: None (0 mg/day).\n- Prior Systemic Anticancer Therapy: None (upfront surgical resection).\n- Metformin 500 mg PO BID (well-controlled T2DM); Rosuvastatin 10 mg PO daily.\n\n=== LABORATORY PANEL (Collected 2026-11-12) ===\n- Renal Function: eGFR 84 mL/min/1.73m2.\n- Hepatic Function: AST 22 U/L (ULN 40) | ALT 25 U/L (ULN 40) | Total Bilirubin 0.6 mg/dL (ULN 1.2).\n- Hematology: ANC 3,900 /uL | Platelets 210,000 /uL.\n\n=== ECOG PERFORMANCE STATUS ===\nECOG Performance Status: 0 (fully active, asymptomatic post-op recovery).\nAssessor Note: NEEDS_HUMAN_REVIEW — patient passes all organ reserve, surgical recovery, and KRAS G12C inclusion criteria, but tissue EGFR/ALK reflex exclusion and PD-L1 expression are PENDING_LAB_RESULT.",
+      "ehr_lines": [
+        {
+          "line": 1,
+          "text": "PATIENT IDENTIFIER: PT-104 | NAME: David Chen | DOB/AGE: 64yo Male | REF DATE: 2026-11-14"
+        },
+        {
+          "line": 2,
+          "text": "CLINICAL ENCOUNTER: Adjuvant Thoracic Oncology Clinical Trial Screening (Target: NCT06890598 Phase 3)"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "=== DEMOGRAPHICS & CLINICAL SUMMARY ==="
+        },
+        {
+          "line": 5,
+          "text": "David Chen is a 64-year-old male post-operative thoracic surgery patient being evaluated for NCT06890598 (SUNRAY-02 Phase 3 Olomorasib + Standard of Care Immunotherapy, Part A)."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "=== DIAGNOSIS & STAGE ==="
+        },
+        {
+          "line": 8,
+          "text": "Primary Diagnosis: Pathologic Stage IIIA (pT2bN1M0) non-squamous Non-Small Cell Lung Cancer (NSCLC), status post upfront RUL lobectomy and mediastinal lymph node dissection on 2026-10-05 (40 days post-op, well healed)."
+        },
+        {
+          "line": 9,
+          "text": "Clinical Status: Able to swallow intact oral tablets without dysphagia or GI malabsorption. No prior history of other malignancy within 2 years, no active autoimmune disease, and no prior immunotherapy or Grade >= 3 irAE."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "=== PATHOLOGY & MOLECULAR NGS ==="
+        },
+        {
+          "line": 12,
+          "text": "- Liquid Biopsy ctDNA (Guardant360, collected 2026-10-28): KRAS p.G12C mutation DETECTED (MAF 0.8%)."
+        },
+        {
+          "line": 13,
+          "text": "- Surgical Specimen Reflex Molecular Panel (EGFR exons 18-21 PCR/NGS and ALK IHC/FISH fusion): PENDING_LAB_RESULT (specimen currently in molecular pathology queue; expected turnaround 5 business days)."
+        },
+        {
+          "line": 14,
+          "text": "- Surgical Specimen PD-L1 IHC (22C3 pharmDx): PENDING_LAB_RESULT (staining pending pathologist sign-out)."
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "=== BRAIN MRI / CNS IMAGING ==="
+        },
+        {
+          "line": 17,
+          "text": "2026-09-25 Pre-operative Brain MRI w/ contrast: Normal brain parenchyma; no intracranial metastases."
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "=== RADIATION ONCOLOGY HISTORY ==="
+        },
+        {
+          "line": 20,
+          "text": "- Prior Radiotherapy: None."
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "=== ACTIVE & PRIOR MEDICATIONS ==="
+        },
+        {
+          "line": 23,
+          "text": "- Systemic Corticosteroids: None (0 mg/day)."
+        },
+        {
+          "line": 24,
+          "text": "- Prior Systemic Anticancer Therapy: None (upfront surgical resection)."
+        },
+        {
+          "line": 25,
+          "text": "- Metformin 500 mg PO BID (well-controlled T2DM); Rosuvastatin 10 mg PO daily."
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "=== LABORATORY PANEL (Collected 2026-11-12) ==="
+        },
+        {
+          "line": 28,
+          "text": "- Renal Function: eGFR 84 mL/min/1.73m2."
+        },
+        {
+          "line": 29,
+          "text": "- Hepatic Function: AST 22 U/L (ULN 40) | ALT 25 U/L (ULN 40) | Total Bilirubin 0.6 mg/dL (ULN 1.2)."
+        },
+        {
+          "line": 30,
+          "text": "- Hematology: ANC 3,900 /uL | Platelets 210,000 /uL."
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "=== ECOG PERFORMANCE STATUS ==="
+        },
+        {
+          "line": 33,
+          "text": "ECOG Performance Status: 0 (fully active, asymptomatic post-op recovery)."
+        },
+        {
+          "line": 34,
+          "text": "Assessor Note: NEEDS_HUMAN_REVIEW — patient passes all organ reserve, surgical recovery, and KRAS G12C inclusion criteria, but tissue EGFR/ALK reflex exclusion and PD-L1 expression are PENDING_LAB_RESULT."
+        }
+      ]
+    }
+  ]
+}

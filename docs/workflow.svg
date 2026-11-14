@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <style>
+      .font-sans { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+      .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    </style>
+    <filter id="card-shadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#0D9488"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#D97706"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/>
+    </marker>
+    <marker id="arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Light Background -->
+  <rect width="1600" height="900" fill="#F8FAFC"/>
+
+  <!-- Top Header -->
+  <text x="48" y="58" class="font-sans" font-size="32" font-weight="800" fill="#0F172A">TrialSwarm AI — Antigravity /swarm Multi-Agent Architecture</text>
+  <text x="48" y="92" class="font-sans" font-size="20" font-weight="500" fill="#475569">Parallel Clinical Protocol &amp; EHR Auditing with Deterministic Pharmacology &amp; Line-Citation Grounding (Rules R1–R6)</text>
+
+  <!-- Top Right Benchmark Pill -->
+  <rect x="1150" y="30" width="402" height="54" rx="27" fill="#ECFDF5" stroke="#10B981" stroke-width="2"/>
+  <text x="1351" y="64" text-anchor="middle" class="font-sans" font-size="20" font-weight="700" fill="#065F46">n=120 Cohort · 100% Accuracy · 100% Grounded</text>
+
+  <!-- ==================== STAGE 1: CLINICAL INPUTS ==================== -->
+  <g filter="url(#card-shadow)">
+    <rect x="48" y="130" width="460" height="260" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="48" y="130" width="460" height="48" rx="16" fill="#0F172A"/>
+    <rect x="48" y="160" width="460" height="18" fill="#0F172A"/>
+    <text x="72" y="162" class="font-sans" font-size="24" font-weight="700" fill="#FFFFFF">1. Clinical Inputs</text>
+
+    <!-- Protocol Sub-box -->
+    <rect x="68" y="196" width="420" height="78" rx="10" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="86" y="228" class="font-sans" font-size="22" font-weight="700" fill="#0F172A">Protocol: NCT04613596</text>
+    <text x="86" y="258" class="font-sans" font-size="18" font-weight="500" fill="#334155">ClinicalTrials.gov APIv2 (Line-Indexed)</text>
+
+    <!-- EHR Sub-box -->
+    <rect x="68" y="290" width="420" height="80" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="86" y="322" class="font-sans" font-size="22" font-weight="700" fill="#92400E">EHR: PT-102 (Marcus Vance)</text>
+    <text x="86" y="352" class="font-sans" font-size="18" font-weight="600" fill="#B45309">Dexamethasone 2mg BID · anti-LAG-3 (19d)</text>
+  </g>
+
+  <!-- Arrows Stage 1 -> Stage 2 -->
+  <path d="M 508 235 L 552 235 L 552 255 L 580 255" fill="none" stroke="#0D9488" stroke-width="3.5" marker-end="url(#arrow-teal)"/>
+  <path d="M 508 330 L 552 330 L 552 285 L 580 285" fill="none" stroke="#0D9488" stroke-width="3.5" marker-end="url(#arrow-teal)"/>
+
+  <!-- ==================== STAGE 2: PARALLEL /SWARM WORKERS ==================== -->
+  <g filter="url(#card-shadow)">
+    <rect x="588" y="130" width="964" height="260" rx="16" fill="#F0FDFA" stroke="#0D9488" stroke-width="2.5" stroke-dasharray="10,6"/>
+    <text x="614" y="168" class="font-sans" font-size="24" font-weight="800" fill="#0F766E">2. Parallel Antigravity /swarm Workers (Concurrent Execution)</text>
+
+    <!-- Worker A: @extractor -->
+    <rect x="612" y="190" width="445" height="180" rx="12" fill="#FFFFFF" stroke="#14B8A6" stroke-width="2"/>
+    <text x="634" y="228" class="font-sans" font-size="26" font-weight="800" fill="#0F172A">@extractor</text>
+    <rect x="822" y="201" width="215" height="36" rx="18" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="930" y="226" text-anchor="middle" class="font-sans" font-size="19" font-weight="700" fill="#0F766E">Gemini 2.5 Flash</text>
+    <text x="634" y="274" class="font-sans" font-size="20" font-weight="600" fill="#1E293B">Compiles Eligibility Criteria Rules</text>
+    <text x="634" y="308" class="font-sans" font-size="18" fill="#475569">Verbatim Protocol Line Citations (L1–L22)</text>
+    <text x="634" y="344" class="font-mono" font-size="17" font-weight="600" fill="#0D9488">Board Post #2 -&gt; @safety-auditor</text>
+
+    <!-- Worker B: @phenotyper -->
+    <rect x="1083" y="190" width="445" height="180" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+    <text x="1105" y="228" class="font-sans" font-size="26" font-weight="800" fill="#0F172A">@phenotyper</text>
+    <rect x="1310" y="201" width="198" height="36" rx="18" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+    <text x="1409" y="226" text-anchor="middle" class="font-sans" font-size="19" font-weight="700" fill="#065F46">Gemini 2.5 Pro</text>
+    <text x="1105" y="274" class="font-sans" font-size="20" font-weight="600" fill="#1E293B">Extracts Patient Clinical Phenotype</text>
+    <text x="1105" y="308" class="font-sans" font-size="18" fill="#475569">Steroids, Washouts, Labs, RT &amp; Biomarkers</text>
+    <text x="1105" y="344" class="font-mono" font-size="17" font-weight="600" fill="#059669">Board Post #3 -&gt; @safety-auditor</text>
+  </g>
+
+  <!-- Arrow Stage 2 -> Stage 3 -->
+  <path d="M 835 370 L 835 415 L 430 415 L 430 436" fill="none" stroke="#D97706" stroke-width="3.5" marker-end="url(#arrow-amber)"/>
+  <path d="M 1305 370 L 1305 415 L 430 415 L 430 436" fill="none" stroke="#D97706" stroke-width="3.5"/>
+
+  <!-- ==================== STAGE 3: CLINICAL PHARMACOLOGY ENGINE ==================== -->
+  <g filter="url(#card-shadow)">
+    <rect x="48" y="445" width="760" height="225" rx="16" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.5"/>
+    <rect x="48" y="445" width="760" height="50" rx="16" fill="#D97706"/>
+    <rect x="48" y="478" width="760" height="17" fill="#D97706"/>
+    <text x="72" y="479" class="font-sans" font-size="24" font-weight="700" fill="#FFFFFF">3. @safety-auditor · Clinical Pharmacology Engine (Rules R1–R5)</text>
+
+    <!-- Rule R1 Highlight -->
+    <rect x="68" y="512" width="720" height="56" rx="10" fill="#FEE2E2" stroke="#EF4444" stroke-width="2"/>
+    <text x="86" y="547" class="font-sans" font-size="22" font-weight="800" fill="#991B1B">Rule R1: 4mg Dex = 26.7mg Pred eq (&gt; 10mg Ceiling) -&gt; BLOCKER</text>
+
+    <text x="72" y="598" class="font-sans" font-size="20" font-weight="700" fill="#78350F">Rule R2 Washout: 19d elapsed &lt; 28d limit · Hold until 2026-11-23</text>
+    <text x="72" y="634" class="font-sans" font-size="19" font-weight="500" fill="#475569">Rules R3–R5: Thoracic RT &gt; 30 Gy · CTCAE v5.0 Grade &gt;= 2 · Reflex Biomarkers</text>
+  </g>
+
+  <!-- Arrow Stage 3 -> Stage 4 -->
+  <path d="M 808 558 L 858 558" fill="none" stroke="#059669" stroke-width="4" marker-end="url(#arrow-emerald)"/>
+
+  <!-- ==================== STAGE 4: GROUNDING GATE ==================== -->
+  <g filter="url(#card-shadow)">
+    <rect x="868" y="445" width="684" height="225" rx="16" fill="#ECFDF5" stroke="#10B981" stroke-width="2.5"/>
+    <rect x="868" y="445" width="684" height="50" rx="16" fill="#059669"/>
+    <rect x="868" y="478" width="684" height="17" fill="#059669"/>
+    <text x="892" y="479" class="font-sans" font-size="24" font-weight="700" fill="#FFFFFF">4. @verifier · Grounding Gate (Rule R6)</text>
+
+    <text x="892" y="536" class="font-sans" font-size="22" font-weight="700" fill="#0F172A">Exact Verbatim Line Substring Check</text>
+    <text x="892" y="568" class="font-sans" font-size="19" font-weight="500" fill="#334155">Validates every quote against [line_start..line_end] in Protocol &amp; EHR</text>
+
+    <rect x="892" y="588" width="636" height="58" rx="10" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
+    <text x="912" y="623" class="font-sans" font-size="20" font-weight="800" fill="#B91C1C">Blocks Hallucinations -&gt; UNVERIFIED_CITATION_BLOCKED</text>
+  </g>
+
+  <!-- Arrow Stage 4 -> Stage 5 -->
+  <path d="M 1210 670 L 1210 704" fill="none" stroke="#334155" stroke-width="4" marker-end="url(#arrow-slate)"/>
+
+  <!-- ==================== STAGE 5: HUMAN-IN-THE-LOOP GATE ==================== -->
+  <g filter="url(#card-shadow)">
+    <rect x="48" y="714" width="1504" height="148" rx="16" fill="#FFFFFF" stroke="#334155" stroke-width="2.5"/>
+    <rect x="48" y="714" width="18" height="148" rx="6" fill="#0F172A"/>
+
+    <text x="92" y="762" class="font-sans" font-size="26" font-weight="800" fill="#0F172A">5. Human-in-the-Loop Gate: CRC / PI Sign-Off</text>
+    <text x="92" y="802" class="font-sans" font-size="22" font-weight="700" fill="#B45309">Verdict: CONTRAINDICATED  |  Action: Safety Washout Hold (Earliest Rescreen: 2026-11-23)</text>
+    <text x="92" y="836" class="font-sans" font-size="18" font-weight="500" fill="#475569">Board Post #8 · Staged SignOffPacket (PENDING_HUMAN_SIGNOFF) awaiting physician review</text>
+
+    <!-- 21 CFR Part 11 Receipt Pill -->
+    <rect x="1030" y="736" width="496" height="104" rx="12" fill="#F0FDF4" stroke="#059669" stroke-width="2"/>
+    <text x="1278" y="778" text-anchor="middle" class="font-sans" font-size="24" font-weight="800" fill="#065F46">21 CFR Part 11 eCRF Receipt</text>
+    <text x="1278" y="814" text-anchor="middle" class="font-mono" font-size="19" font-weight="600" fill="#047857">SHA-256 Tamper-Evident Audit Hash</text>
+  </g>
+</svg>

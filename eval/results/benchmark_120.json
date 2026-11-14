@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-11-14T13:27:47.760005+00:00",
+  "total_cases": 120,
+  "trialswarm_accuracy": 100.0,
+  "trialswarm_sensitivity": 100.0,
+  "trialswarm_specificity": 100.0,
+  "naive_accuracy": 47.5,
+  "naive_sensitivity": 100.0,
+  "naive_specificity": 30.0,
+  "steroid_traps_total": 15,
+  "steroid_traps_caught_trialswarm": 15,
+  "steroid_traps_caught_naive": 9,
+  "washout_and_rt_traps_total": 30,
+  "washout_and_rt_traps_caught_trialswarm": 30,
+  "washout_and_rt_traps_caught_naive": 5,
+  "organ_lab_traps_total": 15,
+  "organ_lab_traps_caught_trialswarm": 15,
+  "organ_lab_traps_caught_naive": 1,
+  "citation_verification_rate": 100.0,
+  "mean_latency_ms": 4.08,
+  "per_trial_breakdown": {
+    "NCT04613596": {
+      "total_cases": 40,
+      "trialswarm_correct": 40,
+      "naive_correct": 19,
+      "trialswarm_accuracy": 100.0,
+      "naive_accuracy": 47.5,
+      "verdicts": {
+        "ELIGIBLE": 10,
+        "CONTRAINDICATED": 25,
+        "NEEDS_HUMAN_REVIEW": 5
+      }
+    },
+    "NCT04787042": {
+      "total_cases": 40,
+      "trialswarm_correct": 40,
+      "naive_correct": 17,
+      "trialswarm_accuracy": 100.0,
+      "naive_accuracy": 42.5,
+      "verdicts": {
+        "ELIGIBLE": 10,
+        "CONTRAINDICATED": 25,
+        "NEEDS_HUMAN_REVIEW": 5
+      }
+    },
+    "NCT06890598": {
+      "total_cases": 40,
+      "trialswarm_correct": 40,
+      "naive_correct": 21,
+      "trialswarm_accuracy": 100.0,
+      "naive_accuracy": 52.5,
+      "verdicts": {
+        "ELIGIBLE": 10,
+        "CONTRAINDICATED": 25,
+        "NEEDS_HUMAN_REVIEW": 5
+      }
+    }
+  },
+  "mismatches": []
+}

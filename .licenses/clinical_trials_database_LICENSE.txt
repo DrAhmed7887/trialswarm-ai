@@ -1,0 +1,18 @@
+ClinicalTrials.gov APIv2 Data Attribution and Terms Notice
+Checked: 2026-11-14
+Source URL: https://clinicaltrials.gov/
+API Endpoint: https://clinicaltrials.gov/api/v2/studies
+
+1. Public Domain & U.S. Government Work
+ClinicalTrials.gov is a database of privately and publicly funded clinical studies conducted around the world, maintained by the U.S. National Library of Medicine (NLM) at the National Institutes of Health (NIH). As a U.S. Federal Government database, protocol metadata and trial eligibility texts retrieved from ClinicalTrials.gov are publicly accessible and generally not subject to domestic copyright protection under 17 U.S.C. § 105, unless otherwise specified by third-party study sponsors.
+
+2. Terms of Use and Attribution
+- Data downloaded via the ClinicalTrials.gov APIv2 is provided "as is" without warranty of any kind.
+- Reusers should cite ClinicalTrials.gov and the specific NCT Identifier(s) (e.g., NCT04613596, NCT04787042, NCT06890598) along with the retrieval date (2026-11-14).
+- NLM does not endorse any derived screening software, automated matching tools, or medical recommendations built using ClinicalTrials.gov data.
+- For clinical decision support, eligibility verification must always reference the full IRB-approved protocol maintained by the study sponsor and investigative site.
+
+3. Trials Included in This Repository
+- NCT04613596 (Sponsor: Mirati Therapeutics Inc.) — https://clinicaltrials.gov/study/NCT04613596
+- NCT04787042 (Sponsor: Simcha IL-18, Inc.) — https://clinicaltrials.gov/study/NCT04787042
+- NCT06890598 (Sponsor: Eli Lilly and Company) — https://clinicaltrials.gov/study/NCT06890598

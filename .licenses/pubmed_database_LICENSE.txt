@@ -1,0 +1,20 @@
+PubMed / NCBI E-utilities Data Disclaimer and Usage Policy
+Checked: 2026-11-14
+Disclaimer URL: https://pubmed.ncbi.nlm.nih.gov/disclaimer/
+NCBI Policies URL: https://www.ncbi.nlm.nih.gov/home/about/policies/
+
+1. Copyright and Bibliographic Data Ownership
+- PubMed comprises citations and abstracts for biomedical literature from MEDLINE, life science journals, and online books.
+- Bibliographic metadata compiled by the National Library of Medicine (NLM) is in the public domain as a U.S. Government work.
+- However, individual abstracts and full-text articles may be copyrighted by the respective publishers, societies, or authors. Users must abide by copyright notices and publisher terms for reproduction or redistribution of full abstracts or articles beyond fair use/research citation.
+
+2. Medical Disclaimer
+- Information retrieved from PubMed and NCBI databases is for research, educational, and informational purposes only and does not constitute medical advice, diagnosis, or treatment recommendations.
+- NLM does not independently verify the clinical accuracy or validity of individual published manuscripts or automated tools citing them.
+
+3. Cited Literature (Retrieved via NCBI E-utilities / PubMed on 2026-11-14)
+- PMID 39557832 (DOI: 10.1038/s41467-024-53081-z) — Nature Communications (2024 Nov 18)
+- PMID 41637159 (DOI: 10.1093/jamia/ocag006) — JAMIA (2026 Apr 01)
+- PMID 39960745 (DOI: 10.1001/jama.2024.28047) — JAMA (2025 Mar 25)
+- PMID 40775946 (DOI: 10.3233/SHTI250928) — Stud Health Technol Inform (2025 Aug 07)
+- PMID 34236403 (DOI: 10.1001/jamaoncol.2021.1165) — JAMA Oncology (2021 Oct 01)
