@@ -486,8 +486,6 @@ class SwarmCoordinator:
             trap_explanation=trap_explanation,
             elapsed_seconds=elapsed_seconds,
             estimated_compute_usd=compute_usd,
-            manual_benchmark_usd=260.0,
-            hours_saved=2.0,
             citation_verification_rate=citation_rate,
             unverified_claims_blocked=unverified_blocked,
             protocol_lines=protocol_lines,

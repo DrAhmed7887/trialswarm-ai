@@ -1187,9 +1187,9 @@
           <div class="kpi-sub">Rule R6 blocks unverified quotes</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">Manual Baseline vs Offline AI</div>
-          <div class="kpi-value" id="kpi-unit-econ">$260 &rarr; $0.00</div>
-          <div class="kpi-sub" id="kpi-unit-sub">Illustrative ~4h CRC cost; ~$0.04 optional Gemini mode</div>
+          <div class="kpi-label">Compute Cost per Case</div>
+          <div class="kpi-value" id="kpi-unit-econ">$0.00</div>
+          <div class="kpi-sub" id="kpi-unit-sub">Offline mode; ~$0.04 est. with optional Gemini mode</div>
         </div>
       </div>
     </section>
@@ -1716,7 +1716,7 @@
           <span><strong>Compute:</strong> $${Number(r.estimated_compute_usd).toFixed(4)}</span>
           <span><strong>Citation Rate:</strong> ${r.citation_verification_rate}% (${r.unverified_claims_blocked} blocked)</span>
         `;
-        els.kpiUnitEcon.textContent = `$${r.manual_benchmark_usd} \u2192 $${Number(r.estimated_compute_usd).toFixed(2)}`;
+        els.kpiUnitEcon.textContent = `$${Number(r.estimated_compute_usd).toFixed(2)}`;
 
         // Trap Callout
         if (r.caught_hidden_trap || r.trap_explanation) {

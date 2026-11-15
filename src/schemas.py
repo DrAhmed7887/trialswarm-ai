@@ -190,8 +190,6 @@ class AuditReport(BaseModel):
     trap_explanation: Optional[str] = None
     elapsed_seconds: float
     estimated_compute_usd: float
-    manual_benchmark_usd: float
-    hours_saved: float
     citation_verification_rate: float
     unverified_claims_blocked: int
     protocol_lines: list[dict[str, Any]]

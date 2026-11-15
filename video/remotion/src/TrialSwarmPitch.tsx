@@ -170,8 +170,6 @@ const Scene1Hook: React.FC = () => {
         </div>
 
         <div style={{ marginTop: 26, fontSize: 32, color: DARK.muted, lineHeight: 1.38 }}>
-          Manual CRC pre-screens cost <b style={{ color: DARK.text }}>~4h ($260)</b> each.
-          <br />
           One missed steroid conversion = <b style={{ color: DARK.red }}>IRB protocol deviation</b>.
         </div>
 

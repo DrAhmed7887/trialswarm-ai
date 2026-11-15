@@ -42,4 +42,4 @@ Evaluated across three real oncology trials (**`NCT04613596`** Mirati KRYSTAL-7,
   - Organ Reserve CTCAE (`R4`, `n = 15`): **`15/15` (`100.0%`)** vs `1/15` (`6.7%`)
   - Pending Reflex Biomarker (`R5`, `n = 15`): **`15/15` (`100.0%`)** vs `0/15` (`0.0%`)
 - **Verbatim Citation Grounding (`R6`):** **`100.0%`** across all 120 screens; live adversarial probe (`POST /api/verify-trap`) blocks fabricated quotes.
-- **Compute & Latency Profile:** **`4.08 ms/case` and `$0.0000` compute** in offline deterministic mode (`~$0.04/case` est. in optional dual-Gemini 2.5 API mode), against an illustrative **`~4 hr ($260)`** manual CRC chart review baseline (`PMID: 39557832` TrialGPT reports `42.6%` screening time reduction in clinical use).
+- **Compute & Latency Profile:** **`4.08 ms/case` and `$0.0000` compute** in offline deterministic mode (`~$0.04/case` est. in optional dual-Gemini 2.5 API mode). Time saved for coordinators has not been measured; for reference, TrialGPT's user study reported a `42.6%` screening-time reduction (`PMID: 39557832`).

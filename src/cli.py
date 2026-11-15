@@ -83,8 +83,7 @@ def _format_full_report(report: AuditReport) -> str:
         lines.append(f"TRAP EXPLANATION:          {report.trap_explanation}")
     lines.append(f"CITATION VERIFICATION:     {report.citation_verification_rate:.1f}% (blocked={report.unverified_claims_blocked})")
     lines.append(
-        f"UNIT ECONOMICS:            ${report.estimated_compute_usd:.4f} compute vs "
-        f"${report.manual_benchmark_usd:.2f} manual (~{report.hours_saved:.1f}h saved)"
+        f"COMPUTE COST:              ${report.estimated_compute_usd:.4f} per case"
     )
     lines.append(
         f"STAGED SIGN-OFF PACKET:    {report.signoff_packet.packet_id} "

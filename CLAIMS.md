@@ -56,7 +56,7 @@
 
 - **Offline Deterministic Compute (`$0.0000`):** Default mode executes `@coordinator`, `@extractor`, `@phenotyper`, `@safety-auditor`, and `@verifier` locally with zero external API keys (`src/swarm/coordinator.py` `_estimate_llm_cost_usd`).
 - **Optional Live Gemini Mode (`~$0.04` / patient estimate):** When `use_llm=True` and `GEMINI_API_KEY` or `GOOGLE_API_KEY` is configured, `@extractor` calls `gemini-2.5-flash` (`src/agents/extractor.py` `_enrich_with_gemini_flash`) and `@phenotyper` calls `gemini-2.5-pro` (`src/agents/phenotyper.py` `_enrich_phenotype_with_gemini_pro`), estimated at `~$0.038`–`$0.04` per dual-agent pass.
-- **Manual CRC Screening Benchmark (`~4h / $260`):** Explicitly labeled across UI and docs as an **illustrative operational benchmark** (`~4h @ $65/hr` loaded CRC review of 80-page protocol + EHR), alongside peer-reviewed literature time savings (`42.6%` in TrialGPT, `PMID: 39557832`).
+- **Screening time:** no manual-cost or time-saved figure is claimed for TrialSwarm AI (not measured). The only time figure cited is from the literature: a `42.6%` screening-time reduction in TrialGPT's user study (Jin et al., *Nat Commun* 2024, `PMID: 39557832`).
 - **No Unverified Commercial / PHI Claims:** Repository contains zero real patient data / zero PHI (`data/DATA_CARD.md`) and makes no ungrounded TAM/CAGR/ARR assertions.
 
 ---
