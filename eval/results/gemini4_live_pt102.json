@@ -1,0 +1,1002 @@
+{
+  "run_id": "RUN-A6E8801704",
+  "nct_id": "NCT04613596",
+  "patient_id": "PT-102",
+  "patient_name": "Marcus Vance",
+  "trial_title": "Phase 2 Trial of Adagrasib Monotherapy and in Combination With Pembrolizumab and a Phase 3 Trial of Adagrasib in Combination in Patients With a KRAS G12C Mutation KRYSTAL-7",
+  "execution_mode": "gemini-4-swarm",
+  "overall_verdict": "CONTRAINDICATED",
+  "naive_baseline_verdict": "ELIGIBLE",
+  "caught_hidden_trap": true,
+  "trap_explanation": "Naive baseline predicted ELIGIBLE, whereas TrialSwarm Rules R1-R5 determined CONTRAINDICATED: Ongoing Dexamethasone 4 mg/day x 6.667 = 26.67 mg/day Prednisone eq (> 10.0 mg/day ceiling) | Prior metastatic systemic therapy (Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596).) violates 0 prior metastatic lines gate",
+  "elapsed_seconds": 18.59,
+  "estimated_compute_usd": 0.0056,
+  "manual_benchmark_usd": 260.0,
+  "hours_saved": 2.0,
+  "citation_verification_rate": 100.0,
+  "unverified_claims_blocked": 0,
+  "protocol_lines": [
+    {
+      "line": 1,
+      "text": "Inclusion Criteria:"
+    },
+    {
+      "line": 2,
+      "text": ""
+    },
+    {
+      "line": 3,
+      "text": "* Phase 2: Histologically confirmed diagnosis of unresectable or metastatic NSCLC with KRAS G12C mutation and any PD-L1 TPS"
+    },
+    {
+      "line": 4,
+      "text": "* Phase 3: Histologically confirmed diagnosis of unresectable or metastatic squamous or nonsquamous NSCLC with KRAS G12C mutation and PD-L1 TPS\\>=50%"
+    },
+    {
+      "line": 5,
+      "text": "* Phase 3: Presence of measurable disease per RECIST1.1"
+    },
+    {
+      "line": 6,
+      "text": "* Phase 3: CNS Inclusion - Based on screening brain imaging, patients must have one of the following:"
+    },
+    {
+      "line": 7,
+      "text": ""
+    },
+    {
+      "line": 8,
+      "text": "  1. No evidence of brain metastases"
+    },
+    {
+      "line": 9,
+      "text": "  2. Untreated brain metastases not needing immediate local therapy"
+    },
+    {
+      "line": 10,
+      "text": "  3. Previously treated brain metastases not needing immediate local therapy"
+    },
+    {
+      "line": 11,
+      "text": ""
+    },
+    {
+      "line": 12,
+      "text": "Exclusion Criteria:"
+    },
+    {
+      "line": 13,
+      "text": ""
+    },
+    {
+      "line": 14,
+      "text": "* Phase 2 and Phase 3: Prior systemic treatment for locally advanced or metastatic NSCLC including chemotherapy, immune checkpoint inhibitor therapy, or a therapy targeting KRAS G12C mutation (e.g., AMG 510)."
+    },
+    {
+      "line": 15,
+      "text": "* Phase 2: Active brain metastases"
+    },
+    {
+      "line": 16,
+      "text": "* Phase 3: Patients with known central nervous system (CNS) lesions must not have any of the following:"
+    },
+    {
+      "line": 17,
+      "text": ""
+    },
+    {
+      "line": 18,
+      "text": "  1. Any untreated brain lesions \\> 2.0 cm in size"
+    },
+    {
+      "line": 19,
+      "text": "  2. Any brainstem lesions"
+    },
+    {
+      "line": 20,
+      "text": "  3. Ongoing use of systemic corticosteroids for control of symptoms of brain lesions at a total daily dose of \\> 10 mg of prednisone (or equivalent) prior to randomization."
+    },
+    {
+      "line": 21,
+      "text": "  4. Have poorly controlled (\\> 1/week) generalized or complex partial seizures, or manifest neurologic progression due to brain lesions notwithstanding CNS-directed therapy"
+    },
+    {
+      "line": 22,
+      "text": "* Phase 3: Radiation to the lung \\> 30 Gy within 6 months prior to the first dose of study treatment"
+    }
+  ],
+  "ehr_lines": [
+    {
+      "line": 1,
+      "text": "PATIENT IDENTIFIER: PT-102 | NAME: Marcus Vance | DOB/AGE: 68yo Male | REF DATE: 2026-11-14"
+    },
+    {
+      "line": 2,
+      "text": "CLINICAL ENCOUNTER: Phase 3 / Phase 1/2 Trial Eligibility Review (Targets: NCT04613596 & NCT04787042)"
+    },
+    {
+      "line": 3,
+      "text": ""
+    },
+    {
+      "line": 4,
+      "text": "=== DEMOGRAPHICS & CLINICAL SUMMARY ==="
+    },
+    {
+      "line": 5,
+      "text": "Marcus Vance is a 68-year-old male (40 pack-year former smoker) evaluated for enrollment into NCT04613596 (KRYSTAL-7 Phase 3) and NCT04787042 (ST-067 Phase 1/2) for metastatic NSCLC."
+    },
+    {
+      "line": 6,
+      "text": ""
+    },
+    {
+      "line": 7,
+      "text": "=== DIAGNOSIS & STAGE ==="
+    },
+    {
+      "line": 8,
+      "text": "Primary Diagnosis: Stage IV (cT2bN2M1c) squamous/non-squamous NSCLC (adenocarcinoma predominant), diagnosed 2026-08-18."
+    },
+    {
+      "line": 9,
+      "text": "Target Disease Burden (RECIST 1.1): Measurable 4.1 cm left lower lobe (LLL) pulmonary mass with ipsilateral mediastinal lymphadenopathy and solitary right frontal brain metastasis."
+    },
+    {
+      "line": 10,
+      "text": ""
+    },
+    {
+      "line": 11,
+      "text": "=== PATHOLOGY & MOLECULAR NGS ==="
+    },
+    {
+      "line": 12,
+      "text": "Tissue NGS Panel (finalized 2026-09-02):"
+    },
+    {
+      "line": 13,
+      "text": "- KRAS: p.G12C mutation DETECTED."
+    },
+    {
+      "line": 14,
+      "text": "- EGFR: Negative / Wild-Type."
+    },
+    {
+      "line": 15,
+      "text": "- ALK / ROS1 / NTRK: Negative."
+    },
+    {
+      "line": 16,
+      "text": "PD-L1 Immunohistochemistry (22C3): TPS = 70% (>= 50%)."
+    },
+    {
+      "line": 17,
+      "text": ""
+    },
+    {
+      "line": 18,
+      "text": "=== BRAIN MRI / CNS IMAGING ==="
+    },
+    {
+      "line": 19,
+      "text": "2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion."
+    },
+    {
+      "line": 20,
+      "text": ""
+    },
+    {
+      "line": 21,
+      "text": "=== RADIATION ONCOLOGY HISTORY ==="
+    },
+    {
+      "line": 22,
+      "text": "- Prior Thoracic / Lung Radiotherapy: None."
+    },
+    {
+      "line": 23,
+      "text": "- Neurosurgical/RT consultation pending for right frontal lesion; no cranial RT completed yet."
+    },
+    {
+      "line": 24,
+      "text": ""
+    },
+    {
+      "line": 25,
+      "text": "=== ACTIVE & PRIOR MEDICATIONS ==="
+    },
+    {
+      "line": 26,
+      "text": "- Dexamethasone 2 mg PO BID (total daily dose = 4.0 mg/day), started 2026-11-01 and ONGOING as of 2026-11-14 for symptomatic peritumoral edema around the 1.6 cm right frontal brain lesion."
+    },
+    {
+      "line": 27,
+      "text": "  [Potency Calculation: 4.0 mg/day Dexamethasone * (5.0 / 0.75) = 26.7 mg/day Prednisone equivalent -> EXCEEDS 10.0 mg/day ceiling]."
+    },
+    {
+      "line": 28,
+      "text": "- Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596)."
+    },
+    {
+      "line": 29,
+      "text": "- Omeprazole 20 mg PO daily (GI prophylaxis)."
+    },
+    {
+      "line": 30,
+      "text": ""
+    },
+    {
+      "line": 31,
+      "text": "=== LABORATORY PANEL (Collected 2026-11-12) ==="
+    },
+    {
+      "line": 32,
+      "text": "- Renal Function: eGFR 72 mL/min/1.73m2."
+    },
+    {
+      "line": 33,
+      "text": "- Hepatic Function: AST 28 U/L (ULN 40) | ALT 31 U/L (ULN 40) | Total Bilirubin 0.8 mg/dL (ULN 1.2)."
+    },
+    {
+      "line": 34,
+      "text": "- Hematology: ANC 4,800 /uL | Platelets 220,000 /uL."
+    },
+    {
+      "line": 35,
+      "text": ""
+    },
+    {
+      "line": 36,
+      "text": "=== ECOG PERFORMANCE STATUS ==="
+    },
+    {
+      "line": 37,
+      "text": "ECOG Performance Status: 1."
+    },
+    {
+      "line": 38,
+      "text": "Assessor Note: CONTRAINDICATED for both NCT04613596 and NCT04787042 due to supratherapeutic steroid dose (26.7 mg/day Prednisone eq) and recent investigational systemic therapy (19 days ago)."
+    }
+  ],
+  "roster": [
+    {
+      "name": "@coordinator",
+      "role": "Lead Swarm Orchestrator",
+      "model": "antigravity-coordinator",
+      "state": "completed",
+      "latest_seq": 8
+    },
+    {
+      "name": "@extractor",
+      "role": "Protocol Criteria Compiler",
+      "model": "gemini-4-hydrogen",
+      "state": "completed",
+      "latest_seq": 2
+    },
+    {
+      "name": "@phenotyper",
+      "role": "EHR Clinical Phenotyper",
+      "model": "gemini-4-argon",
+      "state": "completed",
+      "latest_seq": 3
+    },
+    {
+      "name": "@safety-auditor",
+      "role": "Pharmacology & Washout Auditor",
+      "model": "deterministic-rules-r1-r5",
+      "state": "completed",
+      "latest_seq": 5
+    },
+    {
+      "name": "@verifier",
+      "role": "Deterministic Citation Grounding Verifier",
+      "model": "deterministic-rule-r6-verifier",
+      "state": "completed",
+      "latest_seq": 7
+    }
+  ],
+  "board_posts": [
+    {
+      "seq": 1,
+      "author": "@coordinator",
+      "mentions": [
+        "@extractor",
+        "@phenotyper"
+      ],
+      "role": "Lead Swarm Orchestrator",
+      "model_used": "antigravity-coordinator",
+      "summary": "Dispatching concurrent ingestion for NCT04613596 (Phase 2 Trial of Adagrasib Monotherapy and in Combination Wi...) and EHR PT-102 (Marcus Vance) at reference_date=2026-11-14.",
+      "latency_ms": 1,
+      "timestamp_iso": "2026-11-26T13:28:08.375209+00:00"
+    },
+    {
+      "seq": 2,
+      "author": "@extractor",
+      "mentions": [
+        "@coordinator",
+        "@safety-auditor"
+      ],
+      "role": "Protocol Criteria Compiler",
+      "model_used": "gemini-4-hydrogen",
+      "summary": "Compiled 19 verbatim line-cited CriterionRules from NCT04613596 (22 protocol lines; anchors: L4, L4, L4, L5, L6, L14, +13 more).",
+      "latency_ms": 18581,
+      "timestamp_iso": "2026-11-26T13:28:26.956810+00:00"
+    },
+    {
+      "seq": 3,
+      "author": "@phenotyper",
+      "mentions": [
+        "@coordinator",
+        "@safety-auditor"
+      ],
+      "role": "EHR Clinical Phenotyper",
+      "model_used": "gemini-4-argon",
+      "summary": "Grounded 14 EHR citations for Marcus Vance (68yo M, ECOG=1, KRAS_G12C=POSITIVE, PD-L1=70, steroids=Dexamethasone 4.0 mg/day (ONGOING), RT=none, pending=none).",
+      "latency_ms": 18581,
+      "timestamp_iso": "2026-11-26T13:28:26.956857+00:00"
+    },
+    {
+      "seq": 4,
+      "author": "@coordinator",
+      "mentions": [
+        "@safety-auditor"
+      ],
+      "role": "Lead Swarm Orchestrator",
+      "model_used": "antigravity-coordinator",
+      "summary": "Assigned Rules R1-R5 deterministic safety & pharmacology evaluation referencing #2 (protocol gates) and #3 (EHR clinical phenotype).",
+      "latency_ms": 1,
+      "timestamp_iso": "2026-11-26T13:28:26.956869+00:00"
+    },
+    {
+      "seq": 5,
+      "author": "@safety-auditor",
+      "mentions": [
+        "@verifier"
+      ],
+      "role": "Pharmacology & Washout Auditor",
+      "model_used": "deterministic-rules-r1-r5",
+      "summary": "Evaluated R1-R5: Prednisone_eq=26.67 mg/day; blockers=['R1', 'R2']; needs_review=NONE; earliest_rescreen=N/A -> tentative verdict CONTRAINDICATED.",
+      "latency_ms": 4,
+      "timestamp_iso": "2026-11-26T13:28:26.961315+00:00"
+    },
+    {
+      "seq": 6,
+      "author": "@coordinator",
+      "mentions": [
+        "@verifier"
+      ],
+      "role": "Lead Swarm Orchestrator",
+      "model_used": "antigravity-coordinator",
+      "summary": "Assigned Rule R6 verbatim line-citation grounding audit referencing #2, #3, and #5.",
+      "latency_ms": 1,
+      "timestamp_iso": "2026-11-26T13:28:26.961327+00:00"
+    },
+    {
+      "seq": 7,
+      "author": "@verifier",
+      "mentions": [
+        "@coordinator"
+      ],
+      "role": "Deterministic Citation Grounding Verifier",
+      "model_used": "deterministic-rule-r6-verifier",
+      "summary": "Rule R6 audit complete: citation_verification_rate=100.0%, unverified_claims_blocked=0. Reconciled verdict=CONTRAINDICATED (naive_baseline=ELIGIBLE, caught_hidden_trap=True).",
+      "latency_ms": 1,
+      "timestamp_iso": "2026-11-26T13:28:26.963184+00:00"
+    },
+    {
+      "seq": 8,
+      "author": "@coordinator",
+      "mentions": [
+        "@clinical-crc",
+        "@principal-investigator"
+      ],
+      "role": "Lead Swarm Orchestrator",
+      "model_used": "antigravity-coordinator",
+      "summary": "Staged SignOffPacket PKT-NCT04613596-PT-102 (PLACE_WASHOUT_HOLD) with status=PENDING_HUMAN_SIGNOFF.",
+      "latency_ms": 1,
+      "timestamp_iso": "2026-11-26T13:28:26.963219+00:00"
+    }
+  ],
+  "safety_findings": [
+    {
+      "rule_code": "R1",
+      "severity": "BLOCKER",
+      "title": "R1 Glucocorticoid Potency Equivalence Ceiling Exceeded",
+      "calculation_detail": "Ongoing Dexamethasone 4 mg/day x 6.667 = 26.67 mg/day Prednisone eq (> 10.0 mg/day ceiling)",
+      "prednisone_eq_mg": 26.67,
+      "washout_days_elapsed": null,
+      "washout_days_required": null,
+      "earliest_rescreen_date": null,
+      "citations": [
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 26,
+          "line_end": 26,
+          "verbatim_quote": "- Dexamethasone 2 mg PO BID (total daily dose = 4.0 mg/day), started 2026-11-01 and ONGOING as of 2026-11-14 for symptomatic peritumoral edema around the 1.6 cm right frontal brain lesion.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "rule_code": "R2",
+      "severity": "BLOCKER",
+      "title": "R2 Systemic Therapy / Washout / Immunotherapy Exclusion Triggered",
+      "calculation_detail": "Prior metastatic systemic therapy (Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596).) violates 0 prior metastatic lines gate",
+      "prednisone_eq_mg": null,
+      "washout_days_elapsed": 19,
+      "washout_days_required": 28,
+      "earliest_rescreen_date": null,
+      "citations": [
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 28,
+          "line_end": 28,
+          "verbatim_quote": "- Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596).",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "rule_code": "R3",
+      "severity": "PASS",
+      "title": "R3 Thoracic / Palliative Radiotherapy Windows Cleared",
+      "calculation_detail": "No thoracic/lung RT > 30 Gy within 180 days and no recent RT within 14 days.",
+      "prednisone_eq_mg": null,
+      "washout_days_elapsed": null,
+      "washout_days_required": null,
+      "earliest_rescreen_date": null,
+      "citations": []
+    },
+    {
+      "rule_code": "R4",
+      "severity": "PASS",
+      "title": "R4 CTCAE v5.0 Grade 0/1 Organ Reserve Cleared",
+      "calculation_detail": "eGFR=72.0, AST=28.0 U/L, ALT=31.0 U/L, Bili=0.8 mg/dL, ANC=4800/uL, Platelets=220000/uL, ECOG=1.",
+      "prednisone_eq_mg": null,
+      "washout_days_elapsed": null,
+      "washout_days_required": null,
+      "earliest_rescreen_date": null,
+      "citations": [
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 32,
+          "line_end": 32,
+          "verbatim_quote": "- Renal Function: eGFR 72 mL/min/1.73m2.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 33,
+          "line_end": 33,
+          "verbatim_quote": "- Hepatic Function: AST 28 U/L (ULN 40) | ALT 31 U/L (ULN 40) | Total Bilirubin 0.8 mg/dL (ULN 1.2).",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 34,
+          "line_end": 34,
+          "verbatim_quote": "- Hematology: ANC 4,800 /uL | Platelets 220,000 /uL.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 37,
+          "line_end": 37,
+          "verbatim_quote": "ECOG Performance Status: 1.",
+          "verified": true
+        }
+      ]
+    },
+    {
+      "rule_code": "R5",
+      "severity": "PASS",
+      "title": "R5 Oncogenic Driver & Biomarker Profile Verified",
+      "calculation_detail": "All protocol-required molecular inclusions met and actionable driver exclusions negative.",
+      "prednisone_eq_mg": null,
+      "washout_days_elapsed": null,
+      "washout_days_required": null,
+      "earliest_rescreen_date": null,
+      "citations": [
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 13,
+          "line_end": 13,
+          "verbatim_quote": "- KRAS: p.G12C mutation DETECTED.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 14,
+          "line_end": 14,
+          "verbatim_quote": "- EGFR: Negative / Wild-Type.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 15,
+          "line_end": 15,
+          "verbatim_quote": "- ALK / ROS1 / NTRK: Negative.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 16,
+          "line_end": 16,
+          "verbatim_quote": "PD-L1 Immunohistochemistry (22C3): TPS = 70% (>= 50%).",
+          "verified": true
+        }
+      ]
+    }
+  ],
+  "criterion_verdicts": [
+    {
+      "rule_id": "NCT04613596-R01",
+      "criterion": "Histologically confirmed NSCLC",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Histologically confirmed Stage IV (cT2bN2M1c) squamous/non-squamous NSCLC (adenocarcinoma predominant), diagnosed 2026-08-18..",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 4,
+          "line_end": 4,
+          "verbatim_quote": "* Phase 3: Histologically confirmed diagnosis of unresectable or metastatic squamous or nonsquamous NSCLC with KRAS G12C mutation and PD-L1 TPS\\>=50%",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 8,
+          "line_end": 8,
+          "verbatim_quote": "Primary Diagnosis: Stage IV (cT2bN2M1c) squamous/non-squamous NSCLC (adenocarcinoma predominant), diagnosed 2026-08-18.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R02",
+      "criterion": "KRAS G12C mutation required",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "KRAS p.G12C mutation POSITIVE.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 4,
+          "line_end": 4,
+          "verbatim_quote": "* Phase 3: Histologically confirmed diagnosis of unresectable or metastatic squamous or nonsquamous NSCLC with KRAS G12C mutation and PD-L1 TPS\\>=50%",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 13,
+          "line_end": 13,
+          "verbatim_quote": "- KRAS: p.G12C mutation DETECTED.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R03",
+      "criterion": "PD-L1 TPS >= 50%",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "PD-L1 TPS = 70% (>= 50% required).",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 4,
+          "line_end": 4,
+          "verbatim_quote": "* Phase 3: Histologically confirmed diagnosis of unresectable or metastatic squamous or nonsquamous NSCLC with KRAS G12C mutation and PD-L1 TPS\\>=50%",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 16,
+          "line_end": 16,
+          "verbatim_quote": "PD-L1 Immunohistochemistry (22C3): TPS = 70% (>= 50%).",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R04",
+      "criterion": "Measurable disease per RECIST 1.1",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Measurable disease per RECIST 1.1 documented.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 5,
+          "line_end": 5,
+          "verbatim_quote": "* Phase 3: Presence of measurable disease per RECIST1.1",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 9,
+          "line_end": 9,
+          "verbatim_quote": "Target Disease Burden (RECIST 1.1): Measurable 4.1 cm left lower lobe (LLL) pulmonary mass with ipsilateral mediastinal lymphadenopathy and solitary right frontal brain metastasis.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R05",
+      "criterion": "CNS status: no brain metastases or stable metastases not needing immediate local therapy",
+      "category": "INCLUSION",
+      "status": "NOT_MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Symptomatic untreated brain lesion with peritumoral edema needing local CNS management.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 6,
+          "line_end": 6,
+          "verbatim_quote": "* Phase 3: CNS Inclusion - Based on screening brain imaging, patients must have one of the following:",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 19,
+          "line_end": 19,
+          "verbatim_quote": "2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R06",
+      "criterion": "No prior systemic treatment for locally advanced/metastatic disease",
+      "category": "EXCLUSION",
+      "status": "EXCLUDED",
+      "naive_baseline_status": "MET",
+      "reasoning": "Received 1 prior metastatic systemic line(s); 0 allowed.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 14,
+          "line_end": 14,
+          "verbatim_quote": "* Phase 2 and Phase 3: Prior systemic treatment for locally advanced or metastatic NSCLC including chemotherapy, immune checkpoint inhibitor therapy, or a therapy targeting KRAS G12C mutation (e.g., AMG 510).",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 28,
+          "line_end": 28,
+          "verbatim_quote": "- Prior Systemic Anticancer Therapy: Completed 1 cycle of investigational anti-LAG-3 checkpoint modulator (relatlimab-class clinical study agent) in metastatic setting; last dose administered on 2026-10-26 (19 days prior to 2026-11-14; violates 28-day washout for NCT04787042 [earliest washout clearance: 2026-11-23] AND violates 0 prior metastatic systemic treatment lines for NCT04613596).",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R07",
+      "criterion": "No untreated brain lesions > 2.0 cm",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Cleared: no untreated brain lesions > 2.0 cm.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 18,
+          "line_end": 18,
+          "verbatim_quote": "1. Any untreated brain lesions \\> 2.0 cm in size",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 19,
+          "line_end": 19,
+          "verbatim_quote": "2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R08",
+      "criterion": "No brainstem lesions",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Cleared: no brainstem lesions.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 19,
+          "line_end": 19,
+          "verbatim_quote": "2. Any brainstem lesions",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 19,
+          "line_end": 19,
+          "verbatim_quote": "2026-10-31 Brain MRI w/ contrast: 1.6 cm right frontal lobe parenchymal metastasis with surrounding moderate vasogenic peritumoral edema causing mild left-sided clumsiness and morning headache. No brainstem lesion.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R09",
+      "criterion": "Systemic corticosteroid dose ceiling <= 10 mg/day Prednisone eq",
+      "category": "EXCLUSION",
+      "status": "EXCLUDED",
+      "naive_baseline_status": "MET",
+      "reasoning": "Ongoing systemic steroid equals 26.67 mg/day Prednisone eq (> 10 mg/day ceiling).",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 20,
+          "line_end": 20,
+          "verbatim_quote": "3. Ongoing use of systemic corticosteroids for control of symptoms of brain lesions at a total daily dose of \\> 10 mg of prednisone (or equivalent) prior to randomization.",
+          "verified": true
+        },
+        {
+          "doc_type": "EHR",
+          "doc_id": "PT-102",
+          "line_start": 26,
+          "line_end": 26,
+          "verbatim_quote": "- Dexamethasone 2 mg PO BID (total daily dose = 4.0 mg/day), started 2026-11-01 and ONGOING as of 2026-11-14 for symptomatic peritumoral edema around the 1.6 cm right frontal brain lesion.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R10",
+      "criterion": "No lung/thoracic radiation > 30 Gy within 180 days",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Cleared: no thoracic/lung RT > 30 Gy within 180 days.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 22,
+          "line_end": 22,
+          "verbatim_quote": "* Phase 3: Radiation to the lung \\> 30 Gy within 6 months prior to the first dose of study treatment",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R11",
+      "criterion": "Phase 2: Histologically confirmed unresectable or metastatic NSCLC with KRAS G12C mutation",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 3,
+          "line_end": 3,
+          "verbatim_quote": "Histologically confirmed diagnosis of unresectable or metastatic NSCLC with KRAS G12C mutation and any PD-L1 TPS",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R12",
+      "criterion": "Phase 3: PD-L1 TPS >= 50%",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 4,
+          "line_end": 4,
+          "verbatim_quote": "PD-L1 TPS\\>=50%",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R13",
+      "criterion": "Phase 3: Measurable disease per RECIST 1.1",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 5,
+          "line_end": 5,
+          "verbatim_quote": "Presence of measurable disease per RECIST1.1",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R14",
+      "criterion": "Phase 3: CNS Inclusion - No evidence of brain metastases",
+      "category": "INCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 8,
+          "line_end": 8,
+          "verbatim_quote": "No evidence of brain metastases",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R15",
+      "criterion": "Phase 2 and 3: Prior systemic treatment for locally advanced or metastatic NSCLC",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 14,
+          "line_end": 14,
+          "verbatim_quote": "Prior systemic treatment for locally advanced or metastatic NSCLC including chemotherapy, immune checkpoint inhibitor therapy, or a therapy targeting KRAS G12C mutation (e.g., AMG 510).",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R16",
+      "criterion": "Phase 3: Untreated brain lesions > 2.0 cm",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 18,
+          "line_end": 18,
+          "verbatim_quote": "Any untreated brain lesions \\> 2.0 cm in size",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R17",
+      "criterion": "Phase 3: Systemic corticosteroids for brain lesion symptoms > 10 mg/day prednisone equivalent",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 20,
+          "line_end": 20,
+          "verbatim_quote": "Ongoing use of systemic corticosteroids for control of symptoms of brain lesions at a total daily dose of \\> 10 mg of prednisone (or equivalent) prior to randomization.",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R18",
+      "criterion": "Phase 3: Poorly controlled generalized or complex partial seizures (> 1/week)",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 21,
+          "line_end": 21,
+          "verbatim_quote": "Have poorly controlled (\\> 1/week) generalized or complex partial seizures",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    },
+    {
+      "rule_id": "NCT04613596-R19",
+      "criterion": "Phase 3: Radiation to the lung > 30 Gy within 6 months prior to first dose",
+      "category": "EXCLUSION",
+      "status": "MET",
+      "naive_baseline_status": "MET",
+      "reasoning": "Verified against EHR evidence.",
+      "citations": [
+        {
+          "doc_type": "PROTOCOL",
+          "doc_id": "NCT04613596",
+          "line_start": 22,
+          "line_end": 22,
+          "verbatim_quote": "Radiation to the lung \\> 30 Gy within 6 months prior to the first dose of study treatment",
+          "verified": true
+        }
+      ],
+      "verified_by_rule_engine": true
+    }
+  ],
+  "signoff_packet": {
+    "packet_id": "PKT-NCT04613596-PT-102",
+    "action_type": "PLACE_WASHOUT_HOLD",
+    "status": "PENDING_HUMAN_SIGNOFF",
+    "title": "Place Clinical Washout / Safety Hold: PT-102 -> NCT04613596",
+    "recommendation": "Patient CONTRAINDICATED for NCT04613596. Permanent protocol exclusion triggered. Requires physician/CRC sign-off.",
+    "earliest_rescreen_date": null,
+    "payload": {
+      "nct_id": "NCT04613596",
+      "patient_id": "PT-102",
+      "overall_verdict": "CONTRAINDICATED",
+      "blocker_rules": [
+        "R1",
+        "R2"
+      ],
+      "pending_panels": []
+    }
+  },
+  "evidence_pmids": [
+    "39557832",
+    "41637159",
+    "39960745",
+    "40775946",
+    "34236403"
+  ]
+}

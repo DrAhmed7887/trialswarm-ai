@@ -62,8 +62,8 @@
     <!-- Worker A: @extractor -->
     <rect x="612" y="190" width="445" height="180" rx="12" fill="#FFFFFF" stroke="#14B8A6" stroke-width="2"/>
     <text x="634" y="228" class="font-sans" font-size="26" font-weight="800" fill="#0F172A">@extractor</text>
-    <rect x="822" y="201" width="215" height="36" rx="18" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
-    <text x="930" y="226" text-anchor="middle" class="font-sans" font-size="19" font-weight="700" fill="#0F766E">Gemini 2.5 Flash</text>
+    <rect x="810" y="201" width="232" height="36" rx="18" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.5"/>
+    <text x="926" y="226" text-anchor="middle" class="font-sans" font-size="18" font-weight="700" fill="#0F766E">Gemini 4 Hydrogen</text>
     <text x="634" y="274" class="font-sans" font-size="20" font-weight="600" fill="#1E293B">Compiles Eligibility Criteria Rules</text>
     <text x="634" y="308" class="font-sans" font-size="18" fill="#475569">Verbatim Protocol Line Citations (L1–L22)</text>
     <text x="634" y="344" class="font-mono" font-size="17" font-weight="600" fill="#0D9488">Board Post #2 -&gt; @safety-auditor</text>
@@ -71,8 +71,8 @@
     <!-- Worker B: @phenotyper -->
     <rect x="1083" y="190" width="445" height="180" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
     <text x="1105" y="228" class="font-sans" font-size="26" font-weight="800" fill="#0F172A">@phenotyper</text>
-    <rect x="1310" y="201" width="198" height="36" rx="18" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
-    <text x="1409" y="226" text-anchor="middle" class="font-sans" font-size="19" font-weight="700" fill="#065F46">Gemini 2.5 Pro</text>
+    <rect x="1302" y="201" width="210" height="36" rx="18" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+    <text x="1407" y="226" text-anchor="middle" class="font-sans" font-size="18" font-weight="700" fill="#065F46">Gemini 4 Argon</text>
     <text x="1105" y="274" class="font-sans" font-size="20" font-weight="600" fill="#1E293B">Extracts Patient Clinical Phenotype</text>
     <text x="1105" y="308" class="font-sans" font-size="18" fill="#475569">Steroids, Washouts, Labs, RT &amp; Biomarkers</text>
     <text x="1105" y="344" class="font-mono" font-size="17" font-weight="600" fill="#059669">Board Post #3 -&gt; @safety-auditor</text>

@@ -20,7 +20,7 @@ python3 -m uvicorn src.web.app:app --host 127.0.0.1 --port 8080
 
 - **Clinical Screening Workstation (`/`):** `http://127.0.0.1:8080/` — 1-click featured cases (`PT-101`–`PT-104`), interactive protocol-vs-EHR line citation highlighter, `/swarm` board transcript, and 21 CFR Part 11-style SHA-256 human sign-off dialog.
 - **Judge & Verification Console (`/judge`):** `http://127.0.0.1:8080/judge` — live adversarial hallucination probe (`POST /api/verify-trap`), `n = 120` per-archetype scorecard, verified latency/cost metrics, and architecture diagram.
-- **Optional Live Gemini Mode:** Export `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) and pass `--use-llm` in CLI or toggle live Gemini in `/`: `@extractor` uses `gemini-2.5-flash` and `@phenotyper` uses `gemini-2.5-pro` while Rules R1–R6 remain deterministic safety gates.
+- **Optional Live Gemini 4 Mode:** Export `GEMINI_API_KEY` (AI Studio) or `GOOGLE_CLOUD_PROJECT` (Vertex AI) and pass `--use-llm` in CLI or toggle live Gemini 4 in `/`: `@extractor` uses `gemini-4-hydrogen` and `@phenotyper` uses `gemini-4-argon` while Rules R1–R6 remain deterministic safety gates. Verified live `PT-102` trace (`26 Nov 2026`): [`eval/results/gemini4_live_pt102.json`](eval/results/gemini4_live_pt102.json).
 
 ---
 
@@ -43,8 +43,8 @@ python3 -m uvicorn src.web.app:app --host 127.0.0.1 --port 8080
 | Agent | Responsibility | Engine / Model | File |
 |---|---|---|---|
 | **`@coordinator`** | Dispatches concurrent extraction, aggregates safety findings, computes unit economics, stages human sign-off packet | `SwarmCoordinator` | [`src/swarm/coordinator.py`](src/swarm/coordinator.py) |
-| **`@extractor`** | Parses normalized ClinicalTrials.gov protocol text into line-anchored `CriterionRule` objects | Deterministic parser + optional `gemini-2.5-flash` | [`src/agents/extractor.py`](src/agents/extractor.py) |
-| **`@phenotyper`** | Extracts longitudinal EHR diagnoses, labs, medications, steroids, radiation doses, and pending biomarker panels | Deterministic parser + optional `gemini-2.5-pro` | [`src/agents/phenotyper.py`](src/agents/phenotyper.py) |
+| **`@extractor`** | Parses normalized ClinicalTrials.gov protocol text into line-anchored `CriterionRule` objects | Deterministic parser + optional `gemini-4-hydrogen` | [`src/agents/extractor.py`](src/agents/extractor.py) |
+| **`@phenotyper`** | Extracts longitudinal EHR diagnoses, labs, medications, steroids, radiation doses, and pending biomarker panels | Deterministic parser + optional `gemini-4-argon` | [`src/agents/phenotyper.py`](src/agents/phenotyper.py) |
 | **`@safety-auditor`** | Executes Rules `R1`–`R5` (potency equivalence, washout dates, thoracic RT, CTCAE v5.0 bounds, reflex biomarker gating) + runs naive comparison | Deterministic pharmacology engine | [`src/agents/safety_auditor.py`](src/agents/safety_auditor.py) |
 | **`@verifier`** | Enforces Rule `R6` (exact substring containment inside `protocol_lines`/`ehr_lines`; blocks fabricated quotes via `UNVERIFIED_CITATION_BLOCKED`) | Deterministic verifier | [`src/agents/verifier.py`](src/agents/verifier.py) |
 
@@ -67,6 +67,6 @@ python3 -m uvicorn src.web.app:app --host 127.0.0.1 --port 8080
 ## Limits & Clinical Governance
 
 1. **Synthetic Patient Data Only:** `PT-101`–`PT-104` and `cohort_120.json` are 100% synthetic vignettes (`seed = 20261114`) with zero PHI. Real EHR deployment requires institutional IRB approval, HIPAA/GDPR BAA infrastructure, and HL7 FHIR integration.
-2. **Offline vs. Optional Gemini Mode:** Default test/benchmark/local runs execute `deterministic_offline` (`$0.0000` compute, reproducible without network). When `use_llm=True` and `GEMINI_API_KEY`/`GOOGLE_API_KEY` is provided, Gemini 2.5 Flash/Pro enrichment (`~$0.04/case` est.) augments extraction while deterministic Rules `R1`–`R6` govern final eligibility verdicts.
+2. **Offline vs. Optional Gemini 4 Mode:** Default test/benchmark/local runs execute `deterministic_offline` (`$0.0000` compute, reproducible without network). When `use_llm=True` and `GEMINI_API_KEY`/`GOOGLE_API_KEY` or `GOOGLE_CLOUD_PROJECT` is provided, Gemini 4 (`gemini-4-hydrogen` + `gemini-4-argon`) enrichment augments extraction while deterministic Rules `R1`–`R6` govern final eligibility verdicts.
 3. **Physician-Signed Safety Rules + Human Attestation:** Oncology Rules `R1`–`R6` carry `status: signed_off (Dr. Ahmed Zayed, MB BCh, 2026-11-14)` in [`docs/EVIDENCE.md`](docs/EVIDENCE.md). TrialSwarm AI is decision support only and enforces a mandatory human CRC/PI sign-off gate (`POST /api/signoff`) with SHA-256 attestation before any clinical action.
 4. **Illustrative Labor Benchmark:** The `~4 hours / $260` manual CRC cost figure is an illustrative operational comparison benchmark (`4h @ $65/hr`), distinct from the peer-reviewed `42.6%` screening time reduction reported in TrialGPT (`PMID: 39557832`).

@@ -126,7 +126,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_swarm.add_argument("--nct", required=True, help="ClinicalTrials.gov NCT ID (e.g., NCT04613596)")
     p_swarm.add_argument("--patient", required=True, help="Patient ID (e.g., PT-102, COHORT-001) or JSON path")
     p_swarm.add_argument("--ref-date", default=DEFAULT_REFERENCE_DATE, help="Reference screening date YYYY-MM-DD")
-    p_swarm.add_argument("--use-llm", action="store_true", help="Enable optional Gemini 2.5 Flash/Pro enrichment")
+    p_swarm.add_argument("--use-llm", action="store_true", help="Enable optional Gemini 4 (gemini-4-hydrogen + gemini-4-argon) enrichment")
     p_swarm.add_argument("--json", action="store_true", help="Output full AuditReport as JSON")
 
     p_trap = sub.add_parser("verify-trap", help="Run adversarial citation hallucination & steroid trap probe")
@@ -139,7 +139,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_board.add_argument("--nct", default="NCT04613596", help="Target NCT ID (default: NCT04613596)")
     p_board.add_argument("--patient", default="PT-102", help="Target Patient ID (default: PT-102)")
     p_board.add_argument("--ref-date", default=DEFAULT_REFERENCE_DATE, help="Reference screening date YYYY-MM-DD")
-    p_board.add_argument("--use-llm", action="store_true", help="Enable optional Gemini 2.5 Flash/Pro enrichment")
+    p_board.add_argument("--use-llm", action="store_true", help="Enable optional Gemini 4 (gemini-4-hydrogen + gemini-4-argon) enrichment")
 
     return parser
 

@@ -147,7 +147,7 @@ def sign_packet(action: SignOffAction) -> SignOffReceipt:
 
 
 def _estimate_llm_cost_usd(extractor_meta: dict[str, Any], phenotyper_meta: dict[str, Any]) -> float:
-    """Calculate actual token-based Gemini API cost when LLMs were called, else 0.0."""
+    """Calculate actual token-based Gemini 4 API cost (including thinking tokens) when LLMs ran, else 0.0."""
     ext_used = extractor_meta.get("llm_used", False)
     ph_used = phenotyper_meta.get("llm_used", False)
     if not (ext_used or ph_used):
@@ -156,17 +156,20 @@ def _estimate_llm_cost_usd(extractor_meta: dict[str, Any], phenotyper_meta: dict
     ext_tok = extractor_meta.get("token_usage", {})
     ph_tok = phenotyper_meta.get("token_usage", {})
 
-    # Gemini 2.5 Flash (~$0.15/1M in, $0.60/1M out) & Pro (~$1.25/1M in, $10.00/1M out)
-    flash_cost = (
-        ext_tok.get("input_tokens", 0) * 0.15 / 1_000_000
-        + ext_tok.get("output_tokens", 0) * 0.60 / 1_000_000
+    # Estimate cost across output + thought tokens for Gemini 4 Hydrogen (@extractor) & Argon/Neon (@phenotyper)
+    ext_billable_out = ext_tok.get("output_tokens", 0) + ext_tok.get("thought_tokens", 0)
+    ph_billable_out = ph_tok.get("output_tokens", 0) + ph_tok.get("thought_tokens", 0)
+
+    ext_cost = (
+        ext_tok.get("input_tokens", 0) * 0.25 / 1_000_000
+        + ext_billable_out * 1.50 / 1_000_000
     )
-    pro_cost = (
-        ph_tok.get("input_tokens", 0) * 1.25 / 1_000_000
-        + ph_tok.get("output_tokens", 0) * 10.00 / 1_000_000
+    ph_cost = (
+        ph_tok.get("input_tokens", 0) * 1.00 / 1_000_000
+        + ph_billable_out * 4.00 / 1_000_000
     )
-    total = round(flash_cost + pro_cost, 4)
-    return total if total > 0 else 0.038
+    total = round(ext_cost + ph_cost, 4)
+    return total if total > 0 else 0.012
 
 
 class SwarmCoordinator:
@@ -431,7 +434,7 @@ class SwarmCoordinator:
         )
 
         llm_actually_ran = bool(ext_meta.get("llm_used") or ph_meta.get("llm_used"))
-        execution_mode = "gemini-2.5-swarm" if llm_actually_ran else "deterministic_offline"
+        execution_mode = "gemini-4-swarm" if llm_actually_ran else "deterministic_offline"
         compute_usd = _estimate_llm_cost_usd(ext_meta, ph_meta)
         elapsed_seconds = round(time.perf_counter() - t0, 4)
 

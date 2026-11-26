@@ -567,57 +567,46 @@ def _parse_ehr_deterministic(
     )
 
 
-def _enrich_phenotype_with_gemini_pro(
+def _enrich_phenotype_with_gemini(
     doc_id: str,
     ehr_lines: list[dict[str, Any]],
     phenotype: PatientPhenotype,
-) -> tuple[PatientPhenotype, bool, dict[str, int]]:
-    """Optionally enrich extracted PatientPhenotype with Gemini 2.5 Pro when API key is set."""
-    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-    if not api_key:
-        return phenotype, False, {}
+) -> tuple[PatientPhenotype, bool, str, dict[str, int]]:
+    """Optionally enrich extracted PatientPhenotype with Gemini 4 when API key or Vertex project is configured."""
+    from src.llm_client import DEFAULT_PHENOTYPER_MODEL, generate_gemini_json, is_gemini_configured
+
+    if not is_gemini_configured():
+        return phenotype, False, "deterministic-ehr-parser", {}
 
     try:
-        from google import genai  # type: ignore
-        from google.genai import types  # type: ignore
-
-        client = genai.Client(api_key=api_key)
         numbered = "\n".join(f"{item['line']}: {item['text']}" for item in ehr_lines if item["text"].strip())
         prompt = (
-            "You are a clinical EHR phenotyping agent. Extract missing fields from this line-numbered EHR record "
-            "as JSON (ecog, age, sex, diagnosis, kras_g12c, pd_l1_tps, egfr_mut, alk_fusion). Only include fields "
-            "explicitly supported by the text along with line_start and verbatim_quote.\n\n"
+            "You are a clinical EHR phenotyping agent. Extract and verify key fields from this line-numbered EHR record "
+            "as a JSON object with keys: ecog (int or null), age (int or null), sex (string or null), diagnosis (string or null), "
+            "line_start (int), verbatim_quote (EXACT substring from that line in the EHR).\n\n"
             f"{numbered[:12000]}"
         )
-        response = client.models.generate_content(
-            model="gemini-2.5-pro",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.0,
-                response_mime_type="application/json",
-                http_options=types.HttpOptions(timeout=10000),
-            ),
+        parsed, model_used, usage = generate_gemini_json(
+            prompt=prompt,
+            primary_model=DEFAULT_PHENOTYPER_MODEL,
+            fallback_models=("gemini-4-neon", "gemini-4-hydrogen"),
+            timeout_ms=25000,
         )
-        usage = {}
-        if getattr(response, "usage_metadata", None):
-            usage = {
-                "input_tokens": getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
-                "output_tokens": getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
-            }
-        parsed = json.loads(response.text or "{}")
         if isinstance(parsed, dict):
             line_map = {int(item["line"]): str(item["text"]) for item in ehr_lines}
             lnum = parsed.get("line_start")
             quote = str(parsed.get("verbatim_quote", "")).strip()
             if isinstance(lnum, int) and lnum in line_map and quote and quote in line_map[lnum]:
-                phenotype.extraction_citations.append(_cite(doc_id, lnum, quote))
+                existing_quotes = {c.verbatim_quote for c in phenotype.extraction_citations}
+                if quote not in existing_quotes:
+                    phenotype.extraction_citations.append(_cite(doc_id, lnum, quote))
             if phenotype.ecog is None and isinstance(parsed.get("ecog"), int):
                 phenotype.ecog = parsed["ecog"]
             if phenotype.age is None and isinstance(parsed.get("age"), int):
                 phenotype.age = parsed["age"]
-        return phenotype, True, usage
+        return phenotype, True, model_used, usage
     except Exception:
-        return phenotype, False, {}
+        return phenotype, False, "deterministic-ehr-parser", {}
 
 
 def extract_patient_phenotype(
@@ -631,14 +620,15 @@ def extract_patient_phenotype(
     doc_id, ehr_lines = ensure_ehr_lines(patient)
     phenotype = _parse_ehr_deterministic(doc_id, ehr_lines)
     llm_used = False
+    model_used = "deterministic-ehr-parser"
     usage: dict[str, int] = {}
 
     if use_llm:
-        phenotype, llm_used, usage = _enrich_phenotype_with_gemini_pro(doc_id, ehr_lines, phenotype)
+        phenotype, llm_used, model_used, usage = _enrich_phenotype_with_gemini(doc_id, ehr_lines, phenotype)
 
     meta = {
         "agent": "@phenotyper",
-        "model": "gemini-2.5-pro" if llm_used else "deterministic-ehr-parser",
+        "model": model_used if llm_used else "deterministic-ehr-parser",
         "llm_used": llm_used,
         "token_usage": usage,
         "citation_count": len(phenotype.extraction_citations),

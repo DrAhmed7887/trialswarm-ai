@@ -602,7 +602,7 @@
         <div class="econ-card">
           <div class="econ-title">Measured Latency &amp; Compute</div>
           <div class="econ-num">&lt;5 ms / $0.00</div>
-          <div class="econ-desc">Measured 4.08 ms/case &amp; $0.0000 compute in deterministic offline mode; ~$0.04/case est. when optional Gemini 2.5 Flash + Pro mode is enabled.</div>
+          <div class="econ-desc">Measured 4.08 ms/case &amp; $0.0000 compute in deterministic offline mode; ~$0.01/case est. when optional Gemini 4 Hydrogen + Argon mode is enabled.</div>
         </div>
         <div class="econ-card">
           <div class="econ-title">Safety Recall Uplift (n=120)</div>
@@ -642,11 +642,11 @@
 
           <rect x="220" y="18" width="175" height="70" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
           <text x="307" y="45" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">@extractor</text>
-          <text x="307" y="64" text-anchor="middle" font-size="11" fill="#475569">Gemini 2.5 Flash / Rules</text>
+          <text x="307" y="64" text-anchor="middle" font-size="11" fill="#475569">Gemini 4 Hydrogen / Rules</text>
 
           <rect x="220" y="138" width="175" height="70" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
           <text x="307" y="165" text-anchor="middle" font-size="12" font-weight="700" fill="#0F172A">@phenotyper</text>
-          <text x="307" y="184" text-anchor="middle" font-size="11" fill="#475569">Gemini 2.5 Pro / EHR</text>
+          <text x="307" y="184" text-anchor="middle" font-size="11" fill="#475569">Gemini 4 Argon / EHR</text>
 
           <path d="M 395 55 L 460 95" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#wf-arrow)"/>
           <path d="M 395 170 L 460 130" stroke="#0D9488" stroke-width="2" fill="none" marker-end="url(#wf-arrow)"/>
@@ -695,7 +695,7 @@
         .then((r) => r.json())
         .then((h) => {
           healthBadge.textContent = h.gemini_configured
-            ? "Gemini 2.5 API Active"
+            ? "Gemini 4 API Active"
             : "Deterministic Clinical Engine (Offline-Ready)";
         })
         .catch(() => {

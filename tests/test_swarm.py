@@ -209,3 +209,77 @@ def test_r5_unrecorded_pdl1_returns_needs_human_review() -> None:
     assert overall_verdict == "NEEDS_HUMAN_REVIEW"
     r5 = [f for f in findings if f.rule_code == "R5"]
     assert r5 and r5[0].severity == "NEEDS_REVIEW"
+
+
+def test_is_gemini_configured_detects_api_key_or_vertex(monkeypatch: pytest.MonkeyPatch) -> None:
+    """is_gemini_configured supports AI Studio keys and Vertex AI GCP projects."""
+    from src.llm_client import is_gemini_configured
+
+    for var in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GOOGLE_CLOUD_PROJECT", "GCLOUD_PROJECT"):
+        monkeypatch.delenv(var, raising=False)
+    assert is_gemini_configured() is False
+
+    monkeypatch.setenv("GOOGLE_CLOUD_PROJECT", "example-project")
+    assert is_gemini_configured() is True
+
+    monkeypatch.delenv("GOOGLE_CLOUD_PROJECT", raising=False)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    assert is_gemini_configured() is True
+
+
+def test_gemini4_swarm_mode_and_unverified_quote_filtering(monkeypatch: pytest.MonkeyPatch) -> None:
+    """use_llm=True runs gemini-4-swarm, computes token cost incl. thoughts, and blocks fake LLM quotes."""
+    from src import llm_client
+
+    monkeypatch.setenv("GOOGLE_CLOUD_PROJECT", "example-project")
+    monkeypatch.setattr(llm_client, "is_gemini_configured", lambda: True)
+
+    def _fake_generate(
+        prompt: str,
+        primary_model: str,
+        fallback_models: tuple[str, ...] = (),
+        timeout_ms: int = 25000,
+    ):
+        if "protocol eligibility" in prompt:
+            # Fabricated line/quote should be rejected safely while still recording verified Gemini 4 usage
+            return (
+                [
+                    {
+                        "category": "EXCLUSION",
+                        "title": "Hallucinated Exclusion",
+                        "rule_type": "fake_rule",
+                        "operator": "==",
+                        "threshold_value": True,
+                        "unit": None,
+                        "line_start": 999,
+                        "verbatim_quote": "Nonexistent protocol line",
+                    }
+                ],
+                "gemini-4-hydrogen",
+                {"input_tokens": 1200, "output_tokens": 90, "thought_tokens": 300},
+            )
+        return (
+            {
+                "ecog": 0,
+                "age": 68,
+                "line_start": 1,
+                "verbatim_quote": "Nonexistent EHR quote",
+            },
+            "gemini-4-argon",
+            {"input_tokens": 900, "output_tokens": 60, "thought_tokens": 450},
+        )
+
+    monkeypatch.setattr(llm_client, "generate_gemini_json", _fake_generate)
+
+    coord = SwarmCoordinator()
+    report = coord.run_swarm("NCT04613596", "PT-102", use_llm=True)
+
+    assert report.execution_mode == "gemini-4-swarm"
+    assert report.overall_verdict == "CONTRAINDICATED"
+    assert report.citation_verification_rate == 100.0
+    assert report.unverified_claims_blocked == 0
+    assert report.estimated_compute_usd > 0.0
+
+    roster_models = {m.name: m.model for m in report.roster}
+    assert roster_models["@extractor"] == "gemini-4-hydrogen"
+    assert roster_models["@phenotyper"] == "gemini-4-argon"

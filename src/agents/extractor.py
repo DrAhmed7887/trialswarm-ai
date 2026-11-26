@@ -559,24 +559,21 @@ def _extract_rules_deterministic(
     return rules
 
 
-def _enrich_with_gemini_flash(
+def _enrich_with_gemini(
     nct_id: str,
     protocol_lines: list[dict[str, Any]],
     existing_rules: list[CriterionRule],
-) -> tuple[list[CriterionRule], bool, dict[str, int]]:
-    """Optionally enrich extracted rules with Gemini 2.5 Flash when API key is configured.
+) -> tuple[list[CriterionRule], bool, str, dict[str, int]]:
+    """Optionally enrich extracted rules with Gemini 4 when API key or Vertex project is configured.
 
-    Returns (rules, llm_called, token_usage).
+    Returns (rules, llm_called, model_used, token_usage).
     """
-    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-    if not api_key:
-        return existing_rules, False, {}
+    from src.llm_client import DEFAULT_EXTRACTOR_MODEL, generate_gemini_json, is_gemini_configured
+
+    if not is_gemini_configured():
+        return existing_rules, False, "deterministic-rule-compiler", {}
 
     try:
-        from google import genai  # type: ignore
-        from google.genai import types  # type: ignore
-
-        client = genai.Client(api_key=api_key)
         numbered_text = "\n".join(f"{item['line']}: {item['text']}" for item in protocol_lines if item["text"].strip())
         prompt = (
             "You are a clinical trial protocol eligibility extractor.\n"
@@ -586,22 +583,12 @@ def _enrich_with_gemini_flash(
             "threshold_value, unit, line_start (int), verbatim_quote (EXACT substring from that line).\n\n"
             f"{numbered_text[:12000]}"
         )
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.0,
-                response_mime_type="application/json",
-                http_options=types.HttpOptions(timeout=8000),
-            ),
+        parsed, model_used, usage = generate_gemini_json(
+            prompt=prompt,
+            primary_model=DEFAULT_EXTRACTOR_MODEL,
+            fallback_models=("gemini-4-argon",),
+            timeout_ms=25000,
         )
-        usage = {}
-        if getattr(response, "usage_metadata", None):
-            usage = {
-                "input_tokens": getattr(response.usage_metadata, "prompt_token_count", 0) or 0,
-                "output_tokens": getattr(response.usage_metadata, "candidates_token_count", 0) or 0,
-            }
-        parsed = json.loads(response.text or "[]")
         if isinstance(parsed, list):
             line_map = {int(item["line"]): str(item["text"]) for item in protocol_lines}
             existing_types = {r.rule_type for r in existing_rules}
@@ -636,10 +623,10 @@ def _enrich_with_gemini_flash(
                     )
                     existing_types.add(rt)
                     next_idx += 1
-            return enriched, True, usage
-        return existing_rules, True, usage
+            return enriched, True, model_used, usage
+        return existing_rules, True, model_used, usage
     except Exception:
-        return existing_rules, False, {}
+        return existing_rules, False, "deterministic-rule-compiler", {}
 
 
 def extract_protocol_rules(
@@ -661,14 +648,15 @@ def extract_protocol_rules(
 
     rules = _extract_rules_deterministic(nct_id, protocol_lines, target_phase=target_phase)
     llm_used = False
+    model_used = "deterministic-rule-compiler"
     usage: dict[str, int] = {}
 
     if use_llm:
-        rules, llm_used, usage = _enrich_with_gemini_flash(nct_id, protocol_lines, rules)
+        rules, llm_used, model_used, usage = _enrich_with_gemini(nct_id, protocol_lines, rules)
 
     meta = {
         "agent": "@extractor",
-        "model": "gemini-2.5-flash" if llm_used else "deterministic-rule-compiler",
+        "model": model_used if llm_used else "deterministic-rule-compiler",
         "llm_used": llm_used,
         "token_usage": usage,
         "rule_count": len(rules),

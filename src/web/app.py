@@ -153,12 +153,21 @@ async def serve_workflow_svg() -> Response:
 
 @app.get("/api/health")
 async def health_check() -> dict[str, Any]:
-    """Return service health and Gemini API configuration status."""
-    gemini_configured = bool(os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY"))
+    """Return service health and Gemini 4 API/Vertex configuration status."""
+    from src.llm_client import (
+        DEFAULT_EXTRACTOR_MODEL,
+        DEFAULT_PHENOTYPER_MODEL,
+        is_gemini_configured,
+    )
+
     return {
         "status": "ok",
         "service": "TrialSwarm AI",
-        "gemini_configured": gemini_configured,
+        "gemini_configured": is_gemini_configured(),
+        "gemini_models": {
+            "extractor": DEFAULT_EXTRACTOR_MODEL,
+            "phenotyper": DEFAULT_PHENOTYPER_MODEL,
+        },
     }
 
 

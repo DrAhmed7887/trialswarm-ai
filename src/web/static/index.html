@@ -1256,7 +1256,7 @@
 
         <label class="checkbox-label">
           <input type="checkbox" id="use-llm-toggle">
-          <span>Use Gemini 2.5 API (when configured)</span>
+          <span>Use Gemini 4 API (Hydrogen + Argon)</span>
         </label>
 
         <button type="button" id="toggle-custom-ehr-btn" class="btn-secondary">Custom EHR Text</button>
@@ -1627,7 +1627,7 @@
             const h = await healthRes.json();
             state.geminiConfigured = Boolean(h.gemini_configured);
             if (state.geminiConfigured) {
-              els.engineBadge.textContent = "Gemini 2.5 API Active";
+              els.engineBadge.textContent = "Gemini 4 API Active";
               els.engineBadge.className = "badge badge-teal";
               els.useLlmToggle.disabled = false;
             } else {

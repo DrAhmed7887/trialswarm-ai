@@ -55,7 +55,7 @@
 ## 4. Economics & Deployment Claims Boundaries
 
 - **Offline Deterministic Compute (`$0.0000`):** Default mode executes `@coordinator`, `@extractor`, `@phenotyper`, `@safety-auditor`, and `@verifier` locally with zero external API keys (`src/swarm/coordinator.py` `_estimate_llm_cost_usd`).
-- **Optional Live Gemini Mode (`~$0.04` / patient estimate):** When `use_llm=True` and `GEMINI_API_KEY` or `GOOGLE_API_KEY` is configured, `@extractor` calls `gemini-2.5-flash` (`src/agents/extractor.py` `_enrich_with_gemini_flash`) and `@phenotyper` calls `gemini-2.5-pro` (`src/agents/phenotyper.py` `_enrich_phenotype_with_gemini_pro`), estimated at `~$0.038`–`$0.04` per dual-agent pass.
+- **Optional Live Gemini 4 Mode (`gemini-4-swarm`):** When `use_llm=True` and `GEMINI_API_KEY`/`GOOGLE_API_KEY` (AI Studio) or `GOOGLE_CLOUD_PROJECT` (Vertex AI) is configured, `@extractor` calls `gemini-4-hydrogen` (`src/agents/extractor.py` `_enrich_with_gemini`) and `@phenotyper` calls `gemini-4-argon` (`src/agents/phenotyper.py` `_enrich_phenotype_with_gemini`), logging real `input_tokens`, `output_tokens`, and `thought_tokens` (`eval/results/gemini4_live_pt102.json`).
 - **Manual CRC Screening Benchmark (`~4h / $260`):** Explicitly labeled across UI and docs as an **illustrative operational benchmark** (`~4h @ $65/hr` loaded CRC review of 80-page protocol + EHR), alongside peer-reviewed literature time savings (`42.6%` in TrialGPT, `PMID: 39557832`).
 - **No Unverified Commercial / PHI Claims:** Repository contains zero real patient data / zero PHI (`data/DATA_CARD.md`) and makes no ungrounded TAM/CAGR/ARR assertions.
 

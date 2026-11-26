@@ -1,7 +1,7 @@
 # TrialSwarm AI — Judge & Verification Guide (`JUDGES.md`)
 
-**Event:** Berkeley x DeepMind Hackathon: Build. Ship. Pitch. Win.
-**Track:** Antigravity CLI (`/swarm`) + Google Gemini (`gemini-2.5-flash` + `gemini-2.5-pro`) + Deterministic Clinical Verification
+**Event:** Berkeley x DeepMind Hackathon: Build. Ship. Pitch. Win. (+ Nov 2026 Gemini 4 Upgrade)
+**Track:** Antigravity CLI (`/swarm`) + Google Gemini 4 (`gemini-4-hydrogen` + `gemini-4-argon`) + Deterministic Clinical Verification
 
 ---
 
@@ -31,7 +31,7 @@
 
 | Hackathon Judging Criterion | TrialSwarm Implementation | Exact Verification Path |
 |---|---|---|
-| **1. Technical Complexity & Antigravity `/swarm` Architecture** | Parallel `@extractor` (`gemini-2.5-flash` / offline) + `@phenotyper` (`gemini-2.5-pro` / offline) synchronized by `@coordinator`, audited by `@safety-auditor` (`R1`–`R5`), and gated by `@verifier` (`R6`) with full board transcript `#1`–`#8` | [`src/swarm/coordinator.py`](src/swarm/coordinator.py), [`src/agents/extractor.py`](src/agents/extractor.py), [`src/agents/phenotyper.py`](src/agents/phenotyper.py), [`docs/workflow.svg`](docs/workflow.svg) |
+| **1. Technical Complexity & Antigravity `/swarm` Architecture** | Parallel `@extractor` (`gemini-4-hydrogen` / offline) + `@phenotyper` (`gemini-4-argon` / offline) synchronized by `@coordinator`, audited by `@safety-auditor` (`R1`–`R5`), and gated by `@verifier` (`R6`) with full board transcript `#1`–`#8` | [`src/swarm/coordinator.py`](src/swarm/coordinator.py), [`src/agents/extractor.py`](src/agents/extractor.py), [`src/agents/phenotyper.py`](src/agents/phenotyper.py), [`docs/workflow.svg`](docs/workflow.svg) |
 | **2. Real-World Medical Impact & Safety Reliability** | Prevents false-eligible under-triage across glucocorticoid equivalents (`R1`), washout intervals (`R2`), thoracic RT windows (`R3`), CTCAE v5.0 labs (`R4`), and pending reflex biomarkers (`R5`); all rules `status: signed_off (Dr. Ahmed Zayed, MB BCh, 2026-11-14)` | [`src/agents/safety_auditor.py`](src/agents/safety_auditor.py), [`docs/EVIDENCE.md`](docs/EVIDENCE.md), [`CLAIMS.md`](CLAIMS.md) |
 | **3. Verifiable Evaluation (`n = 120` vs Baseline)** | TrialSwarm `100.0%` accuracy (`120/120`, `0` mismatches, `100.0%` specificity) vs Naive baseline `47.5%` (`57/120`, `30.0%` specificity) across 3 real ClinicalTrials.gov trials (`NCT04613596`, `NCT04787042`, `NCT06890598`) | `python3 scripts/evaluate_cohort.py --verify`, [`eval/results/benchmark_120.json`](eval/results/benchmark_120.json) |
 | **4. Hallucination Defense & Auditability** | Rule `R6` rejects ungrounded quotes (`UNVERIFIED_CITATION_BLOCKED`); every screen requires human CRC/PI attestation with SHA-256 `SignOffReceipt` | [`src/agents/verifier.py`](src/agents/verifier.py), [`src/web/app.py`](src/web/app.py) (`POST /api/verify-trap`, `POST /api/signoff`) |
