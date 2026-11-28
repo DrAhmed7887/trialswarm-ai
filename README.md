@@ -70,3 +70,7 @@ python3 -m uvicorn src.web.app:app --host 127.0.0.1 --port 8080
 2. **Offline vs. Optional Gemini 4 Mode:** Default test/benchmark/local runs execute `deterministic_offline` (`$0.0000` compute, reproducible without network). When `use_llm=True` and `GEMINI_API_KEY`/`GOOGLE_API_KEY` or `GOOGLE_CLOUD_PROJECT` is provided, Gemini 4 (`gemini-4-hydrogen` + `gemini-4-argon`) enrichment augments extraction while deterministic Rules `R1`–`R6` govern final eligibility verdicts.
 3. **Physician-Signed Safety Rules + Human Attestation:** Oncology Rules `R1`–`R6` carry `status: signed_off (Dr. Ahmed Zayed, MB BCh, 2026-11-14)` in [`docs/EVIDENCE.md`](docs/EVIDENCE.md). TrialSwarm AI is decision support only and enforces a mandatory human CRC/PI sign-off gate (`POST /api/signoff`) with SHA-256 attestation before any clinical action.
 4. **Illustrative Labor Benchmark:** The `~4 hours / $260` manual CRC cost figure is an illustrative operational comparison benchmark (`4h @ $65/hr`), distinct from the peer-reviewed `42.6%` screening time reduction reported in TrialGPT (`PMID: 39557832`).
+
+## License
+
+Code: [MIT](LICENSE). Trial records in `data/protocols/` come from ClinicalTrials.gov and literature metadata from PubMed; they keep their own terms (see `.licenses/`) and are not covered by the MIT licence.
