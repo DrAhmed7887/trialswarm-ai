@@ -1,3 +1,5 @@
 # Mistral Bot Smoke Test
 
-Helo world.
+Hello world.
+
+Verified by Mistral Vibe.
